@@ -16,7 +16,7 @@ export const getCurrentAdmin = async () => {
   try {
     const data = await adminAPI.verify()
     return data.admin
-  } catch {
+  } catch (e) {
     return null
   }
 }
@@ -32,7 +32,7 @@ export const logoutAdmin = async () => {
 export const getAdminUsers = async () => {
   try {
     return await adminAPI.getAdmins()
-  } catch {
+  } catch (e) {
     return []
   }
 }
@@ -84,7 +84,7 @@ export const getCurrentUser = async () => {
   try {
     const data = await userAPI.verify()
     return data.user
-  } catch {
+  } catch (e) {
     return null
   }
 }
@@ -100,7 +100,7 @@ export const logoutUser = async () => {
 export const getUsers = async () => {
   try {
     return await userAPI.getUsers()
-  } catch {
+  } catch (e) {
     return []
   }
 }
@@ -133,7 +133,7 @@ export const getUserDailyAICalls = async () => {
   try {
     const data = await userAPI.getDailyCalls()
     return data.dailyUsed || 0
-  } catch {
+  } catch (e) {
     return 0
   }
 }
@@ -150,7 +150,7 @@ export const hasUnlimitedAI = async () => {
   try {
     const data = await userAPI.getDailyCalls()
     return data.unlimited === true
-  } catch {
+  } catch (e) {
     return false
   }
 }
@@ -159,7 +159,7 @@ export const getUserDailyAILimit = async () => {
   try {
     const data = await userAPI.getDailyCalls()
     return data.unlimited ? Infinity : (data.dailyLimit || 10)
-  } catch {
+  } catch (e) {
     return 0
   }
 }
@@ -169,7 +169,7 @@ export const hasExceededDailyAILimit = async () => {
     const data = await userAPI.getDailyCalls()
     if (data.unlimited) return false
     return (data.dailyUsed || 0) >= (data.dailyLimit || 10)
-  } catch {
+  } catch (e) {
     return false
   }
 }

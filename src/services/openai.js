@@ -24,7 +24,7 @@ function hasUnlimitedAI() {
     const users = JSON.parse(localStorage.getItem('users') || '[]')
     const user = users.find(u => u.id === userData.id)
     return user !== null && user.unlimitedAI === true
-  } catch {
+  } catch (e) {
     return false
   }
 }
@@ -302,7 +302,7 @@ Please give me a more in-depth explanation to help me truly understand this conc
               localStorage.setItem('userDailyCalls', JSON.stringify(dailyCalls))
             }
           }
-        } catch {
+        } catch (e) {
           // Ignore localStorage errors
         }
       }

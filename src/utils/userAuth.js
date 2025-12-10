@@ -297,7 +297,7 @@ export const getUserDailyAICalls = () => {
     }
     
     return userCalls.count || 0
-  } catch {
+  } catch (e) {
     return 0
   }
 }
