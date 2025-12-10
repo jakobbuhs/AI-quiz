@@ -30,7 +30,7 @@ const QuizQuestion = memo(function QuizQuestion({
 
   const isCorrect = selectedAnswer === question.correct
   const isLearnMode = quizMode === QUIZ_MODE.LEARN
-  const showAIButton = isLearnMode && showFeedback && !isCorrect && isOpenAIConfigured()
+  const showAIButton = isLearnMode && showFeedback && !isCorrect
 
   // Fetch in-depth explanation from OpenAI
   const handleGetAIExplanation = async () => {
@@ -191,17 +191,23 @@ const QuizQuestion = memo(function QuizQuestion({
       {showAIButton && !aiExplanation && (
         <div className="mb-6">
           {(() => {
-            const { remainingCalls, resetInSeconds } = getRateLimitStatus()
-            const isRateLimited = remainingCalls <= 0
+            const apiConfigured = isOpenAIConfigured()
+            const { remainingCalls, resetInSeconds } = apiConfigured ? getRateLimitStatus() : { remainingCalls: 0, resetInSeconds: 0 }
+            const isRateLimited = apiConfigured && remainingCalls <= 0
             
             return (
               <>
                 <button
                   onClick={handleGetAIExplanation}
-                  disabled={isLoadingAI || isRateLimited}
+                  disabled={isLoadingAI || isRateLimited || !apiConfigured}
                   className="w-full p-4 rounded-xl border-2 border-dashed border-purple-300 bg-purple-50 hover:bg-purple-100 hover:border-purple-400 transition-all duration-200 flex items-center justify-center gap-3 group disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isLoadingAI ? (
+                  {!apiConfigured ? (
+                    <>
+                      <AlertCircle className="w-5 h-5 text-gray-400" />
+                      <span className="text-gray-500 font-medium">AI Explanations - API key not configured</span>
+                    </>
+                  ) : isLoadingAI ? (
                     <>
                       <Loader2 className="w-5 h-5 text-purple-500 animate-spin" />
                       <span className="text-purple-700 font-medium">Getting in-depth explanation...</span>

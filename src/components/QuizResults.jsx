@@ -11,8 +11,12 @@ import {
   Tag,
   Award,
   TrendingUp,
-  Lightbulb
+  Lightbulb,
+  Sparkles,
+  Loader2,
+  AlertCircle
 } from 'lucide-react'
+import { getInDepthExplanation, isOpenAIConfigured, getRateLimitStatus } from '../services/openai'
 
 const QUIZ_MODE = {
   LEARN: 'learn',
@@ -29,6 +33,9 @@ const QuizResults = memo(function QuizResults({
   const isLearnMode = quizMode === QUIZ_MODE.LEARN
   const [expandedQuestions, setExpandedQuestions] = useState(new Set())
   const [showAll, setShowAll] = useState(false)
+  const [aiExplanations, setAiExplanations] = useState({}) // { questionIndex: explanation }
+  const [loadingAI, setLoadingAI] = useState({}) // { questionIndex: true/false }
+  const [aiErrors, setAiErrors] = useState({}) // { questionIndex: errorMessage }
 
   // Calculate results
   const results = useMemo(() => {
@@ -114,6 +121,27 @@ const QuizResults = memo(function QuizResults({
       setExpandedQuestions(new Set(questions.map((_, i) => i)))
     }
     setShowAll(!showAll)
+  }
+
+  // Fetch AI explanation for a specific question
+  const handleGetAIExplanation = async (index, result) => {
+    setLoadingAI(prev => ({ ...prev, [index]: true }))
+    setAiErrors(prev => ({ ...prev, [index]: null }))
+    
+    try {
+      const explanation = await getInDepthExplanation({
+        question: result.question,
+        correctAnswer: result.correct,
+        userAnswer: result.userAnswer || 'No answer provided',
+        topic: result.topic || 'General',
+        basicExplanation: result.explanation || 'No basic explanation provided.',
+      })
+      setAiExplanations(prev => ({ ...prev, [index]: explanation }))
+    } catch (error) {
+      setAiErrors(prev => ({ ...prev, [index]: error.message || 'Failed to get explanation' }))
+    } finally {
+      setLoadingAI(prev => ({ ...prev, [index]: false }))
+    }
   }
 
   return (
@@ -352,13 +380,78 @@ const QuizResults = memo(function QuizResults({
 
                   {/* Explanation */}
                   {result.explanation && (
-                    <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-4 border border-indigo-100">
+                    <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-4 border border-indigo-100 mb-4">
                       <div className="flex items-start gap-3">
                         <Lightbulb className="w-5 h-5 text-indigo-500 flex-shrink-0 mt-0.5" />
                         <div>
                           <p className="font-medium text-indigo-800 mb-1">Explanation</p>
                           <p className="text-gray-700 text-sm">{result.explanation}</p>
                         </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* AI Explanation Button - show for wrong/skipped answers */}
+                  {!result.isCorrect && !aiExplanations[index] && (
+                    <div className="mt-4">
+                      {(() => {
+                        const apiConfigured = isOpenAIConfigured()
+                        const { remainingCalls, resetInSeconds } = apiConfigured ? getRateLimitStatus() : { remainingCalls: 0, resetInSeconds: 0 }
+                        const isRateLimited = apiConfigured && remainingCalls <= 0
+                        const isLoading = loadingAI[index]
+                        
+                        return (
+                          <>
+                            <button
+                              onClick={() => handleGetAIExplanation(index, result)}
+                              disabled={isLoading || isRateLimited || !apiConfigured}
+                              className="w-full p-3 rounded-lg border-2 border-dashed border-purple-300 bg-purple-50 hover:bg-purple-100 hover:border-purple-400 transition-all duration-200 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                              {!apiConfigured ? (
+                                <>
+                                  <AlertCircle className="w-4 h-4 text-gray-400" />
+                                  <span className="text-gray-500 text-sm">AI Explanations - API key not configured</span>
+                                </>
+                              ) : isLoading ? (
+                                <>
+                                  <Loader2 className="w-4 h-4 text-purple-500 animate-spin" />
+                                  <span className="text-purple-700 text-sm">Getting AI explanation...</span>
+                                </>
+                              ) : isRateLimited ? (
+                                <>
+                                  <AlertCircle className="w-4 h-4 text-amber-500" />
+                                  <span className="text-amber-700 text-sm">Rate limited - wait {resetInSeconds}s</span>
+                                </>
+                              ) : (
+                                <>
+                                  <Sparkles className="w-4 h-4 text-purple-500 group-hover:scale-110 transition-transform" />
+                                  <span className="text-purple-700 text-sm font-medium">Get AI-Powered Explanation</span>
+                                  <span className="text-xs text-purple-400">({remainingCalls}/10)</span>
+                                </>
+                              )}
+                            </button>
+                            
+                            {aiErrors[index] && (
+                              <div className="mt-2 p-2 bg-red-50 border border-red-200 rounded-lg flex items-start gap-2">
+                                <AlertCircle className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
+                                <p className="text-xs text-red-600">{aiErrors[index]}</p>
+                              </div>
+                            )}
+                          </>
+                        )
+                      })()}
+                    </div>
+                  )}
+
+                  {/* AI Explanation Display */}
+                  {aiExplanations[index] && (
+                    <div className="mt-4 p-4 rounded-lg bg-gradient-to-br from-purple-50 to-indigo-50 border-2 border-purple-200">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Sparkles className="w-4 h-4 text-purple-500" />
+                        <span className="font-bold text-purple-700 text-sm">AI-Powered Explanation</span>
+                      </div>
+                      <div className="text-gray-700 text-sm leading-relaxed whitespace-pre-wrap">
+                        {aiExplanations[index]}
                       </div>
                     </div>
                   )}
@@ -384,4 +477,3 @@ const QuizResults = memo(function QuizResults({
 })
 
 export default QuizResults
-
