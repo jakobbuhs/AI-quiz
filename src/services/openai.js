@@ -137,5 +137,13 @@ Please give me a more in-depth explanation to help me truly understand this conc
  * @returns {boolean}
  */
 export function isOpenAIConfigured() {
-  return OPENAI_API_KEY && OPENAI_API_KEY !== 'your_openai_api_key_here'
+  const hasKey = OPENAI_API_KEY && OPENAI_API_KEY !== 'your_openai_api_key_here' && OPENAI_API_KEY.trim().length > 0
+  if (!hasKey) {
+    console.warn('⚠️ OpenAI API key not found. Make sure:')
+    console.warn('   1. .env file exists in project root')
+    console.warn('   2. Contains: VITE_OPENAI_API_KEY=sk-...')
+    console.warn('   3. Dev server was restarted after creating .env')
+    console.warn('   Current value:', OPENAI_API_KEY ? 'exists but invalid' : 'undefined')
+  }
+  return hasKey
 }

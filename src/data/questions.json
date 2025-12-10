@@ -3275,5 +3275,1205 @@
     "correct": "They can perform many parallel numerical operations efficiently",
     "explanation": "Matrix operations in neural networks map well onto GPUs' parallel architecture.",
     "topic": "Deep Learning"
-  }
-]
+  },
+  {
+    "question": "What is a key characteristic of artificial intelligence as described in the course?",
+    "options": [
+    "Software that only follows explicitly programmed rules",
+    "Software that solves problems without any data",
+    "Software that solves a problem without explicit human instruction",
+    "Software that can only perform numerical calculations"
+    ],
+    "correct": "Software that solves a problem without explicit human instruction",
+    "explanation": "AI is presented as systems that can act intelligently and solve tasks without every rule being hand coded.",
+    "topic": "AI Fundamentals"
+    },
+    {
+    "question": "Which of the following best describes the goal of artificial intelligence in this course?",
+    "options": [
+    "Building machines that exactly copy human biology",
+    "Introducing intelligence in machines so they can make decisions and learn",
+    "Replacing all traditional software engineering",
+    "Eliminating the need for data in computing"
+    ],
+    "correct": "Introducing intelligence in machines so they can make decisions and learn",
+    "explanation": "The course defines AI as adding intelligent decision making and learning capabilities to machines.",
+    "topic": "AI Fundamentals"
+    },
+    {
+    "question": "Which example is most clearly an application of AI in daily life?",
+    "options": [
+    "A calculator performing basic arithmetic",
+    "A static website showing the same page to all users",
+    "A content recommendation system on a streaming platform",
+    "A text editor that only checks spelling with fixed rules"
+    ],
+    "correct": "A content recommendation system on a streaming platform",
+    "explanation": "Recommendation systems are standard examples of real world AI applications that learn from user behavior.",
+    "topic": "AI Applications"
+    },
+    {
+    "question": "Which branch of AI is most directly concerned with understanding and generating human language?",
+    "options": [
+    "Robotics",
+    "Computer vision",
+    "Natural language processing",
+    "Speech synthesis only"
+    ],
+    "correct": "Natural language processing",
+    "explanation": "Natural language processing focuses on understanding and generating human language.",
+    "topic": "AI Fundamentals"
+    },
+    {
+    "question": "Which of the following is an example of weak or narrow AI?",
+    "options": [
+    "A system that can solve any intellectual problem a human can",
+    "A chess engine that only plays chess at superhuman level",
+    "A robot that understands all human emotions",
+    "A machine that autonomously designs other AI systems across domains"
+    ],
+    "correct": "A chess engine that only plays chess at superhuman level",
+    "explanation": "Narrow AI is specialized for a specific task, such as playing chess.",
+    "topic": "AI Fundamentals"
+    },
+    {
+    "question": "What is the purpose of the Turing test?",
+    "options": [
+    "To measure how fast a computer can process data",
+    "To decide whether a program is mathematically correct",
+    "To test whether a machine's behavior is indistinguishable from a human in conversation",
+    "To verify that a robot can walk like a human"
+    ],
+    "correct": "To test whether a machine's behavior is indistinguishable from a human in conversation",
+    "explanation": "The Turing test evaluates whether an interrogator can distinguish a machine from a human via dialogue.",
+    "topic": "AI History"
+    },
+    {
+    "question": "According to the history presented in the course, what happened around 1955?",
+    "options": [
+    "The first industrial robot was built",
+    "The term artificial intelligence was coined",
+    "The first self driving car was demonstrated",
+    "The first generative adversarial network was introduced"
+    ],
+    "correct": "The term artificial intelligence was coined",
+    "explanation": "The term artificial intelligence was coined in the mid 1950s, marking the formal start of the field.",
+    "topic": "AI History"
+    },
+    {
+    "question": "Which historical figure is associated with one of the first mechanical calculating machines mentioned in the slides?",
+    "options": [
+    "Alan Turing",
+    "John McCarthy",
+    "Blaise Pascal",
+    "Geoffrey Hinton"
+    ],
+    "correct": "Blaise Pascal",
+    "explanation": "Blaise Pascal built an early mechanical calculator, an important predecessor to modern computing.",
+    "topic": "AI History"
+    },
+    {
+    "question": "Which statement best describes the difference between AI and conventional programming in the slides?",
+    "options": [
+    "AI removes the need for algorithms entirely",
+    "AI systems learn from data instead of being fully specified by rules",
+    "Conventional programming cannot use data at all",
+    "AI systems never require human input"
+    ],
+    "correct": "AI systems learn from data instead of being fully specified by rules",
+    "explanation": "Traditional software is coded with explicit rules, while AI systems learn patterns from data.",
+    "topic": "AI Fundamentals"
+    },
+    {
+    "question": "Which of the following is a common example of AI used in smartphones?",
+    "options": [
+    "Manual brightness adjustment",
+    "Voice assistant that understands spoken commands",
+    "Calculator app for arithmetic",
+    "Static wallpaper image"
+    ],
+    "correct": "Voice assistant that understands spoken commands",
+    "explanation": "Voice assistants use speech recognition and language understanding, which are AI capabilities.",
+    "topic": "AI Applications"
+    },
+    {
+    "question": "According to the slides on designing an AI system, which of the following is an early step in the process?",
+    "options": [
+    "Deploy the model to production",
+    "Choose the cloud provider first",
+    "Identify the problem to be solved",
+    "Tune hyperparameters"
+    ],
+    "correct": "Identify the problem to be solved",
+    "explanation": "The pipeline starts by clearly defining the problem before collecting data or training models.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "In the daily life of an AI programmer, roughly how much time is spent on data related work such as cleaning, preparing, and labeling?",
+    "options": [
+    "5 percent",
+    "15 percent",
+    "50 percent",
+    "80 percent"
+    ],
+    "correct": "80 percent",
+    "explanation": "The slides emphasize that the majority of time, around 80 percent, is spent on work with data.",
+    "topic": "Data Preprocessing"
+    },
+    {
+    "question": "Which of the following is not listed as a typical data pitfall in the course?",
+    "options": [
+    "Ignoring seasonality such as holidays and sales events",
+    "Failing to handle outliers properly",
+    "Lacking business understanding",
+    "Using too many GPUs for training"
+    ],
+    "correct": "Using too many GPUs for training",
+    "explanation": "The pitfalls focus on data quality and context, not on the amount of hardware used.",
+    "topic": "Data Preprocessing"
+    },
+    {
+    "question": "What is data anonymization?",
+    "options": [
+    "Removing all missing values from the dataset",
+    "Changing or removing personal identifiers so individuals cannot be recognized",
+    "Sorting the data by time before training",
+    "Adding synthetic noise to all numeric features"
+    ],
+    "correct": "Changing or removing personal identifiers so individuals cannot be recognized",
+    "explanation": "Anonymization removes or alters identifiers to protect individual privacy.",
+    "topic": "Data Preprocessing"
+    },
+    {
+    "question": "Which statement best describes synthetic data as introduced in the course?",
+    "options": [
+    "Data collected only from physical sensors",
+    "Artificially generated data that mimics real data distributions",
+    "Data that has been fully anonymized",
+    "Data collected only from open government portals"
+    ],
+    "correct": "Artificially generated data that mimics real data distributions",
+    "explanation": "Synthetic data is artificially created to resemble real data while protecting privacy or augmenting datasets.",
+    "topic": "Data Preprocessing"
+    },
+    {
+    "question": "Which activity is the main goal of data labeling or annotation?",
+    "options": [
+    "Compressing files to reduce storage",
+    "Assigning meaningful tags or labels to raw examples",
+    "Encrypting data at rest",
+    "Randomly shuffling the dataset"
+    ],
+    "correct": "Assigning meaningful tags or labels to raw examples",
+    "explanation": "Labeling connects inputs to desired outputs, enabling supervised learning.",
+    "topic": "Data Preprocessing"
+    },
+    {
+    "question": "How is feature engineering defined in the slides?",
+    "options": [
+    "Selecting only the largest dataset available",
+    "Constructing new features from existing data to improve models",
+    "Automatically generating labels for supervised learning",
+    "Compressing the number of features into a single value"
+    ],
+    "correct": "Constructing new features from existing data to improve models",
+    "explanation": "Feature engineering creates or transforms variables to give models better signals.",
+    "topic": "Data Preprocessing"
+    },
+    {
+    "question": "Which of the following is a reason to use synthetic data according to the course?",
+    "options": [
+    "To guarantee models never overfit",
+    "To avoid doing any data cleaning",
+    "To augment limited real data while protecting privacy",
+    "To remove the need for feature engineering"
+    ],
+    "correct": "To augment limited real data while protecting privacy",
+    "explanation": "Synthetic data can increase dataset size and reduce privacy risks when real data is scarce or sensitive.",
+    "topic": "Data Preprocessing"
+    },
+    {
+    "question": "Which step comes after model training in the typical supervised learning workflow described in the slides?",
+    "options": [
+    "Data collection",
+    "Model deployment and monitoring",
+    "Feature scaling",
+    "Data labeling"
+    ],
+    "correct": "Model deployment and monitoring",
+    "explanation": "After training and evaluation, models are deployed and then monitored in production.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "Which statement about open datasets like those on Kaggle is consistent with the slides?",
+    "options": [
+    "They can be used as sources of training data for experiments",
+    "They replace the need for private organizational data",
+    "They must always be kept secret",
+    "They cannot be used for machine learning"
+    ],
+    "correct": "They can be used as sources of training data for experiments",
+    "explanation": "Open datasets are highlighted as useful resources for experimentation and learning.",
+    "topic": "Data Preprocessing"
+    },
+    {
+    "question": "How is machine learning defined in the course slides?",
+    "options": [
+    "Hardware that executes instructions faster than humans",
+    "Software that learns and improves from experience without being explicitly programmed",
+    "A database technology for storing large amounts of data",
+    "A rule based expert system with no data"
+    ],
+    "correct": "Software that learns and improves from experience without being explicitly programmed",
+    "explanation": "The definition emphasizes learning from experience rather than hand coded rules.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "Which type of learning uses labeled input output pairs?",
+    "options": [
+    "Unsupervised learning",
+    "Reinforcement learning",
+    "Supervised learning",
+    "Self learning without data"
+    ],
+    "correct": "Supervised learning",
+    "explanation": "Supervised learning relies on labeled examples mapping inputs to outputs.",
+    "topic": "Supervised Learning"
+    },
+    {
+    "question": "Which example is most appropriate for supervised classification?",
+    "options": [
+    "Grouping customers into unknown clusters",
+    "Predicting if an email is spam or not",
+    "Discovering new topics in a collection of documents",
+    "Finding low dimensional representations without labels"
+    ],
+    "correct": "Predicting if an email is spam or not",
+    "explanation": "Spam detection is a classic labeled classification problem with discrete classes.",
+    "topic": "Supervised Learning"
+    },
+    {
+    "question": "Which task is an example of regression rather than classification?",
+    "options": [
+    "Predicting whether a customer will churn",
+    "Grouping similar news articles",
+    "Estimating the price of a house given its features",
+    "Detecting spam messages"
+    ],
+    "correct": "Estimating the price of a house given its features",
+    "explanation": "Regression predicts continuous numeric values such as prices.",
+    "topic": "Regression Models"
+    },
+    {
+    "question": "What distinguishes clustering from classification in the course slides?",
+    "options": [
+    "Clustering is supervised and classification is unsupervised",
+    "Clustering assigns data to predefined labels",
+    "Classification learns from labeled data, clustering finds groups without labels",
+    "There is no difference between them"
+    ],
+    "correct": "Classification learns from labeled data, clustering finds groups without labels",
+    "explanation": "Classification uses known labels, while clustering discovers structure in unlabeled data.",
+    "topic": "Unsupervised Learning"
+    },
+    {
+    "question": "Which learning paradigm involves an agent interacting with an environment and receiving rewards or penalties?",
+    "options": [
+    "Supervised learning",
+    "Reinforcement learning",
+    "Unsupervised learning",
+    "Clustering"
+    ],
+    "correct": "Reinforcement learning",
+    "explanation": "Reinforcement learning is based on agents learning through rewards and punishments.",
+    "topic": "Reinforcement Learning"
+    },
+    {
+    "question": "In supervised learning, what is the main purpose of splitting data into training, validation, and test sets?",
+    "options": [
+    "To store data on different servers",
+    "To speed up feature engineering",
+    "To train, tune, and fairly evaluate the model on unseen data",
+    "To increase the amount of labeled data"
+    ],
+    "correct": "To train, tune, and fairly evaluate the model on unseen data",
+    "explanation": "The split supports training, model selection, and unbiased final evaluation.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "Which dataset should be used only once at the very end to estimate the final performance of a model?",
+    "options": [
+    "Training set",
+    "Validation set",
+    "Test set",
+    "Any subset chosen randomly during training"
+    ],
+    "correct": "Test set",
+    "explanation": "The test set is reserved for the final performance estimate after all tuning decisions.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "Which of the following is the go to method for binary classification mentioned in the slides?",
+    "options": [
+    "Linear regression",
+    "Logistic regression",
+    "K means clustering",
+    "Mean shift clustering"
+    ],
+    "correct": "Logistic regression",
+    "explanation": "Logistic regression is presented as a standard baseline for binary classification tasks.",
+    "topic": "Supervised Learning"
+    },
+    {
+    "question": "In the Titanic dataset example, what is the purpose of using statistics and visualization?",
+    "options": [
+    "To replace machine learning models",
+    "To understand patterns such as survival rates across groups",
+    "To encrypt passenger data",
+    "To generate synthetic passengers"
+    ],
+    "correct": "To understand patterns such as survival rates across groups",
+    "explanation": "Exploratory analysis helps reveal relationships in the data before modeling.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "What key assumption does the Naive Bayes classifier make?",
+    "options": [
+    "All classes have equal prior probability",
+    "Features are strongly dependent on each other",
+    "Features are conditionally independent given the class",
+    "Data must be linearly separable"
+    ],
+    "correct": "Features are conditionally independent given the class",
+    "explanation": "Naive Bayes assumes conditional independence of features given the class label.",
+    "topic": "Supervised Learning"
+    },
+    {
+    "question": "Bayes theorem describes which of the following?",
+    "options": [
+    "How to compute distances between data points",
+    "The probability of an event based on prior knowledge of related conditions",
+    "The learning rate for gradient descent",
+    "The architecture of a neural network"
+    ],
+    "correct": "The probability of an event based on prior knowledge of related conditions",
+    "explanation": "Bayes theorem combines prior probabilities with evidence to update beliefs.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "Which is a typical use case of Naive Bayes from the slides?",
+    "options": [
+    "Image segmentation",
+    "Spam detection and text classification",
+    "Robot motion planning",
+    "Clustering of unlabeled data"
+    ],
+    "correct": "Spam detection and text classification",
+    "explanation": "Naive Bayes is commonly applied to text classification problems like spam filtering.",
+    "topic": "Supervised Learning"
+    },
+    {
+    "question": "In the fruits example for Naive Bayes, why can misclassification occur?",
+    "options": [
+    "Because the algorithm ignores probabilities",
+    "Because it assumes features like long, sweet and yellow are independent",
+    "Because it cannot handle categorical features",
+    "Because it requires images rather than tabular data"
+    ],
+    "correct": "Because it assumes features like long, sweet and yellow are independent",
+    "explanation": "The independence assumption can be unrealistic and lead to wrong predictions in some cases.",
+    "topic": "Supervised Learning"
+    },
+    {
+    "question": "According to Machine Learning Yearning, why should development and test sets come from the same distribution?",
+    "options": [
+    "To guarantee zero training error",
+    "To ensure the development set is larger than the training set",
+    "So that performance on the development set predicts performance on the test set",
+    "To reduce the need for regularization"
+    ],
+    "correct": "So that performance on the development set predicts performance on the test set",
+    "explanation": "If the distributions differ, development performance will not be a good proxy for test performance.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "What is the main reason Andrew Ng recommends having a single number evaluation metric for a project?",
+    "options": [
+    "To make plots easier to draw",
+    "To simplify data collection",
+    "To help the team decide quickly which model is better",
+    "To ensure models never overfit"
+    ],
+    "correct": "To help the team decide quickly which model is better",
+    "explanation": "A single metric simplifies comparing models and guiding progress.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "Which of the following is a recommended first step when building a new machine learning system according to Machine Learning Yearning?",
+    "options": [
+    "Spend months designing the perfect architecture before training",
+    "Build a simple version quickly and iterate",
+    "Collect every possible dataset before writing any code",
+    "Tune hyperparameters exhaustively on day one"
+    ],
+    "correct": "Build a simple version quickly and iterate",
+    "explanation": "The book advocates starting with a simple baseline and improving based on data and error analysis.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "What is the purpose of doing error analysis on a development set?",
+    "options": [
+    "To randomly discard bad examples",
+    "To manually relabel the training set",
+    "To inspect misclassified examples and decide which ideas are worth trying",
+    "To reduce the size of the test set"
+    ],
+    "correct": "To inspect misclassified examples and decide which ideas are worth trying",
+    "explanation": "Error analysis helps prioritize which changes are most likely to improve performance.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "In Machine Learning Yearning, which type of error pattern is associated with underfitting?",
+    "options": [
+    "High variance and low bias",
+    "Low variance and low bias",
+    "High bias and low variance",
+    "High bias and high variance"
+    ],
+    "correct": "High bias and low variance",
+    "explanation": "Underfitting corresponds to high bias where both training and development errors are high.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "Why does Machine Learning Yearning compare performance to human level performance in some tasks?",
+    "options": [
+    "Because humans always perform perfectly",
+    "Because it provides a useful reference for estimating the Bayes optimal error",
+    "Because humans generate the training data",
+    "Because humans are cheaper than computation"
+    ],
+    "correct": "Because it provides a useful reference for estimating the Bayes optimal error",
+    "explanation": "Human level performance gives a practical lower bound on achievable error.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "Which technique is generally more effective for reducing high variance or overfitting?",
+    "options": [
+    "Using a smaller training set",
+    "Adding regularization",
+    "Increasing model complexity",
+    "Reducing the number of features in the development set only"
+    ],
+    "correct": "Adding regularization",
+    "explanation": "Regularization is a standard method to reduce variance by penalizing overly complex models.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "When facing high bias or underfitting, which action is typically recommended in Machine Learning Yearning?",
+    "options": [
+    "Use a smaller model",
+    "Add more regularization",
+    "Try a more complex model or train longer",
+    "Reduce the size of the training set"
+    ],
+    "correct": "Try a more complex model or train longer",
+    "explanation": "Increasing model capacity or training time can help reduce bias.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "What does a data mismatch problem refer to in Machine Learning Yearning?",
+    "options": [
+    "Labels are missing for most examples",
+    "Training and development or test sets come from different distributions",
+    "Models have too many parameters",
+    "Features are on different scales"
+    ],
+    "correct": "Training and development or test sets come from different distributions",
+    "explanation": "Data mismatch occurs when the training data does not reflect the real world data the system faces.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "In the context of end to end learning, which of the following is a disadvantage highlighted by Andrew Ng?",
+    "options": [
+    "It requires very little data",
+    "It often needs very large labeled datasets",
+    "It cannot be implemented with neural networks",
+    "It always improves interpretability"
+    ],
+    "correct": "It often needs very large labeled datasets",
+    "explanation": "End to end systems learn many steps jointly and usually require a lot of labeled data.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "Which is a potential advantage of end to end learning pipelines?",
+    "options": [
+    "They eliminate all need for optimization",
+    "They avoid hand designed intermediate features and components",
+    "They guarantee perfect generalization",
+    "They make debugging trivial"
+    ],
+    "correct": "They avoid hand designed intermediate features and components",
+    "explanation": "End to end learning can replace manually engineered submodules with learned representations.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "Why does Machine Learning Yearning suggest sometimes weighting different parts of the training set?",
+    "options": [
+    "To exactly match the test set size",
+    "To prioritize more relevant data when training",
+    "To speed up GPU computation",
+    "To remove the need for a development set"
+    ],
+    "correct": "To prioritize more relevant data when training",
+    "explanation": "Weighting lets you emphasize examples that are more representative of the target distribution.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "What is the optimization verification test in Machine Learning Yearning used for?",
+    "options": [
+    "Verifying that labels are correct",
+    "Checking that the optimization algorithm is working properly",
+    "Ensuring the training set is large enough",
+    "Measuring how interpretable the model is"
+    ],
+    "correct": "Checking that the optimization algorithm is working properly",
+    "explanation": "The test helps confirm that the learning algorithm can optimize the objective when given enough capacity.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "In a multi component pipeline, what is the purpose of error analysis by parts?",
+    "options": [
+    "To remove unnecessary components",
+    "To attribute errors to individual components of the pipeline",
+    "To estimate training time",
+    "To compress model parameters"
+    ],
+    "correct": "To attribute errors to individual components of the pipeline",
+    "explanation": "Breaking down errors helps identify which module is limiting overall performance.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "According to Machine Learning Yearning, why is scale in data and computation important for deep learning progress?",
+    "options": [
+    "It reduces the need for labels",
+    "Larger networks and more data often improve performance compared to older algorithms",
+    "It makes models more interpretable",
+    "It guarantees zero training error"
+    ],
+    "correct": "Larger networks and more data often improve performance compared to older algorithms",
+    "explanation": "The book emphasizes that big data and large models are key drivers of modern deep learning gains.",
+    "topic": "ML Fundamentals"
+    },
+    {
+    "question": "In the cat picture startup example, what is the main machine learning problem being solved?",
+    "options": [
+    "Generating new cat images",
+    "Detecting whether an image contains a cat",
+    "Clustering users into interest groups",
+    "Translating cat sounds to text"
+    ],
+    "correct": "Detecting whether an image contains a cat",
+    "explanation": "The example focuses on supervised learning to classify images as cat or non cat.",
+    "topic": "Supervised Learning"
+    },
+    {
+    "question": "What is the main goal of unsupervised learning as introduced in the slides?",
+    "options": [
+    "Predict a numeric output",
+    "Learn how to label new data",
+    "Find hidden patterns or structure in unlabeled data",
+    "Optimize reward over time"
+    ],
+    "correct": "Find hidden patterns or structure in unlabeled data",
+    "explanation": "Unsupervised learning discovers structure without relying on labeled outputs.",
+    "topic": "Unsupervised Learning"
+    },
+    {
+    "question": "K means is best described as what type of algorithm?",
+    "options": [
+    "Distance based clustering algorithm",
+    "Rule based classification algorithm",
+    "Linear regression method",
+    "Reinforcement learning method"
+    ],
+    "correct": "Distance based clustering algorithm",
+    "explanation": "K means groups points based on distance to cluster centroids.",
+    "topic": "Unsupervised Learning"
+    },
+    {
+    "question": "In K means clustering, what is a centroid?",
+    "options": [
+    "A random outlier removed from the dataset",
+    "The center representing a cluster",
+    "A label assigned to each data point",
+    "A measure of model accuracy"
+    ],
+    "correct": "The center representing a cluster",
+    "explanation": "Each centroid is the representative point around which a cluster is formed.",
+    "topic": "Unsupervised Learning"
+    },
+    {
+    "question": "According to the slides, K means typically stops when which condition is met?",
+    "options": [
+    "The training error becomes zero",
+    "All data points are used once",
+    "Centroids stop changing or a maximum number of iterations is reached",
+    "The user manually stops it"
+    ],
+    "correct": "Centroids stop changing or a maximum number of iterations is reached",
+    "explanation": "Convergence is defined by stable centroids or reaching an iteration limit.",
+    "topic": "Unsupervised Learning"
+    },
+    {
+    "question": "Which is not listed as a use of K means in the slides?",
+    "options": [
+    "Customer segmentation",
+    "Document classification",
+    "Fraud detection",
+    "Training a supervised logistic regression model"
+    ],
+    "correct": "Training a supervised logistic regression model",
+    "explanation": "K means is an unsupervised clustering method and is not used for training logistic regression.",
+    "topic": "Unsupervised Learning"
+    },
+    {
+    "question": "Which statement about mean shift clustering is consistent with the course material?",
+    "options": [
+    "It requires specifying the number of clusters in advance",
+    "It locates areas of high data density to form clusters",
+    "It only works for time series data",
+    "It is a supervised algorithm"
+    ],
+    "correct": "It locates areas of high data density to form clusters",
+    "explanation": "Mean shift is a density based algorithm that finds modes in the data distribution.",
+    "topic": "Unsupervised Learning"
+    },
+    {
+    "question": "Which of the following is a general use case of clustering mentioned in the slides?",
+    "options": [
+    "Predicting tomorrow's stock price",
+    "Segmenting customers by behavior",
+    "Computing exact causal effects",
+    "Translating text between languages"
+    ],
+    "correct": "Segmenting customers by behavior",
+    "explanation": "Clustering is often used to group customers with similar behaviors for marketing and analysis.",
+    "topic": "Unsupervised Learning"
+    },
+    {
+    "question": "What is the main difference between K means and density based clustering methods such as those shown in the course?",
+    "options": [
+    "K means can handle arbitrary shapes and density based methods only handle spheres",
+    "K means is supervised and density based methods are not",
+    "K means is distance based with a fixed number of clusters, density based methods focus on high density regions",
+    "There is no difference"
+    ],
+    "correct": "K means is distance based with a fixed number of clusters, density based methods focus on high density regions",
+    "explanation": "K means uses a fixed k and distances, while density methods detect clusters based on point density.",
+    "topic": "Unsupervised Learning"
+    },
+    {
+    "question": "Which type of data is most naturally handled by clustering algorithms in the slides?",
+    "options": [
+    "Data where group labels are already known",
+    "Unlabeled data where we want to discover groupings",
+    "Data with only one numeric feature",
+    "Data with only categorical outputs"
+    ],
+    "correct": "Unlabeled data where we want to discover groupings",
+    "explanation": "Clustering is used when labels are not available and structure must be inferred.",
+    "topic": "Unsupervised Learning"
+    },
+    {
+    "question": "Which of the following best captures the role of unsupervised learning in an AI project?",
+    "options": [
+    "It always replaces supervised learning",
+    "It can be used to explore structure before building supervised models",
+    "It only works after the model is deployed",
+    "It is only for reinforcement learning tasks"
+    ],
+    "correct": "It can be used to explore structure before building supervised models",
+    "explanation": "Unsupervised learning can reveal clusters or patterns that inform later supervised tasks.",
+    "topic": "Unsupervised Learning"
+    },
+    {
+    "question": "How is generative AI defined in the Generative AI lecture?",
+    "options": [
+    "AI that only classifies existing content",
+    "AI that creates new content such as text, images, audio, or other media",
+    "AI that manages computer networks",
+    "AI that only predicts numbers"
+    ],
+    "correct": "AI that creates new content such as text, images, audio, or other media",
+    "explanation": "Generative AI models are designed to produce new outputs rather than only label inputs.",
+    "topic": "Generative AI"
+    },
+    {
+    "question": "What are the two main components of a generative adversarial network?",
+    "options": [
+    "Encoder and decoder",
+    "Generator and discriminator",
+    "Actor and critic",
+    "Teacher and student"
+    ],
+    "correct": "Generator and discriminator",
+    "explanation": "GANs consist of a generator that creates samples and a discriminator that judges them.",
+    "topic": "Generative AI"
+    },
+    {
+    "question": "Which type of data were recurrent neural networks and LSTMs originally the go to models for?",
+    "options": [
+    "Unordered images",
+    "Sequential data such as text or audio",
+    "Static tabular data",
+    "Three dimensional point clouds only"
+    ],
+    "correct": "Sequential data such as text or audio",
+    "explanation": "RNNs and LSTMs are designed to handle sequences and temporal dependencies.",
+    "topic": "Deep Learning"
+    },
+    {
+    "question": "What key innovation does the transformer architecture introduce compared to traditional RNNs?",
+    "options": [
+    "Removing attention mechanisms",
+    "Processing sequences strictly one token at a time",
+    "Using attention to process tokens in parallel and handle long range dependencies",
+    "Only working with images"
+    ],
+    "correct": "Using attention to process tokens in parallel and handle long range dependencies",
+    "explanation": "Transformers rely on self attention, allowing parallel processing and better long range modeling.",
+    "topic": "Deep Learning"
+    },
+    {
+    "question": "What does LLM stand for in the course?",
+    "options": [
+    "Linear Learning Machine",
+    "Layered Logic Module",
+    "Large Language Model",
+    "Local Logistic Model"
+    ],
+    "correct": "Large Language Model",
+    "explanation": "LLM is the abbreviation used for large language model.",
+    "topic": "Generative AI"
+    },
+    {
+    "question": "Which capability is highlighted for GPT 4o in the AI models slides?",
+    "options": [
+    "It only handles text input",
+    "It focuses solely on image generation",
+    "It supports fast multimodal interactions including text, images, and real time voice",
+    "It is limited to a few languages"
+    ],
+    "correct": "It supports fast multimodal interactions including text, images, and real time voice",
+    "explanation": "GPT 4o is described as a multimodal model that can handle several input and output modalities.",
+    "topic": "Generative AI"
+    },
+    {
+    "question": "Which statement about Llama 3.1 405B is correct according to the slides?",
+    "options": [
+    "It is a small model with fewer than one billion parameters",
+    "It was trained on over 15 trillion tokens using thousands of GPUs",
+    "It only supports English text",
+    "It is not suitable for code generation"
+    ],
+    "correct": "It was trained on over 15 trillion tokens using thousands of GPUs",
+    "explanation": "The slides mention very large scale training in terms of tokens and hardware for this model.",
+    "topic": "Generative AI"
+    },
+    {
+    "question": "What is a central focus of Anthropic's Claude 3.5 Sonnet model?",
+    "options": [
+    "Maximizing speed with no safety considerations",
+    "Prioritizing constitutional AI for helpful, harmless, and accurate outputs",
+    "Only generating images",
+    "Operating exclusively offline"
+    ],
+    "correct": "Prioritizing constitutional AI for helpful, harmless, and accurate outputs",
+    "explanation": "Claude is presented as using constitutional AI principles to align its behavior.",
+    "topic": "Generative AI"
+    },
+    {
+    "question": "In the prompt engineering slides, what is a persona?",
+    "options": [
+    "The user's real identity",
+    "A fixed dataset used for training",
+    "A role or character the AI is instructed to adopt when responding",
+    "A type of evaluation metric"
+    ],
+    "correct": "A role or character the AI is instructed to adopt when responding",
+    "explanation": "A persona is a role description that shapes how the model answers.",
+    "topic": "Generative AI"
+    },
+    {
+    "question": "Which statement reflects good prompt engineering practice from the lecture?",
+    "options": [
+    "Prompts should be vague to test the AI",
+    "Prompts should be clear, concise, and aligned with the desired outcome",
+    "Prompts should avoid any instructions",
+    "Prompts must always be extremely long"
+    ],
+    "correct": "Prompts should be clear, concise, and aligned with the desired outcome",
+    "explanation": "The slides emphasize clarity and specificity in prompts to guide the model.",
+    "topic": "Generative AI"
+    },
+    {
+    "question": "What is the purpose of the helpful assistant pattern described in the prompt engineering slides?",
+    "options": [
+    "To make the AI refuse all user requests",
+    "To force the AI to answer in a hostile tone",
+    "To guide the AI to respond helpfully and avoid insulting or derogatory language",
+    "To optimize GPU usage"
+    ],
+    "correct": "To guide the AI to respond helpfully and avoid insulting or derogatory language",
+    "explanation": "This pattern sets behavioral instructions so the model is polite and constructive.",
+    "topic": "AI Ethics and Explainability"
+    },
+    {
+    "question": "In the limitations with AI lecture, what is one reason self driving cars are not yet fully deployed everywhere?",
+    "options": [
+    "They cannot operate in daylight",
+    "They are still not safe enough to drive without human supervision",
+    "They cannot use cameras or sensors",
+    "They never encounter edge cases"
+    ],
+    "correct": "They are still not safe enough to drive without human supervision",
+    "explanation": "The lecture notes that safety and handling rare situations remain major challenges.",
+    "topic": "AI Applications"
+    },
+    {
+    "question": "According to the same lecture, what is a key reason AI in healthcare has not fully replaced radiologists?",
+    "options": [
+    "AI cannot process images",
+    "There is no interest in using AI in medicine",
+    "Deploying safe and robust AI systems in health is slower and more complex than expected",
+    "AI systems never make mistakes"
+    ],
+    "correct": "Deploying safe and robust AI systems in health is slower and more complex than expected",
+    "explanation": "The slides highlight practical and regulatory difficulties in safely deploying AI in medicine.",
+    "topic": "AI Applications"
+    },
+    {
+    "question": "The hype versus reality discussion in the course emphasizes which of the following?",
+    "options": [
+    "AI has already solved all major real world problems",
+    "Many companies find AI hard to implement in practice",
+    "Most startups do not claim to use AI",
+    "AI requires no data preparation"
+    ],
+    "correct": "Many companies find AI hard to implement in practice",
+    "explanation": "The lecture points out a gap between AI hype and actual successful deployment.",
+    "topic": "AI Applications"
+    },
+    {
+    "question": "According to the lecture, what did a survey of European AI startups by a venture capital fund find?",
+    "options": [
+    "None of them used any AI",
+    "40 percent did not appear to be using any AI despite branding",
+    "All of them used advanced reinforcement learning",
+    "Most relied solely on robotics"
+    ],
+    "correct": "40 percent did not appear to be using any AI despite branding",
+    "explanation": "The survey found that many startups marketed themselves as AI companies without substantial AI use.",
+    "topic": "AI Applications"
+    },
+    {
+    "question": "In the current state of AI slides, which type of institution produced nearly 90 percent of notable AI models in 2024?",
+    "options": [
+    "Individual hobbyists",
+    "Government labs",
+    "Industry organizations",
+    "Universities only"
+    ],
+    "correct": "Industry organizations",
+    "explanation": "The AI Index data shows that most frontier models come from industry rather than academia.",
+    "topic": "AI Applications"
+    },
+    {
+    "question": "According to AI Index 2025, what happened to the cost of querying a model that scores like GPT 3.5 on MMLU between November 2022 and October 2024?",
+    "options": [
+    "It increased from 0.07 dollars to 20 dollars per million tokens",
+    "It remained constant at 20 dollars per million tokens",
+    "It dropped from 20 dollars to about 0.07 dollars per million tokens",
+    "It is unknown"
+    ],
+    "correct": "It dropped from 20 dollars to about 0.07 dollars per million tokens",
+    "explanation": "The report highlights a large decrease in inference costs for GPT 3.5 level performance.",
+    "topic": "AI Benchmarks"
+    },
+    {
+    "question": "AI Index 2025 reports that the training compute for notable AI models doubles approximately every how many months?",
+    "options": [
+    "Five days",
+    "Five months",
+    "Five years",
+    "Fifteen years"
+    ],
+    "correct": "Five months",
+    "explanation": "The compute trend is described as doubling roughly every five months for frontier models.",
+    "topic": "AI Benchmarks"
+    },
+    {
+    "question": "According to the report, the carbon emissions from training GPT 4 are approximately how many tons of CO2?",
+    "options": [
+    "0.01 tons",
+    "18 tons",
+    "588 tons",
+    "5,184 tons"
+    ],
+    "correct": "5,184 tons",
+    "explanation": "The report gives a large emissions estimate for GPT 4, in the thousands of tons of CO2.",
+    "topic": "AI Ethics and Explainability"
+    },
+    {
+    "question": "In the same comparison, roughly how many tons of CO2 does the average American emit per year as noted in the report?",
+    "options": [
+    "1 ton",
+    "10 tons",
+    "18 tons",
+    "100 tons"
+    ],
+    "correct": "18 tons",
+    "explanation": "The report gives this number to contextualize model training emissions against personal emissions.",
+    "topic": "AI Ethics and Explainability"
+    },
+    {
+    "question": "AI Index 2025 highlights that the number of AI related patents grew from 3,833 in 2010 to how many in 2023?",
+    "options": [
+    "12,251",
+    "38,330",
+    "122,511",
+    "1,225,110"
+    ],
+    "correct": "122,511",
+    "explanation": "The report shows strong growth in AI patenting, reaching over one hundred thousand patents in 2023.",
+    "topic": "AI Applications"
+    },
+    {
+    "question": "Which country accounts for about 69.7 percent of AI patent grants as of 2023?",
+    "options": [
+    "United States",
+    "China",
+    "United Kingdom",
+    "Germany"
+    ],
+    "correct": "China",
+    "explanation": "China is reported as holding the majority share of AI patent grants in recent years.",
+    "topic": "AI Applications"
+    },
+    {
+    "question": "According to AI Index 2025, global corporate AI investment in 2024 was approximately which amount?",
+    "options": [
+    "25.2 billion dollars",
+    "52.3 billion dollars",
+    "252.3 billion dollars",
+    "2.52 trillion dollars"
+    ],
+    "correct": "252.3 billion dollars",
+    "explanation": "The report lists corporate AI investment at roughly a quarter of a trillion dollars.",
+    "topic": "AI Applications"
+    },
+    {
+    "question": "Private investment in generative AI in 2024 reached roughly which amount?",
+    "options": [
+    "3.39 billion dollars",
+    "33.9 billion dollars",
+    "339 billion dollars",
+    "3 trillion dollars"
+    ],
+    "correct": "33.9 billion dollars",
+    "explanation": "The report shows tens of billions of dollars specifically going into generative AI.",
+    "topic": "AI Applications"
+    },
+    {
+    "question": "In 2024, United States private AI investment was about 109.1 billion dollars. How does this compare to China's private AI investment that year?",
+    "options": [
+    "About the same",
+    "About twice as large",
+    "Nearly twelve times larger",
+    "Smaller than China's"
+    ],
+    "correct": "Nearly twelve times larger",
+    "explanation": "The report notes that U.S. private investment is almost twelve times that of China.",
+    "topic": "AI Applications"
+    },
+    {
+    "question": "AI Index 2025 reports that in 2024, what proportion of surveyed organizations reported using AI?",
+    "options": [
+    "25 percent",
+    "55 percent",
+    "71 percent",
+    "78 percent"
+    ],
+    "correct": "78 percent",
+    "explanation": "The survey suggests that a large majority of organizations are now using AI in some form.",
+    "topic": "AI Applications"
+    },
+    {
+    "question": "The same survey shows that the share of respondents using generative AI in at least one business function increased from 33 percent in 2023 to what in 2024?",
+    "options": [
+    "40 percent",
+    "50 percent",
+    "71 percent",
+    "90 percent"
+    ],
+    "correct": "71 percent",
+    "explanation": "The report highlights rapid growth in generative AI adoption across business functions.",
+    "topic": "AI Applications"
+    },
+    {
+    "question": "Which business function most commonly reported cost savings from AI use, with 49 percent of respondents according to AI Index 2025?",
+    "options": [
+    "Marketing and sales",
+    "Service operations",
+    "Supply chain management",
+    "Human resources"
+    ],
+    "correct": "Service operations",
+    "explanation": "Service operations is singled out as the area where most respondents see cost benefits from AI.",
+    "topic": "AI Applications"
+    },
+    {
+    "question": "In industrial robotics, which country installed about 276,300 industrial robots in 2023, more than the rest of the world combined?",
+    "options": [
+    "United States",
+    "Japan",
+    "Germany",
+    "China"
+    ],
+    "correct": "China",
+    "explanation": "China is reported as leading the world in new industrial robot installations.",
+    "topic": "AI Applications"
+    },
+    {
+    "question": "Collaborative robots represented what share of new industrial robot installations in 2023?",
+    "options": [
+    "2.8 percent",
+    "5 percent",
+    "10.5 percent",
+    "25 percent"
+    ],
+    "correct": "10.5 percent",
+    "explanation": "The report gives this figure to show the growing but still limited share of collaborative robots.",
+    "topic": "AI Applications"
+    },
+    {
+    "question": "AI Index 2025 reports how many AI related incident reports in 2024 in the AI Incidents Database?",
+    "options": [
+    "23",
+    "56",
+    "133",
+    "233"
+    ],
+    "correct": "233",
+    "explanation": "The number 233 indicates a noticeable volume of documented AI incidents in one year.",
+    "topic": "AI Ethics and Explainability"
+    },
+    {
+    "question": "Which trend regarding the data commons is highlighted in the report?",
+    "options": [
+    "Websites are making more data freely available for AI training",
+    "Restrictions on data use increased, with restricted tokens rising to between 20 and 33 percent",
+    "All public web data is now unrestricted",
+    "Data size is no longer important"
+    ],
+    "correct": "Restrictions on data use increased, with restricted tokens rising to between 20 and 33 percent",
+    "explanation": "The report notes that more web data is being restricted, shrinking the open data commons.",
+    "topic": "AI Ethics and Explainability"
+    },
+    {
+    "question": "According to the Foundation Model Transparency Index described in AI Index 2025, average transparency scores among major developers changed from 37 percent in October 2023 to what in May 2024?",
+    "options": [
+    "40 percent",
+    "48 percent",
+    "58 percent",
+    "80 percent"
+    ],
+    "correct": "58 percent",
+    "explanation": "The index shows some improvement, but transparency remains far from perfect.",
+    "topic": "AI Ethics and Explainability"
+    },
+    {
+    "question": "The report notes that many advanced language models, even when trained to be unbiased, still do what?",
+    "options": [
+    "Show no measurable bias",
+    "Exhibit implicit biases such as associating negative terms with certain groups",
+    "Cannot answer any social questions",
+    "Refuse to generate any content"
+    ],
+    "correct": "Exhibit implicit biases such as associating negative terms with certain groups",
+    "explanation": "Experiments in the report show that models can still reflect harmful social biases.",
+    "topic": "AI Ethics and Explainability"
+    },
+    {
+    "question": "Responsible AI research at leading conferences has shown which trend according to AI Index 2025?",
+    "options": [
+    "It has declined since 2019",
+    "It has stayed constant at around 100 papers",
+    "It has increased, with accepted papers rising from 992 in 2023 to 1,278 in 2024",
+    "It has been banned from major venues"
+    ],
+    "correct": "It has increased, with accepted papers rising from 992 in 2023 to 1,278 in 2024",
+    "explanation": "The report documents growth in the number of responsible AI related publications.",
+    "topic": "AI Ethics and Explainability"
+    },
+    {
+    "question": "In science and medicine, what is one highlighted impact of AI models like AlphaFold and ESM3?",
+    "options": [
+    "They are mainly used for text translation",
+    "They advance protein structure prediction and sequencing",
+    "They replace all clinical staff",
+    "They are used only for marketing"
+    ],
+    "correct": "They advance protein structure prediction and sequencing",
+    "explanation": "These models are cited as breakthroughs in understanding protein structures.",
+    "topic": "AI Applications"
+    },
+    {
+    "question": "By 2023, about how many AI enabled medical devices had been authorized by the United States FDA according to AI Index 2025?",
+    "options": [
+    "6",
+    "60",
+    "223",
+    "2,230"
+    ],
+    "correct": "223",
+    "explanation": "The report lists 223 FDA authorized AI enabled medical devices.",
+    "topic": "AI Applications"
+    },
+    {
+    "question": "What do recent studies summarized in AI Index 2025 suggest about AI's impact on worker productivity?",
+    "options": [
+    "AI consistently reduces productivity",
+    "AI has no measurable impact",
+    "AI tends to boost productivity and can narrow gaps between low and high skilled workers",
+    "AI only benefits the most skilled workers"
+    ],
+    "correct": "AI tends to boost productivity and can narrow gaps between low and high skilled workers",
+    "explanation": "The report reviews multiple studies showing productivity gains and support for less experienced workers.",
+    "topic": "AI Applications"
+    },
+    {
+    "question": "On benchmarks like SWE bench, the report notes that AI systems improved from solving about 4.4 percent of coding problems in 2023 to what share in 2024?",
+    "options": [
+    "10 percent",
+    "25 percent",
+    "50 percent",
+    "71.7 percent"
+    ],
+    "correct": "71.7 percent",
+    "explanation": "This large jump illustrates rapid improvement of AI systems on coding benchmarks.",
+    "topic": "AI Benchmarks"
+    },
+    {
+    "question": "According to AI Index 2025, smaller models have become much more capable. Which example illustrates this trend?",
+    "options": [
+    "GPT 4 being replaced by rule based systems",
+    "A 3.8 billion parameter model called Phi 3 mini reaching over 60 percent on MMLU, a level previously achieved by a 540 billion parameter model",
+    "Only large models improving on benchmarks",
+    "Small models no longer being used"
+    ],
+    "correct": "A 3.8 billion parameter model called Phi 3 mini reaching over 60 percent on MMLU, a level previously achieved by a 540 billion parameter model",
+    "explanation": "The report uses Phi 3 mini as an example of strong performance from a relatively small model.",
+    "topic": "AI Benchmarks"
+    }
+  ]
