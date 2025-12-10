@@ -1,7 +1,8 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 
 const FocusVideo = () => {
   const videoRef = useRef(null)
+  const [videoError, setVideoError] = useState(false)
 
   useEffect(() => {
     const video = videoRef.current
@@ -9,11 +10,39 @@ const FocusVideo = () => {
       // Set video to loop and play automatically
       video.loop = true
       video.muted = true
-      video.play().catch(err => {
-        console.log('Video autoplay prevented:', err)
-      })
+      
+      // Handle video load errors
+      const handleError = () => {
+        console.error('Video failed to load:', video.error)
+        setVideoError(true)
+      }
+      
+      const handleCanPlay = () => {
+        video.play().catch(err => {
+          console.log('Video autoplay prevented:', err)
+        })
+      }
+      
+      video.addEventListener('error', handleError)
+      video.addEventListener('canplay', handleCanPlay)
+      
+      return () => {
+        video.removeEventListener('error', handleError)
+        video.removeEventListener('canplay', handleCanPlay)
+      }
     }
   }, [])
+
+  // Show fallback if video fails to load
+  if (videoError) {
+    return (
+      <div className="fixed left-0 top-0 h-screen w-80 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 z-0 hidden lg:block overflow-hidden flex items-center justify-center">
+        <div className="text-white/50 text-sm text-center p-4">
+          Video unavailable
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="fixed left-0 top-0 h-screen w-80 bg-black z-0 hidden lg:block overflow-hidden">
@@ -25,6 +54,7 @@ const FocusVideo = () => {
         loop
         playsInline
         preload="auto"
+        onError={() => setVideoError(true)}
       >
         <source src="/focus-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
