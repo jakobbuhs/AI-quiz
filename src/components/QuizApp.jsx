@@ -6,9 +6,11 @@ import QuizResults from './QuizResults'
 import QuizTimer from './QuizTimer'
 import ProgressBar from './ProgressBar'
 import CookieConsent from './CookieConsent'
+import UserLogin from './UserLogin'
 import questions from '../data/questions.json'
-import { Brain, AlertTriangle, LogOut, Shield } from 'lucide-react'
+import { Brain, AlertTriangle, LogOut, Shield, User } from 'lucide-react'
 import { saveQuizState, loadQuizState, clearQuizState, hasAcceptedCookies } from '../utils/storage'
+import { getCurrentUser } from '../utils/userAuth'
 
 // Utility function to shuffle an array
 const shuffleArray = (array) => {
@@ -48,6 +50,8 @@ function QuizApp() {
   const [showFeedback, setShowFeedback] = useState(false) // For learn mode
   const [answerResults, setAnswerResults] = useState([]) // Track correct/incorrect for each question
   const [cookiesAccepted, setCookiesAccepted] = useState(false)
+  const [currentUser, setCurrentUser] = useState(null)
+  const [showUserLogin, setShowUserLogin] = useState(false)
 
   // Load saved quiz state on mount (if cookies accepted)
   useEffect(() => {
@@ -67,6 +71,9 @@ function QuizApp() {
     
     // Check if cookies were previously accepted
     setCookiesAccepted(hasAcceptedCookies())
+    
+    // Check if user is logged in
+    setCurrentUser(getCurrentUser())
   }, [])
 
   // Save quiz state whenever it changes (only if cookies accepted and quiz is in progress)
@@ -219,6 +226,15 @@ function QuizApp() {
     clearQuizState()
   }, [])
 
+  // User login handlers
+  const handleUserLogin = useCallback((user) => {
+    setCurrentUser(user)
+  }, [])
+
+  const handleUserLogout = useCallback(() => {
+    setCurrentUser(null)
+  }, [])
+
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -284,6 +300,14 @@ function QuizApp() {
       {/* Cookie Consent Dialog */}
       <CookieConsent onAccept={handleCookieAccept} onDecline={handleCookieDecline} />
       
+      {/* User Login Dialog */}
+      <UserLogin
+        isOpen={showUserLogin}
+        onClose={() => setShowUserLogin(false)}
+        onLogin={handleUserLogin}
+        onLogout={handleUserLogout}
+      />
+      
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <header className="text-center mb-8 animate-fade-in">
@@ -295,16 +319,38 @@ function QuizApp() {
               AI Quiz
             </h1>
           </div>
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-4 flex-wrap">
             <p className="text-gray-500 text-lg">Test your knowledge with our interactive quiz</p>
-            <Link
-              to="/admin/login"
-              className="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors"
-              title="Admin Panel"
-            >
-              <Shield className="w-4 h-4" />
-              <span className="hidden sm:inline">Admin</span>
-            </Link>
+            <div className="flex items-center gap-2">
+              {currentUser ? (
+                <button
+                  onClick={() => setShowUserLogin(true)}
+                  className="flex items-center gap-2 px-3 py-1.5 text-sm text-emerald-600 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors"
+                  title="User Account"
+                >
+                  <User className="w-4 h-4" />
+                  <span className="hidden sm:inline">{currentUser.username}</span>
+                  <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">∞ AI</span>
+                </button>
+              ) : (
+                <button
+                  onClick={() => setShowUserLogin(true)}
+                  className="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors"
+                  title="Login for unlimited AI"
+                >
+                  <User className="w-4 h-4" />
+                  <span className="hidden sm:inline">Login</span>
+                </button>
+              )}
+              <Link
+                to="/admin/login"
+                className="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors"
+                title="Admin Panel"
+              >
+                <Shield className="w-4 h-4" />
+                <span className="hidden sm:inline">Admin</span>
+              </Link>
+            </div>
           </div>
         </header>
 

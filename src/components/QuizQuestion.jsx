@@ -192,8 +192,8 @@ const QuizQuestion = memo(function QuizQuestion({
         <div className="mb-6">
           {(() => {
             const apiConfigured = isOpenAIConfigured()
-            const { remainingCalls, resetInSeconds } = apiConfigured ? getRateLimitStatus() : { remainingCalls: 0, resetInSeconds: 0 }
-            const isRateLimited = apiConfigured && remainingCalls <= 0
+            const { remainingCalls, resetInSeconds, unlimited } = apiConfigured ? getRateLimitStatus() : { remainingCalls: 0, resetInSeconds: 0, unlimited: false }
+            const isRateLimited = apiConfigured && !unlimited && remainingCalls <= 0
             
             return (
               <>
@@ -221,7 +221,11 @@ const QuizQuestion = memo(function QuizQuestion({
                     <>
                       <Sparkles className="w-5 h-5 text-purple-500 group-hover:scale-110 transition-transform" />
                       <span className="text-purple-700 font-medium">Get AI-Powered In-Depth Explanation</span>
-                      <span className="text-xs text-purple-400">({remainingCalls}/10 left)</span>
+                      {unlimited ? (
+                        <span className="text-xs text-emerald-600 font-semibold">(∞ Unlimited)</span>
+                      ) : (
+                        <span className="text-xs text-purple-400">({remainingCalls}/10 left)</span>
+                      )}
                     </>
                   )}
                 </button>

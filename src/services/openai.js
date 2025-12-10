@@ -8,6 +8,20 @@ const RATE_LIMIT = {
   calls: [],
 }
 
+// Check if user has unlimited AI access (check localStorage directly to avoid circular deps)
+function hasUnlimitedAI() {
+  try {
+    const currentUser = localStorage.getItem('currentUser')
+    if (!currentUser) return false
+    const userData = JSON.parse(currentUser)
+    const users = JSON.parse(localStorage.getItem('users') || '[]')
+    const user = users.find(u => u.id === userData.id)
+    return user !== null && user.unlimitedAI === true
+  } catch {
+    return false
+  }
+}
+
 const SYSTEM_PROMPT = `You are an expert tutor helping students understand quiz questions they got wrong. 
 Your explanations should be:
 - Clear and educational
@@ -52,11 +66,14 @@ function recordCall() {
 
 /**
  * Get the current rate limit status
- * @returns {{ remainingCalls: number, resetInSeconds: number }}
+ * @returns {{ remainingCalls: number, resetInSeconds: number, unlimited: boolean }}
  */
 export function getRateLimitStatus() {
+  if (hasUnlimitedAI()) {
+    return { remainingCalls: Infinity, resetInSeconds: 0, unlimited: true }
+  }
   const { remainingCalls, resetInSeconds } = checkRateLimit()
-  return { remainingCalls, resetInSeconds }
+  return { remainingCalls, resetInSeconds, unlimited: false }
 }
 
 /**
@@ -75,13 +92,16 @@ export async function getInDepthExplanation({ question, correctAnswer, userAnswe
     throw new Error('OpenAI API key not configured. Please add your API key to the .env file.')
   }
 
-  // Check rate limit
-  const { allowed, remainingCalls, resetInSeconds } = checkRateLimit()
-  if (!allowed) {
-    throw new Error(
-      `Rate limit exceeded. You've used all 10 AI explanations for this minute. ` +
-      `Please wait ${resetInSeconds} seconds before trying again.`
-    )
+  // Check rate limit (skip if user has unlimited AI access)
+  if (!hasUnlimitedAI()) {
+    const { allowed, remainingCalls, resetInSeconds } = checkRateLimit()
+    if (!allowed) {
+      throw new Error(
+        `Rate limit exceeded. You've used all 10 AI explanations for this minute. ` +
+        `Please wait ${resetInSeconds} seconds before trying again. ` +
+        `Login for unlimited AI access!`
+      )
+    }
   }
 
   const userPrompt = `I got this question wrong and need help understanding it better:
@@ -99,8 +119,10 @@ export async function getInDepthExplanation({ question, correctAnswer, userAnswe
 Please give me a more in-depth explanation to help me truly understand this concept. Why is the correct answer right, and why might someone choose my wrong answer?`
 
   try {
-    // Record the call before making the request
-    recordCall()
+    // Record the call before making the request (only if not unlimited)
+    if (!hasUnlimitedAI()) {
+      recordCall()
+    }
 
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',

@@ -531,8 +531,8 @@ const QuizResults = memo(function QuizResults({
                     <div className="mt-4">
                       {(() => {
                         const apiConfigured = isOpenAIConfigured()
-                        const { remainingCalls, resetInSeconds } = apiConfigured ? getRateLimitStatus() : { remainingCalls: 0, resetInSeconds: 0 }
-                        const isRateLimited = apiConfigured && remainingCalls <= 0
+                        const { remainingCalls, resetInSeconds, unlimited } = apiConfigured ? getRateLimitStatus() : { remainingCalls: 0, resetInSeconds: 0, unlimited: false }
+                        const isRateLimited = apiConfigured && !unlimited && remainingCalls <= 0
                         const isLoading = loadingAI[index]
                         
                         return (
@@ -561,7 +561,11 @@ const QuizResults = memo(function QuizResults({
                                 <>
                                   <Sparkles className="w-4 h-4 text-purple-500 group-hover:scale-110 transition-transform" />
                                   <span className="text-purple-700 text-sm font-medium">Get AI-Powered Explanation</span>
-                                  <span className="text-xs text-purple-400">({remainingCalls}/10)</span>
+                                  {unlimited ? (
+                                    <span className="text-xs text-emerald-600 font-semibold">(∞ Unlimited)</span>
+                                  ) : (
+                                    <span className="text-xs text-purple-400">({remainingCalls}/10)</span>
+                                  )}
                                 </>
                               )}
                             </button>
