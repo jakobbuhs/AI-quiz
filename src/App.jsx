@@ -43,6 +43,7 @@ function App() {
   const [showConfirmDialog, setShowConfirmDialog] = useState(false)
   const [showExitDialog, setShowExitDialog] = useState(false)
   const [showFeedback, setShowFeedback] = useState(false) // For learn mode
+  const [answerResults, setAnswerResults] = useState([]) // Track correct/incorrect for each question
 
   // Calculate time limit: 10 minutes per 20 questions
   const calculateTimeLimit = useCallback((questionCount) => {
@@ -63,6 +64,7 @@ function App() {
     setQuizMode(mode)
     setSelectedQuestions(questionsWithShuffledOptions)
     setUserAnswers(new Array(availableQuestions).fill(null))
+    setAnswerResults(new Array(availableQuestions).fill({ answered: false, correct: null }))
     setTimeRemaining(calculateTimeLimit(availableQuestions))
     setTimeTaken(0)
     setCurrentQuestionIndex(0)
@@ -78,11 +80,17 @@ function App() {
       return newAnswers
     })
     
-    // In learn mode, show feedback immediately after selecting
+    // In learn mode, show feedback immediately after selecting and track result
     if (quizMode === QUIZ_MODE.LEARN) {
+      const isCorrect = answer === selectedQuestions[currentQuestionIndex]?.correct
+      setAnswerResults((prev) => {
+        const newResults = [...prev]
+        newResults[currentQuestionIndex] = { answered: true, correct: isCorrect }
+        return newResults
+      })
       setShowFeedback(true)
     }
-  }, [currentQuestionIndex, quizMode])
+  }, [currentQuestionIndex, quizMode, selectedQuestions])
 
   // Navigation handlers
   const handleNextQuestion = useCallback(() => {
@@ -128,6 +136,7 @@ function App() {
     setCurrentQuestionIndex(0)
     setSelectedQuestions([])
     setUserAnswers([])
+    setAnswerResults([])
     setTimeRemaining(0)
     setTimeTaken(0)
     setShowFeedback(false)
@@ -140,6 +149,7 @@ function App() {
     setCurrentQuestionIndex(0)
     setSelectedQuestions([])
     setUserAnswers([])
+    setAnswerResults([])
     setTimeRemaining(0)
     setTimeTaken(0)
     setShowFeedback(false)
@@ -275,6 +285,8 @@ function App() {
                   current={currentQuestionIndex + 1}
                   total={selectedQuestions.length}
                   answered={answeredCount}
+                  quizMode={quizMode}
+                  answerResults={answerResults}
                 />
               </div>
 

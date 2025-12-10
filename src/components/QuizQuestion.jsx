@@ -1,5 +1,6 @@
-import { memo } from 'react'
-import { ChevronLeft, ChevronRight, Send, Tag, CheckCircle, XCircle, Lightbulb, CornerDownLeft } from 'lucide-react'
+import { memo, useState } from 'react'
+import { ChevronLeft, ChevronRight, Send, Tag, CheckCircle, XCircle, Lightbulb, CornerDownLeft, Sparkles, Loader2, AlertCircle } from 'lucide-react'
+import { getInDepthExplanation, isOpenAIConfigured, getRateLimitStatus } from '../services/openai'
 
 const QUIZ_MODE = {
   LEARN: 'learn',
@@ -21,10 +22,43 @@ const QuizQuestion = memo(function QuizQuestion({
   quizMode = QUIZ_MODE.EXAM,
   showFeedback = false,
 }) {
+  const [aiExplanation, setAiExplanation] = useState(null)
+  const [isLoadingAI, setIsLoadingAI] = useState(false)
+  const [aiError, setAiError] = useState(null)
+
   if (!question) return null
 
   const isCorrect = selectedAnswer === question.correct
   const isLearnMode = quizMode === QUIZ_MODE.LEARN
+  const showAIButton = isLearnMode && showFeedback && !isCorrect && isOpenAIConfigured()
+
+  // Fetch in-depth explanation from OpenAI
+  const handleGetAIExplanation = async () => {
+    setIsLoadingAI(true)
+    setAiError(null)
+    
+    try {
+      const explanation = await getInDepthExplanation({
+        question: question.question,
+        correctAnswer: question.correct,
+        userAnswer: selectedAnswer,
+        topic: question.topic || 'General',
+        basicExplanation: question.explanation || 'No basic explanation provided.',
+      })
+      setAiExplanation(explanation)
+    } catch (error) {
+      setAiError(error.message || 'Failed to get explanation. Please try again.')
+    } finally {
+      setIsLoadingAI(false)
+    }
+  }
+
+  // Reset AI state when moving to next question
+  const handleNext = () => {
+    setAiExplanation(null)
+    setAiError(null)
+    onNext()
+  }
 
   return (
     <div className="card p-6 md:p-8 animate-slide-up">
@@ -153,6 +187,64 @@ const QuizQuestion = memo(function QuizQuestion({
         </div>
       )}
 
+      {/* AI In-Depth Explanation Button & Display */}
+      {showAIButton && !aiExplanation && (
+        <div className="mb-6">
+          {(() => {
+            const { remainingCalls, resetInSeconds } = getRateLimitStatus()
+            const isRateLimited = remainingCalls <= 0
+            
+            return (
+              <>
+                <button
+                  onClick={handleGetAIExplanation}
+                  disabled={isLoadingAI || isRateLimited}
+                  className="w-full p-4 rounded-xl border-2 border-dashed border-purple-300 bg-purple-50 hover:bg-purple-100 hover:border-purple-400 transition-all duration-200 flex items-center justify-center gap-3 group disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isLoadingAI ? (
+                    <>
+                      <Loader2 className="w-5 h-5 text-purple-500 animate-spin" />
+                      <span className="text-purple-700 font-medium">Getting in-depth explanation...</span>
+                    </>
+                  ) : isRateLimited ? (
+                    <>
+                      <AlertCircle className="w-5 h-5 text-amber-500" />
+                      <span className="text-amber-700 font-medium">Rate limited - wait {resetInSeconds}s</span>
+                    </>
+                  ) : (
+                    <>
+                      <Sparkles className="w-5 h-5 text-purple-500 group-hover:scale-110 transition-transform" />
+                      <span className="text-purple-700 font-medium">Get AI-Powered In-Depth Explanation</span>
+                      <span className="text-xs text-purple-400">({remainingCalls}/10 left)</span>
+                    </>
+                  )}
+                </button>
+                
+                {aiError && (
+                  <div className="mt-3 p-3 bg-red-50 border border-red-200 rounded-lg flex items-start gap-2">
+                    <AlertCircle className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
+                    <p className="text-sm text-red-600">{aiError}</p>
+                  </div>
+                )}
+              </>
+            )
+          })()}
+        </div>
+      )}
+
+      {/* AI Explanation Display */}
+      {aiExplanation && (
+        <div className="mb-6 p-5 rounded-xl bg-gradient-to-br from-purple-50 to-indigo-50 border-2 border-purple-200 animate-fade-in">
+          <div className="flex items-center gap-2 mb-3">
+            <Sparkles className="w-5 h-5 text-purple-500" />
+            <span className="font-bold text-purple-700">AI-Powered Explanation</span>
+          </div>
+          <div className="prose prose-sm max-w-none text-gray-700 leading-relaxed whitespace-pre-wrap">
+            {aiExplanation}
+          </div>
+        </div>
+      )}
+
       {/* Navigation */}
       <div className="flex flex-col sm:flex-row gap-3">
         {/* Previous Button - only in exam mode */}
@@ -173,7 +265,7 @@ const QuizQuestion = memo(function QuizQuestion({
           // Learn mode - single continue button
           showFeedback ? (
             <button
-              onClick={onNext}
+              onClick={handleNext}
               className="btn-primary flex items-center justify-center gap-2 w-full bg-gradient-to-r from-emerald-500 to-teal-500 shadow-emerald-500/30 hover:shadow-emerald-500/40"
               aria-label={isLast ? "Finish" : "Next question"}
             >
