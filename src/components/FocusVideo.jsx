@@ -56,7 +56,7 @@ const FocusVideo = () => {
         preload="auto"
         onError={() => setVideoError(true)}
       >
-        <source src="/focus-video.mp4" type="video/mp4" />
+        <source src="/subwat_video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       {/* Subtle overlay for better visual separation */}
