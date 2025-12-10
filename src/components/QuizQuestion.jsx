@@ -223,8 +223,12 @@ const QuizQuestion = memo(function QuizQuestion({
                       <span className="text-purple-700 font-medium">Get AI-Powered In-Depth Explanation</span>
                       {unlimited ? (
                         <span className="text-xs text-emerald-600 font-semibold">(∞ Unlimited)</span>
+                      ) : remainingCalls === Infinity ? (
+                        <span className="text-xs text-purple-400">(Checking...)</span>
                       ) : (
-                        <span className="text-xs text-purple-400">({remainingCalls}/10 left)</span>
+                        <span className="text-xs text-purple-400">
+                          ({remainingCalls}{typeof remainingCalls === 'number' && remainingCalls < 1000 ? '/10' : ''} left)
+                        </span>
                       )}
                     </>
                   )}

@@ -3,6 +3,13 @@
 const STORAGE_KEYS = {
   CURRENT_USER: 'currentUser',
   USERS: 'users',
+  USER_DAILY_CALLS: 'userDailyCalls', // Track daily AI calls per user
+}
+
+// User roles
+export const USER_ROLES = {
+  SELF_REGISTERED: 'self-registered',
+  ADMIN_CREATED: 'admin-created',
 }
 
 // Get all users (for registration/login)
@@ -25,7 +32,7 @@ export const saveUsers = (users) => {
   }
 }
 
-// Register a new user
+// Register a new user (self-registered, gets default 10 calls per day)
 export const registerUser = (username, email = '') => {
   const users = getUsers()
   
@@ -39,7 +46,9 @@ export const registerUser = (username, email = '') => {
     username: username.trim(),
     email: email.trim(),
     createdAt: new Date().toISOString(),
-    unlimitedAI: true, // Logged-in users get unlimited AI access
+    role: USER_ROLES.SELF_REGISTERED,
+    unlimitedAI: false, // Self-registered users get default limits
+    dailyAILimit: 10, // 10 calls per day
   }
   
   users.push(newUser)
@@ -49,6 +58,76 @@ export const registerUser = (username, email = '') => {
   loginUser(newUser.id)
   
   return newUser
+}
+
+// Create user by admin (can grant unlimited AI access)
+export const createUserByAdmin = (username, email = '', unlimitedAI = false, dailyAILimit = 10) => {
+  const users = getUsers()
+  
+  // Check if username already exists
+  if (users.some(u => u.username.toLowerCase() === username.toLowerCase())) {
+    throw new Error('Username already exists. Please choose a different username.')
+  }
+  
+  const newUser = {
+    id: Date.now().toString(),
+    username: username.trim(),
+    email: email.trim(),
+    createdAt: new Date().toISOString(),
+    role: USER_ROLES.ADMIN_CREATED,
+    unlimitedAI: unlimitedAI,
+    dailyAILimit: unlimitedAI ? Infinity : dailyAILimit,
+    createdBy: 'admin',
+  }
+  
+  users.push(newUser)
+  saveUsers(users)
+  
+  return newUser
+}
+
+// Update user (admin only)
+export const updateUser = (id, updates) => {
+  const users = getUsers()
+  const index = users.findIndex(u => u.id === id)
+  
+  if (index === -1) {
+    throw new Error('User not found')
+  }
+  
+  // Check if username is being changed and already exists
+  if (updates.username && users.some(u => u.username.toLowerCase() === updates.username.toLowerCase() && u.id !== id)) {
+    throw new Error('Username already exists. Please choose a different username.')
+  }
+  
+  users[index] = {
+    ...users[index],
+    ...updates,
+    updatedAt: new Date().toISOString(),
+  }
+  
+  // Update daily limit if unlimited status changes
+  if (updates.unlimitedAI !== undefined) {
+    users[index].dailyAILimit = updates.unlimitedAI ? Infinity : (users[index].dailyAILimit || 10)
+  }
+  
+  saveUsers(users)
+  return users[index]
+}
+
+// Delete user (admin only)
+export const deleteUser = (id) => {
+  const users = getUsers()
+  const filtered = users.filter(u => u.id !== id)
+  saveUsers(filtered)
+  
+  // If deleted user was logged in, logout
+  const current = getCurrentUser()
+  if (current && current.id === id) {
+    logoutUser()
+  }
+  
+  return filtered
 }
 
 // Login user by username
@@ -113,5 +192,69 @@ export const logoutUser = () => {
 export const hasUnlimitedAI = () => {
   const user = getCurrentUser()
   return user !== null && user.unlimitedAI === true
+}
+
+// Get user's daily AI limit
+export const getUserDailyAILimit = () => {
+  const user = getCurrentUser()
+  if (!user) return 0
+  if (user.unlimitedAI) return Infinity
+  return user.dailyAILimit || 10
+}
+
+// Get user's daily AI calls used today
+export const getUserDailyAICalls = () => {
+  try {
+    const user = getCurrentUser()
+    if (!user) return 0
+    
+    const dailyCalls = JSON.parse(localStorage.getItem(STORAGE_KEYS.USER_DAILY_CALLS) || '{}')
+    const today = new Date().toDateString()
+    const userCalls = dailyCalls[user.id] || {}
+    
+    // Reset if it's a new day
+    if (userCalls.date !== today) {
+      return 0
+    }
+    
+    return userCalls.count || 0
+  } catch {
+    return 0
+  }
+}
+
+// Record a daily AI call for user
+export const recordUserDailyAICall = () => {
+  try {
+    const user = getCurrentUser()
+    if (!user || user.unlimitedAI) return // Don't track for unlimited users
+    
+    const dailyCalls = JSON.parse(localStorage.getItem(STORAGE_KEYS.USER_DAILY_CALLS) || '{}')
+    const today = new Date().toDateString()
+    const userCalls = dailyCalls[user.id] || {}
+    
+    // Reset if it's a new day
+    if (userCalls.date !== today) {
+      userCalls.date = today
+      userCalls.count = 0
+    }
+    
+    userCalls.count = (userCalls.count || 0) + 1
+    dailyCalls[user.id] = userCalls
+    
+    localStorage.setItem(STORAGE_KEYS.USER_DAILY_CALLS, JSON.stringify(dailyCalls))
+  } catch (error) {
+    console.error('Error recording daily AI call:', error)
+  }
+}
+
+// Check if user has exceeded daily AI limit
+export const hasExceededDailyAILimit = () => {
+  const user = getCurrentUser()
+  if (!user || user.unlimitedAI) return false
+  
+  const limit = user.dailyAILimit || 10
+  const used = getUserDailyAICalls()
+  return used >= limit
 }
 

@@ -116,10 +116,14 @@ const UserLogin = ({ isOpen, onClose, onLogin, onLogout }) => {
             <p className="text-gray-600 mb-1">
               Welcome, <span className="font-semibold text-indigo-600">{currentUser.username}</span>!
             </p>
-            <div className="mt-4 p-3 bg-emerald-50 border border-emerald-200 rounded-lg mb-6">
-              <div className="flex items-center gap-2 text-emerald-700 text-sm">
+            <div className="mt-4 p-3 bg-indigo-50 border border-indigo-200 rounded-lg mb-6">
+              <div className="flex items-center gap-2 text-indigo-700 text-sm">
                 <CheckCircle className="w-4 h-4" />
-                <span>You have unlimited AI access</span>
+                <span>
+                  {currentUser.unlimitedAI 
+                    ? 'You have unlimited AI access' 
+                    : `You have ${currentUser.dailyAILimit || 10} AI explanations per day`}
+                </span>
               </div>
             </div>
             <button
@@ -142,8 +146,8 @@ const UserLogin = ({ isOpen, onClose, onLogin, onLogout }) => {
               </h2>
               <p className="text-gray-500 text-sm">
                 {mode === 'login' 
-                  ? 'Login to get unlimited AI explanations' 
-                  : 'Create a free account for unlimited AI access'}
+                  ? 'Login to get daily AI explanations' 
+                  : 'Create a free account for 10 AI explanations per day'}
               </p>
             </div>
 

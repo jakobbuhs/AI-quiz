@@ -330,7 +330,13 @@ function QuizApp() {
                 >
                   <User className="w-4 h-4" />
                   <span className="hidden sm:inline">{currentUser.username}</span>
-                  <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">∞ AI</span>
+                  {currentUser.unlimitedAI ? (
+                    <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">∞ AI</span>
+                  ) : (
+                    <span className="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full">
+                      {currentUser.dailyAILimit || 10}/day
+                    </span>
+                  )}
                 </button>
               ) : (
                 <button
