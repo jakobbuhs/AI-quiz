@@ -5,6 +5,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   // IMPORTANT: Change 'AI-quiz' to your GitHub repository name
-  base: '/AI-quiz/',
+  base: '/',
 })
 
