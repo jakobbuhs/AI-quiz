@@ -22,6 +22,10 @@ import {
   getCurrentAdmin,
   validatePIN,
   validatePassword,
+  getUsers,
+  createUserByAdmin,
+  updateUser,
+  deleteUser,
 } from '../utils/apiAuth'
 
 const AdminDashboard = ({ onLogout }) => {
@@ -261,7 +265,7 @@ const AdminDashboard = ({ onLogout }) => {
     setShowAddUserForm(false)
   }
 
-  const handleUpdateUser = (id) => {
+  const handleUpdateUser = async (id) => {
     setError('')
     setSuccess('')
     

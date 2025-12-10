@@ -7,6 +7,7 @@ import QuizTimer from './QuizTimer'
 import ProgressBar from './ProgressBar'
 import CookieConsent from './CookieConsent'
 import UserLogin from './UserLogin'
+import FocusVideo from './FocusVideo'
 import questions from '../data/questions.json'
 import { Brain, AlertTriangle, LogOut, Shield, User } from 'lucide-react'
 import { saveQuizState, loadQuizState, clearQuizState, hasAcceptedCookies } from '../utils/storage'
@@ -300,7 +301,10 @@ function QuizApp() {
   const answeredCount = userAnswers.filter((answer) => answer !== null).length
 
   return (
-    <div className="min-h-screen py-8 px-4">
+    <div className="min-h-screen py-8 px-4 relative">
+      {/* Focus Video - Left Side */}
+      <FocusVideo />
+      
       {/* Cookie Consent Dialog */}
       <CookieConsent onAccept={handleCookieAccept} onDecline={handleCookieDecline} />
       
@@ -312,7 +316,8 @@ function QuizApp() {
         onLogout={handleUserLogout}
       />
       
-      <div className="max-w-4xl mx-auto">
+      {/* Main Content - Offset for video on large screens */}
+      <div className="max-w-4xl mx-auto lg:ml-80">
         {/* Header */}
         <header className="text-center mb-8 animate-fade-in">
           <div className="flex items-center justify-center gap-3 mb-2">
