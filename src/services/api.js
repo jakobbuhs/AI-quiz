@@ -1,11 +1,17 @@
 // API service for backend communication
 
 // Use relative /api path for Vercel deployment, fallback to localhost for dev
-const API_BASE_URL = import.meta.env.VITE_API_URL || (
-  typeof window !== 'undefined' && window.location.hostname !== 'localhost' 
-    ? '/api' 
-    : 'http://localhost:3001/api'
-)
+function getApiBaseUrl() {
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL
+  }
+  if (typeof window !== 'undefined' && window.location && window.location.hostname !== 'localhost') {
+    return '/api'
+  }
+  return 'http://localhost:3001/api'
+}
+
+const API_BASE_URL = getApiBaseUrl()
 
 // Helper function to make API requests
 async function apiRequest(endpoint, options = {}) {

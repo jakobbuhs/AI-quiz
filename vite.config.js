@@ -5,11 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/',
-  build: {
-    // Exclude server and api folders from frontend build
-    rollupOptions: {
-      external: [/^server\//, /^api\//],
-    },
-  },
+  // Vite automatically excludes files outside src/ and public/ by default
+  // Server and API folders are handled by Vercel serverless functions
 })
 

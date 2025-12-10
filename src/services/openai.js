@@ -93,11 +93,14 @@ export async function getRateLimitStatus() {
   try {
     const sessionToken = localStorage.getItem('sessionToken')
     if (sessionToken) {
-      const API_BASE_URL = import.meta.env.VITE_API_URL || (
-        typeof window !== 'undefined' && window.location.hostname !== 'localhost' 
-          ? '/api' 
-          : 'http://localhost:3001/api'
-      )
+      let API_BASE_URL
+      if (import.meta.env.VITE_API_URL) {
+        API_BASE_URL = import.meta.env.VITE_API_URL
+      } else if (typeof window !== 'undefined' && window.location && window.location.hostname !== 'localhost') {
+        API_BASE_URL = '/api'
+      } else {
+        API_BASE_URL = 'http://localhost:3001/api'
+      }
       const response = await fetch(`${API_BASE_URL}/users/daily-calls`, {
         headers: {
           'Authorization': `Bearer ${sessionToken}`,
@@ -264,11 +267,14 @@ Please give me a more in-depth explanation to help me truly understand this conc
     if (sessionToken) {
       // User is logged in - record via API
       try {
-        const API_BASE_URL = import.meta.env.VITE_API_URL || (
-        typeof window !== 'undefined' && window.location.hostname !== 'localhost' 
-          ? '/api' 
-          : 'http://localhost:3001/api'
-      )
+        let API_BASE_URL
+      if (import.meta.env.VITE_API_URL) {
+        API_BASE_URL = import.meta.env.VITE_API_URL
+      } else if (typeof window !== 'undefined' && window.location && window.location.hostname !== 'localhost') {
+        API_BASE_URL = '/api'
+      } else {
+        API_BASE_URL = 'http://localhost:3001/api'
+      }
         await fetch(`${API_BASE_URL}/users/record-call`, {
           method: 'POST',
           headers: {
