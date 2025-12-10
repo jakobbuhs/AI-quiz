@@ -17,7 +17,7 @@ A modern, responsive quiz application built with React and Vite, designed for de
 
 ## 🚀 Getting Started
 
-### Prerequisites
+### Prerequisitesdd
 
 - Node.js (v16 or higher)
 - npm or yarn
