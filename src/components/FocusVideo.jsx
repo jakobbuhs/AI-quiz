@@ -45,10 +45,10 @@ const FocusVideo = () => {
   }
 
   return (
-    <div className="fixed left-0 top-0 h-screen w-1/2 bg-black z-0 hidden lg:block overflow-hidden">
+    <div className="fixed left-0 top-0 h-screen w-1/2 bg-gradient-to-b from-black via-gray-900 to-black z-0 hidden lg:block overflow-hidden flex items-center justify-center">
       <video
         ref={videoRef}
-        className="w-full h-full object-cover object-bottom"
+        className="w-full h-full object-contain object-bottom"
         autoPlay
         muted
         loop
@@ -60,7 +60,10 @@ const FocusVideo = () => {
         Your browser does not support the video tag.
       </video>
       {/* Subtle overlay for better visual separation */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent pointer-events-none" />
+      {/* Shaded side bars for letterboxing */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-l from-black via-transparent to-transparent pointer-events-none" />
     </div>
   )
 }
