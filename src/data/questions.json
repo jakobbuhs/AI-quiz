@@ -1,0 +1,675 @@
+[
+  {
+    "question": "What is the primary function of the mitochondria in a cell?",
+    "options": ["Protein synthesis", "Energy production (ATP)", "DNA replication", "Cell division"],
+    "correct": "Energy production (ATP)",
+    "explanation": "Mitochondria are often called the 'powerhouse of the cell' because they generate most of the cell's supply of adenosine triphosphate (ATP), which is used as a source of chemical energy.",
+    "topic": "Biology"
+  },
+  {
+    "question": "Which planet in our solar system has the most moons?",
+    "options": ["Jupiter", "Saturn", "Uranus", "Neptune"],
+    "correct": "Saturn",
+    "explanation": "As of recent discoveries, Saturn has the most confirmed moons with over 140, surpassing Jupiter which has around 95 confirmed moons.",
+    "topic": "Astronomy"
+  },
+  {
+    "question": "What programming paradigm does JavaScript primarily support?",
+    "options": ["Only object-oriented", "Only functional", "Multi-paradigm", "Only procedural"],
+    "correct": "Multi-paradigm",
+    "explanation": "JavaScript is a multi-paradigm language that supports object-oriented, functional, and event-driven programming styles.",
+    "topic": "Programming"
+  },
+  {
+    "question": "Who painted the Mona Lisa?",
+    "options": ["Michelangelo", "Raphael", "Leonardo da Vinci", "Donatello"],
+    "correct": "Leonardo da Vinci",
+    "explanation": "The Mona Lisa was painted by Leonardo da Vinci between 1503 and 1519. It is now displayed at the Louvre Museum in Paris.",
+    "topic": "Art History"
+  },
+  {
+    "question": "What is the chemical symbol for gold?",
+    "options": ["Go", "Gd", "Au", "Ag"],
+    "correct": "Au",
+    "explanation": "Au comes from the Latin word 'aurum', which means 'shining dawn' or 'glow of sunrise'. Gold has been valued throughout history for its beauty and rarity.",
+    "topic": "Chemistry"
+  },
+  {
+    "question": "In which year did World War II end?",
+    "options": ["1943", "1944", "1945", "1946"],
+    "correct": "1945",
+    "explanation": "World War II ended in 1945 with the surrender of Germany in May and Japan in September following the atomic bombings of Hiroshima and Nagasaki.",
+    "topic": "History"
+  },
+  {
+    "question": "What is the largest ocean on Earth?",
+    "options": ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"],
+    "correct": "Pacific Ocean",
+    "explanation": "The Pacific Ocean covers approximately 165 million square kilometers, making it larger than all the land areas on Earth combined.",
+    "topic": "Geography"
+  },
+  {
+    "question": "What does CSS stand for in web development?",
+    "options": ["Computer Style Sheets", "Cascading Style Sheets", "Creative Style System", "Colorful Style Sheets"],
+    "correct": "Cascading Style Sheets",
+    "explanation": "CSS (Cascading Style Sheets) is used to describe how HTML elements should be displayed on screen, paper, or in other media.",
+    "topic": "Web Development"
+  },
+  {
+    "question": "Who wrote 'Romeo and Juliet'?",
+    "options": ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
+    "correct": "William Shakespeare",
+    "explanation": "William Shakespeare wrote Romeo and Juliet around 1594-1596. It remains one of the most performed and adapted plays in history.",
+    "topic": "Literature"
+  },
+  {
+    "question": "What is the speed of light in a vacuum?",
+    "options": ["300,000 km/s", "150,000 km/s", "500,000 km/s", "1,000,000 km/s"],
+    "correct": "300,000 km/s",
+    "explanation": "The speed of light in a vacuum is approximately 299,792 kilometers per second (about 300,000 km/s), often denoted as 'c' in physics equations.",
+    "topic": "Physics"
+  },
+  {
+    "question": "Which data structure uses LIFO (Last In, First Out)?",
+    "options": ["Queue", "Stack", "Linked List", "Tree"],
+    "correct": "Stack",
+    "explanation": "A stack follows the LIFO principle where the last element added is the first one to be removed, like a stack of plates.",
+    "topic": "Computer Science"
+  },
+  {
+    "question": "What is the capital of Australia?",
+    "options": ["Sydney", "Melbourne", "Canberra", "Perth"],
+    "correct": "Canberra",
+    "explanation": "Canberra is the capital of Australia, not Sydney or Melbourne as many people assume. It was purpose-built as the capital in the early 20th century.",
+    "topic": "Geography"
+  },
+  {
+    "question": "What is the smallest prime number?",
+    "options": ["0", "1", "2", "3"],
+    "correct": "2",
+    "explanation": "2 is the smallest and only even prime number. By definition, a prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.",
+    "topic": "Mathematics"
+  },
+  {
+    "question": "Which element has the atomic number 6?",
+    "options": ["Nitrogen", "Carbon", "Oxygen", "Boron"],
+    "correct": "Carbon",
+    "explanation": "Carbon has atomic number 6 and is the basis for all known life forms. It can form up to four covalent bonds, making it incredibly versatile.",
+    "topic": "Chemistry"
+  },
+  {
+    "question": "What does HTML stand for?",
+    "options": ["Hyper Text Markup Language", "High Tech Modern Language", "Hyper Transfer Markup Language", "Home Tool Markup Language"],
+    "correct": "Hyper Text Markup Language",
+    "explanation": "HTML (Hyper Text Markup Language) is the standard markup language for creating web pages and web applications.",
+    "topic": "Web Development"
+  },
+  {
+    "question": "Who developed the theory of relativity?",
+    "options": ["Isaac Newton", "Albert Einstein", "Niels Bohr", "Stephen Hawking"],
+    "correct": "Albert Einstein",
+    "explanation": "Albert Einstein developed the theory of relativity, with special relativity published in 1905 and general relativity in 1915.",
+    "topic": "Physics"
+  },
+  {
+    "question": "What is the largest mammal on Earth?",
+    "options": ["African Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+    "correct": "Blue Whale",
+    "explanation": "The blue whale can grow up to 100 feet long and weigh up to 200 tons, making it the largest animal known to have ever existed on Earth.",
+    "topic": "Biology"
+  },
+  {
+    "question": "In what year did the first iPhone launch?",
+    "options": ["2005", "2006", "2007", "2008"],
+    "correct": "2007",
+    "explanation": "The first iPhone was announced by Steve Jobs on January 9, 2007, and released on June 29, 2007, revolutionizing the smartphone industry.",
+    "topic": "Technology"
+  },
+  {
+    "question": "What is the Big O notation for binary search?",
+    "options": ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+    "correct": "O(log n)",
+    "explanation": "Binary search has O(log n) time complexity because it halves the search space with each comparison, making it very efficient for sorted arrays.",
+    "topic": "Computer Science"
+  },
+  {
+    "question": "Which country is home to the Great Barrier Reef?",
+    "options": ["Indonesia", "Philippines", "Australia", "Brazil"],
+    "correct": "Australia",
+    "explanation": "The Great Barrier Reef is located off the coast of Queensland, Australia. It is the world's largest coral reef system, stretching over 2,300 kilometers.",
+    "topic": "Geography"
+  },
+  {
+    "question": "What is the derivative of x²?",
+    "options": ["x", "2x", "x²", "2x²"],
+    "correct": "2x",
+    "explanation": "Using the power rule of differentiation, d/dx(x²) = 2x. The power rule states that d/dx(xⁿ) = nxⁿ⁻¹.",
+    "topic": "Mathematics"
+  },
+  {
+    "question": "Which HTTP status code indicates 'Not Found'?",
+    "options": ["200", "301", "404", "500"],
+    "correct": "404",
+    "explanation": "HTTP 404 is the standard response code indicating that the server could not find the requested resource. 200 means OK, 301 is redirect, and 500 is server error.",
+    "topic": "Web Development"
+  },
+  {
+    "question": "Who is known as the father of modern physics?",
+    "options": ["Galileo Galilei", "Isaac Newton", "Albert Einstein", "Niels Bohr"],
+    "correct": "Albert Einstein",
+    "explanation": "While Galileo is the father of modern science and Newton laid the foundation for classical mechanics, Einstein is often called the father of modern physics for his revolutionary theories.",
+    "topic": "Physics"
+  },
+  {
+    "question": "What is the main component of natural gas?",
+    "options": ["Propane", "Methane", "Ethane", "Butane"],
+    "correct": "Methane",
+    "explanation": "Methane (CH₄) makes up about 70-90% of natural gas. It is the simplest hydrocarbon and a potent greenhouse gas.",
+    "topic": "Chemistry"
+  },
+  {
+    "question": "Which sorting algorithm has the best average-case time complexity?",
+    "options": ["Bubble Sort", "Insertion Sort", "Merge Sort", "Selection Sort"],
+    "correct": "Merge Sort",
+    "explanation": "Merge Sort has O(n log n) average-case time complexity, which is better than O(n²) for Bubble Sort, Insertion Sort, and Selection Sort.",
+    "topic": "Computer Science"
+  },
+  {
+    "question": "What is the currency of Japan?",
+    "options": ["Yuan", "Won", "Yen", "Ringgit"],
+    "correct": "Yen",
+    "explanation": "The Japanese Yen (¥) is the official currency of Japan. It is the third most traded currency in the foreign exchange market after the US dollar and Euro.",
+    "topic": "General Knowledge"
+  },
+  {
+    "question": "Which organ produces insulin in the human body?",
+    "options": ["Liver", "Kidney", "Pancreas", "Stomach"],
+    "correct": "Pancreas",
+    "explanation": "Insulin is produced by beta cells in the islets of Langerhans in the pancreas. It regulates blood glucose levels.",
+    "topic": "Biology"
+  },
+  {
+    "question": "What does API stand for?",
+    "options": ["Application Programming Interface", "Advanced Program Integration", "Automatic Protocol Interface", "Application Process Integration"],
+    "correct": "Application Programming Interface",
+    "explanation": "An API (Application Programming Interface) defines interactions between software components, allowing applications to communicate with each other.",
+    "topic": "Programming"
+  },
+  {
+    "question": "Who painted 'The Starry Night'?",
+    "options": ["Claude Monet", "Vincent van Gogh", "Pablo Picasso", "Salvador Dalí"],
+    "correct": "Vincent van Gogh",
+    "explanation": "The Starry Night was painted by Vincent van Gogh in June 1889 while he was staying at the Saint-Paul-de-Mausole asylum in France.",
+    "topic": "Art History"
+  },
+  {
+    "question": "What is the square root of 144?",
+    "options": ["10", "11", "12", "14"],
+    "correct": "12",
+    "explanation": "12 × 12 = 144, so the square root of 144 is 12. This is a perfect square number.",
+    "topic": "Mathematics"
+  },
+  {
+    "question": "Which planet is known as the Red Planet?",
+    "options": ["Venus", "Mars", "Jupiter", "Mercury"],
+    "correct": "Mars",
+    "explanation": "Mars is called the Red Planet because of its reddish appearance, which is caused by iron oxide (rust) on its surface.",
+    "topic": "Astronomy"
+  },
+  {
+    "question": "What is the time complexity of accessing an element in an array by index?",
+    "options": ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+    "correct": "O(1)",
+    "explanation": "Array access by index is O(1) or constant time because arrays store elements in contiguous memory locations, allowing direct calculation of any element's address.",
+    "topic": "Computer Science"
+  },
+  {
+    "question": "Which gas makes up the majority of Earth's atmosphere?",
+    "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+    "correct": "Nitrogen",
+    "explanation": "Nitrogen makes up about 78% of Earth's atmosphere, while oxygen comprises about 21%. The remaining 1% includes argon, carbon dioxide, and other gases.",
+    "topic": "Science"
+  },
+  {
+    "question": "In which year was the World Wide Web invented?",
+    "options": ["1985", "1989", "1991", "1995"],
+    "correct": "1989",
+    "explanation": "Tim Berners-Lee invented the World Wide Web in 1989 while working at CERN. The first website went live in 1991.",
+    "topic": "Technology"
+  },
+  {
+    "question": "What is the largest country by land area?",
+    "options": ["China", "United States", "Canada", "Russia"],
+    "correct": "Russia",
+    "explanation": "Russia spans over 17 million square kilometers, making it the largest country by land area, covering more than 11% of the world's landmass.",
+    "topic": "Geography"
+  },
+  {
+    "question": "What does SQL stand for?",
+    "options": ["Structured Query Language", "Standard Query Language", "Simple Query Language", "System Query Language"],
+    "correct": "Structured Query Language",
+    "explanation": "SQL (Structured Query Language) is a domain-specific language used for managing and manipulating relational databases.",
+    "topic": "Database"
+  },
+  {
+    "question": "Who wrote '1984'?",
+    "options": ["Aldous Huxley", "George Orwell", "Ray Bradbury", "Philip K. Dick"],
+    "correct": "George Orwell",
+    "explanation": "George Orwell wrote '1984', published in 1949. It depicts a dystopian future of totalitarian rule and has become a classic of political fiction.",
+    "topic": "Literature"
+  },
+  {
+    "question": "What is the formula for calculating the area of a circle?",
+    "options": ["πr", "2πr", "πr²", "2πr²"],
+    "correct": "πr²",
+    "explanation": "The area of a circle is calculated using A = πr², where r is the radius. The circumference formula is 2πr.",
+    "topic": "Mathematics"
+  },
+  {
+    "question": "Which programming language was created by Guido van Rossum?",
+    "options": ["Java", "Python", "Ruby", "JavaScript"],
+    "correct": "Python",
+    "explanation": "Python was created by Guido van Rossum and first released in 1991. It was named after the British comedy group Monty Python.",
+    "topic": "Programming"
+  },
+  {
+    "question": "What is the boiling point of water at sea level in Celsius?",
+    "options": ["90°C", "95°C", "100°C", "105°C"],
+    "correct": "100°C",
+    "explanation": "Water boils at 100°C (212°F) at standard atmospheric pressure (sea level). This temperature decreases at higher altitudes.",
+    "topic": "Physics"
+  },
+  {
+    "question": "Which version control system is the most widely used?",
+    "options": ["SVN", "Mercurial", "Git", "CVS"],
+    "correct": "Git",
+    "explanation": "Git, created by Linus Torvalds in 2005, is the most widely used version control system, especially popular through platforms like GitHub and GitLab.",
+    "topic": "Software Development"
+  },
+  {
+    "question": "What is the smallest bone in the human body?",
+    "options": ["Anvil", "Hammer", "Stirrup", "Phalanx"],
+    "correct": "Stirrup",
+    "explanation": "The stapes (stirrup) in the middle ear is the smallest bone in the human body, measuring about 3mm. It helps transmit sound vibrations.",
+    "topic": "Biology"
+  },
+  {
+    "question": "Which country invented paper?",
+    "options": ["Japan", "India", "China", "Egypt"],
+    "correct": "China",
+    "explanation": "Paper was invented in China around 105 AD by Cai Lun during the Han Dynasty, though earlier forms existed. The technology later spread worldwide.",
+    "topic": "History"
+  },
+  {
+    "question": "What does JSON stand for?",
+    "options": ["JavaScript Object Notation", "Java Standard Object Notation", "JavaScript Oriented Notation", "Java Simple Object Notation"],
+    "correct": "JavaScript Object Notation",
+    "explanation": "JSON (JavaScript Object Notation) is a lightweight data interchange format that is easy for humans to read and write and easy for machines to parse.",
+    "topic": "Programming"
+  },
+  {
+    "question": "How many bits are in a byte?",
+    "options": ["4", "6", "8", "16"],
+    "correct": "8",
+    "explanation": "A byte consists of 8 bits. This is the standard unit of digital information in computing and telecommunications.",
+    "topic": "Computer Science"
+  },
+  {
+    "question": "Which river is the longest in the world?",
+    "options": ["Amazon", "Nile", "Yangtze", "Mississippi"],
+    "correct": "Nile",
+    "explanation": "The Nile River in Africa is traditionally considered the longest river at about 6,650 km, though some measurements suggest the Amazon might be longer.",
+    "topic": "Geography"
+  },
+  {
+    "question": "What is the value of Pi (π) to two decimal places?",
+    "options": ["3.12", "3.14", "3.16", "3.18"],
+    "correct": "3.14",
+    "explanation": "Pi (π) is approximately 3.14159... It represents the ratio of a circle's circumference to its diameter.",
+    "topic": "Mathematics"
+  },
+  {
+    "question": "Which company developed the React JavaScript library?",
+    "options": ["Google", "Microsoft", "Facebook (Meta)", "Amazon"],
+    "correct": "Facebook (Meta)",
+    "explanation": "React was developed by Facebook (now Meta) and was first released in 2013. It is now one of the most popular JavaScript libraries for building user interfaces.",
+    "topic": "Web Development"
+  },
+  {
+    "question": "What is the chemical formula for water?",
+    "options": ["H₂O", "CO₂", "NaCl", "HO₂"],
+    "correct": "H₂O",
+    "explanation": "Water's chemical formula H₂O indicates each molecule contains two hydrogen atoms bonded to one oxygen atom.",
+    "topic": "Chemistry"
+  },
+  {
+    "question": "Who discovered penicillin?",
+    "options": ["Louis Pasteur", "Alexander Fleming", "Joseph Lister", "Robert Koch"],
+    "correct": "Alexander Fleming",
+    "explanation": "Alexander Fleming discovered penicillin in 1928 when he noticed that mold had killed bacteria in a petri dish. This led to the development of antibiotics.",
+    "topic": "Science"
+  },
+  {
+    "question": "What does REST stand for in web services?",
+    "options": ["Remote Execution State Transfer", "Representational State Transfer", "Resource State Transfer", "Remote State Transmission"],
+    "correct": "Representational State Transfer",
+    "explanation": "REST (Representational State Transfer) is an architectural style for designing networked applications, commonly used in web APIs.",
+    "topic": "Web Development"
+  },
+  {
+    "question": "Which organ is responsible for filtering blood in the human body?",
+    "options": ["Liver", "Lungs", "Kidneys", "Heart"],
+    "correct": "Kidneys",
+    "explanation": "The kidneys filter about 120-150 quarts of blood daily, removing waste and extra fluid to produce urine.",
+    "topic": "Biology"
+  },
+  {
+    "question": "What is the result of 2^10?",
+    "options": ["512", "1024", "2048", "4096"],
+    "correct": "1024",
+    "explanation": "2^10 = 1024, which is why 1 kilobyte in binary computing is traditionally defined as 1024 bytes.",
+    "topic": "Mathematics"
+  },
+  {
+    "question": "Which ancient wonder was located in Alexandria?",
+    "options": ["Hanging Gardens", "Colossus", "Lighthouse", "Mausoleum"],
+    "correct": "Lighthouse",
+    "explanation": "The Lighthouse of Alexandria (Pharos) was one of the Seven Wonders of the Ancient World, built around 280 BC and standing about 100-130 meters tall.",
+    "topic": "History"
+  },
+  {
+    "question": "What is the main purpose of the DNS system?",
+    "options": ["Encrypt data", "Route packets", "Translate domain names to IP addresses", "Store web pages"],
+    "correct": "Translate domain names to IP addresses",
+    "explanation": "DNS (Domain Name System) translates human-readable domain names (like google.com) to IP addresses that computers use to identify each other on the network.",
+    "topic": "Networking"
+  },
+  {
+    "question": "Which layer of the OSI model handles routing?",
+    "options": ["Data Link", "Network", "Transport", "Session"],
+    "correct": "Network",
+    "explanation": "The Network layer (Layer 3) of the OSI model handles routing and forwarding of data packets between different networks using IP addresses.",
+    "topic": "Networking"
+  },
+  {
+    "question": "What is the half-life of Carbon-14?",
+    "options": ["1,000 years", "5,730 years", "10,000 years", "50,000 years"],
+    "correct": "5,730 years",
+    "explanation": "Carbon-14 has a half-life of approximately 5,730 years, making it useful for radiocarbon dating of organic materials up to about 50,000 years old.",
+    "topic": "Physics"
+  },
+  {
+    "question": "Which design pattern ensures only one instance of a class exists?",
+    "options": ["Factory", "Observer", "Singleton", "Decorator"],
+    "correct": "Singleton",
+    "explanation": "The Singleton pattern restricts a class to a single instance and provides a global point of access to it. It's commonly used for logging, configuration, and database connections.",
+    "topic": "Software Design"
+  },
+  {
+    "question": "What is the largest planet in our solar system?",
+    "options": ["Saturn", "Neptune", "Jupiter", "Uranus"],
+    "correct": "Jupiter",
+    "explanation": "Jupiter is the largest planet in our solar system, with a mass more than twice that of all other planets combined. Its diameter is about 11 times that of Earth.",
+    "topic": "Astronomy"
+  },
+  {
+    "question": "Which Nobel Prize category did Marie Curie win twice?",
+    "options": ["Physics and Chemistry", "Peace and Literature", "Medicine and Physics", "Chemistry and Medicine"],
+    "correct": "Physics and Chemistry",
+    "explanation": "Marie Curie won the Nobel Prize in Physics (1903) for her work on radioactivity and in Chemistry (1911) for discovering polonium and radium.",
+    "topic": "Science History"
+  },
+  {
+    "question": "What does SOLID stand for in software development?",
+    "options": ["Simple, Open, Liskov, Interface, Dependency", "Single, Open, Liskov, Interface, Dependency", "Structured, Object, Linear, Interface, Design", "Single, Object, Liskov, Inheritance, Dependency"],
+    "correct": "Single, Open, Liskov, Interface, Dependency",
+    "explanation": "SOLID represents five design principles: Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion.",
+    "topic": "Software Design"
+  },
+  {
+    "question": "Which blood type is known as the universal donor?",
+    "options": ["A", "B", "AB", "O"],
+    "correct": "O",
+    "explanation": "Type O negative is the universal donor because it lacks A, B, and Rh antigens, making it compatible with all other blood types in emergencies.",
+    "topic": "Biology"
+  },
+  {
+    "question": "What year did the first programmable computer, ENIAC, become operational?",
+    "options": ["1943", "1946", "1950", "1955"],
+    "correct": "1946",
+    "explanation": "ENIAC (Electronic Numerical Integrator and Computer) became operational in 1946 at the University of Pennsylvania. It weighed 30 tons and occupied 1,800 square feet.",
+    "topic": "Computer History"
+  },
+  {
+    "question": "What is the escape velocity from Earth's surface?",
+    "options": ["7.9 km/s", "11.2 km/s", "15.5 km/s", "25.0 km/s"],
+    "correct": "11.2 km/s",
+    "explanation": "Earth's escape velocity is about 11.2 km/s (approximately 25,000 mph). Objects must reach this speed to break free from Earth's gravitational pull.",
+    "topic": "Physics"
+  },
+  {
+    "question": "Which encryption algorithm is considered asymmetric?",
+    "options": ["AES", "DES", "RSA", "Blowfish"],
+    "correct": "RSA",
+    "explanation": "RSA is an asymmetric encryption algorithm that uses a public key for encryption and a private key for decryption. AES, DES, and Blowfish are symmetric algorithms.",
+    "topic": "Cryptography"
+  },
+  {
+    "question": "What is the official language of Brazil?",
+    "options": ["Spanish", "Portuguese", "Italian", "French"],
+    "correct": "Portuguese",
+    "explanation": "Portuguese is the official language of Brazil due to Portuguese colonization beginning in 1500. Brazil has the largest Portuguese-speaking population in the world.",
+    "topic": "Geography"
+  },
+  {
+    "question": "Which physicist proposed the uncertainty principle?",
+    "options": ["Albert Einstein", "Werner Heisenberg", "Erwin Schrödinger", "Max Planck"],
+    "correct": "Werner Heisenberg",
+    "explanation": "Werner Heisenberg formulated the uncertainty principle in 1927, stating that one cannot simultaneously know both the exact position and momentum of a particle.",
+    "topic": "Physics"
+  },
+  {
+    "question": "What is the main difference between HTTP and HTTPS?",
+    "options": ["Speed", "Security (encryption)", "Data format", "Port number only"],
+    "correct": "Security (encryption)",
+    "explanation": "HTTPS (HTTP Secure) uses SSL/TLS encryption to secure data transmitted between browser and server, protecting against eavesdropping and tampering.",
+    "topic": "Web Security"
+  },
+  {
+    "question": "Which data structure is best for implementing a priority queue?",
+    "options": ["Array", "Linked List", "Heap", "Stack"],
+    "correct": "Heap",
+    "explanation": "A heap (typically binary heap) is optimal for priority queues as it provides O(log n) insertion and O(log n) extraction of the minimum/maximum element.",
+    "topic": "Data Structures"
+  },
+  {
+    "question": "What does CPU stand for?",
+    "options": ["Central Processing Unit", "Computer Personal Unit", "Central Program Utility", "Core Processing Unit"],
+    "correct": "Central Processing Unit",
+    "explanation": "The CPU (Central Processing Unit) is the primary component of a computer that performs most of the processing, executing instructions from programs.",
+    "topic": "Computer Hardware"
+  },
+  {
+    "question": "Which element is the most abundant in the universe?",
+    "options": ["Oxygen", "Carbon", "Helium", "Hydrogen"],
+    "correct": "Hydrogen",
+    "explanation": "Hydrogen makes up about 75% of all normal matter in the universe by mass. It is the simplest and lightest element, with only one proton.",
+    "topic": "Chemistry"
+  },
+  {
+    "question": "What is the Fibonacci sequence's next number after 21?",
+    "options": ["28", "32", "34", "42"],
+    "correct": "34",
+    "explanation": "In the Fibonacci sequence, each number is the sum of the two preceding ones. After 13 and 21 comes 34 (13 + 21 = 34).",
+    "topic": "Mathematics"
+  },
+  {
+    "question": "Which protocol is used for sending email?",
+    "options": ["FTP", "SMTP", "HTTP", "POP3"],
+    "correct": "SMTP",
+    "explanation": "SMTP (Simple Mail Transfer Protocol) is used for sending emails. POP3 and IMAP are used for receiving/retrieving emails.",
+    "topic": "Networking"
+  },
+  {
+    "question": "What is the powerhouse of a computer?",
+    "options": ["CPU", "GPU", "RAM", "PSU"],
+    "correct": "PSU",
+    "explanation": "The PSU (Power Supply Unit) converts AC power from the outlet to DC power for the computer's components. Without it, no component would function.",
+    "topic": "Computer Hardware"
+  },
+  {
+    "question": "Which ancient civilization built the pyramids of Giza?",
+    "options": ["Romans", "Greeks", "Egyptians", "Mesopotamians"],
+    "correct": "Egyptians",
+    "explanation": "The Great Pyramids of Giza were built by the ancient Egyptians during the Old Kingdom period, around 2560 BC for Pharaoh Khufu.",
+    "topic": "History"
+  },
+  {
+    "question": "What is the default port for HTTP?",
+    "options": ["21", "80", "443", "8080"],
+    "correct": "80",
+    "explanation": "Port 80 is the default port for HTTP. Port 443 is used for HTTPS, port 21 for FTP, and 8080 is often used as an alternative HTTP port.",
+    "topic": "Networking"
+  },
+  {
+    "question": "Which hormone regulates sleep-wake cycles?",
+    "options": ["Insulin", "Cortisol", "Melatonin", "Adrenaline"],
+    "correct": "Melatonin",
+    "explanation": "Melatonin is produced by the pineal gland and helps regulate the circadian rhythm (sleep-wake cycle). Its production increases in darkness.",
+    "topic": "Biology"
+  },
+  {
+    "question": "What does IDE stand for in programming?",
+    "options": ["Integrated Development Environment", "Interactive Design Editor", "Internal Data Exchange", "Integrated Data Environment"],
+    "correct": "Integrated Development Environment",
+    "explanation": "An IDE (Integrated Development Environment) is software that provides comprehensive facilities for software development, including code editor, compiler, debugger, and more.",
+    "topic": "Programming"
+  },
+  {
+    "question": "Which continent has the most countries?",
+    "options": ["Asia", "Europe", "Africa", "South America"],
+    "correct": "Africa",
+    "explanation": "Africa has 54 recognized countries, making it the continent with the most nations. Asia has 48, Europe has 44, and South America has 12.",
+    "topic": "Geography"
+  },
+  {
+    "question": "What is the atomic number of oxygen?",
+    "options": ["6", "7", "8", "9"],
+    "correct": "8",
+    "explanation": "Oxygen has atomic number 8, meaning it has 8 protons in its nucleus. It is the third most abundant element in the universe.",
+    "topic": "Chemistry"
+  },
+  {
+    "question": "Which programming concept allows objects of different types to be treated uniformly?",
+    "options": ["Encapsulation", "Inheritance", "Polymorphism", "Abstraction"],
+    "correct": "Polymorphism",
+    "explanation": "Polymorphism allows objects of different classes to be treated as objects of a common superclass. The same method can behave differently based on the object type.",
+    "topic": "Object-Oriented Programming"
+  },
+  {
+    "question": "What is the freezing point of water in Fahrenheit?",
+    "options": ["0°F", "32°F", "100°F", "212°F"],
+    "correct": "32°F",
+    "explanation": "Water freezes at 32°F (0°C) at standard atmospheric pressure. 212°F is the boiling point of water in Fahrenheit.",
+    "topic": "Physics"
+  },
+  {
+    "question": "Which company created the Java programming language?",
+    "options": ["Microsoft", "Sun Microsystems", "IBM", "Apple"],
+    "correct": "Sun Microsystems",
+    "explanation": "Java was created by James Gosling at Sun Microsystems and released in 1995. Oracle Corporation acquired Sun Microsystems in 2010.",
+    "topic": "Programming"
+  },
+  {
+    "question": "What is the study of fungi called?",
+    "options": ["Botany", "Mycology", "Zoology", "Virology"],
+    "correct": "Mycology",
+    "explanation": "Mycology is the branch of biology concerned with the study of fungi, including their genetic and biochemical properties, taxonomy, and use to humans.",
+    "topic": "Biology"
+  },
+  {
+    "question": "Which sorting algorithm is the fastest on average for large datasets?",
+    "options": ["Bubble Sort", "Quick Sort", "Insertion Sort", "Selection Sort"],
+    "correct": "Quick Sort",
+    "explanation": "Quick Sort has an average time complexity of O(n log n) and is generally faster in practice than other O(n log n) algorithms due to better cache performance.",
+    "topic": "Algorithms"
+  },
+  {
+    "question": "What is the longest bone in the human body?",
+    "options": ["Tibia", "Humerus", "Femur", "Spine"],
+    "correct": "Femur",
+    "explanation": "The femur (thigh bone) is the longest and strongest bone in the human body, typically about 1/4 of a person's height.",
+    "topic": "Biology"
+  },
+  {
+    "question": "Which year did the first moon landing occur?",
+    "options": ["1967", "1968", "1969", "1970"],
+    "correct": "1969",
+    "explanation": "Apollo 11 landed on the Moon on July 20, 1969. Neil Armstrong became the first human to walk on the lunar surface.",
+    "topic": "History"
+  },
+  {
+    "question": "What does RAM stand for?",
+    "options": ["Random Access Memory", "Read Access Memory", "Rapid Access Memory", "Remote Access Memory"],
+    "correct": "Random Access Memory",
+    "explanation": "RAM (Random Access Memory) is a type of computer memory that can be read and changed in any order, used to store working data and machine code.",
+    "topic": "Computer Hardware"
+  },
+  {
+    "question": "Which gas is used in balloons to make them float?",
+    "options": ["Oxygen", "Nitrogen", "Helium", "Carbon Dioxide"],
+    "correct": "Helium",
+    "explanation": "Helium is used in balloons because it is lighter than air (about 7 times less dense) and is non-flammable, making it safe for recreational use.",
+    "topic": "Physics"
+  },
+  {
+    "question": "What is the primary function of a compiler?",
+    "options": ["Execute code directly", "Convert source code to machine code", "Debug programs", "Manage memory"],
+    "correct": "Convert source code to machine code",
+    "explanation": "A compiler translates source code written in a high-level programming language into machine code (object code) that a computer's CPU can execute.",
+    "topic": "Computer Science"
+  },
+  {
+    "question": "Which planet has the shortest year (orbital period)?",
+    "options": ["Venus", "Mercury", "Mars", "Earth"],
+    "correct": "Mercury",
+    "explanation": "Mercury has the shortest orbital period at about 88 Earth days because it is closest to the Sun and travels faster in its orbit.",
+    "topic": "Astronomy"
+  },
+  {
+    "question": "What is the primary purpose of an index in a database?",
+    "options": ["Store data", "Backup data", "Speed up queries", "Validate data"],
+    "correct": "Speed up queries",
+    "explanation": "Database indexes improve query performance by allowing the database to find data without scanning every row. They work like a book's index.",
+    "topic": "Database"
+  },
+  {
+    "question": "Which vitamin is produced when skin is exposed to sunlight?",
+    "options": ["Vitamin A", "Vitamin C", "Vitamin D", "Vitamin E"],
+    "correct": "Vitamin D",
+    "explanation": "Vitamin D is synthesized in the skin when exposed to UVB radiation from sunlight. It's essential for bone health and immune function.",
+    "topic": "Biology"
+  },
+  {
+    "question": "What is the time complexity of searching in a balanced binary search tree?",
+    "options": ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
+    "correct": "O(log n)",
+    "explanation": "In a balanced BST, search operations take O(log n) time because the tree's height is logarithmic relative to the number of nodes, halving the search space at each step.",
+    "topic": "Data Structures"
+  },
+  {
+    "question": "Which ocean is the deepest?",
+    "options": ["Atlantic", "Indian", "Pacific", "Arctic"],
+    "correct": "Pacific",
+    "explanation": "The Pacific Ocean contains the Mariana Trench, the deepest point on Earth at about 11,034 meters (36,201 feet) below sea level.",
+    "topic": "Geography"
+  },
+  {
+    "question": "What is Docker primarily used for?",
+    "options": ["Version control", "Containerization", "Code compilation", "Network security"],
+    "correct": "Containerization",
+    "explanation": "Docker is a platform for developing, shipping, and running applications in containers - lightweight, standalone packages that include everything needed to run software.",
+    "topic": "DevOps"
+  }
+]
+
