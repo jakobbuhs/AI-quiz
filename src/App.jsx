@@ -4,8 +4,10 @@ import QuizQuestion from './components/QuizQuestion'
 import QuizResults from './components/QuizResults'
 import QuizTimer from './components/QuizTimer'
 import ProgressBar from './components/ProgressBar'
+import CookieConsent from './components/CookieConsent'
 import questions from './data/questions.json'
 import { Brain, AlertTriangle, LogOut } from 'lucide-react'
+import { saveQuizState, loadQuizState, clearQuizState, hasAcceptedCookies } from './utils/storage'
 
 // Utility function to shuffle an array
 const shuffleArray = (array) => {
@@ -44,6 +46,55 @@ function App() {
   const [showExitDialog, setShowExitDialog] = useState(false)
   const [showFeedback, setShowFeedback] = useState(false) // For learn mode
   const [answerResults, setAnswerResults] = useState([]) // Track correct/incorrect for each question
+  const [cookiesAccepted, setCookiesAccepted] = useState(false)
+
+  // Load saved quiz state on mount (if cookies accepted)
+  useEffect(() => {
+    const savedState = loadQuizState()
+    if (savedState && savedState.quizStatus === QUIZ_STATUS.IN_PROGRESS) {
+      // Restore quiz state
+      setQuizStatus(savedState.quizStatus)
+      setQuizMode(savedState.quizMode)
+      setSelectedQuestionCount(savedState.selectedQuestionCount)
+      setCurrentQuestionIndex(savedState.currentQuestionIndex)
+      setSelectedQuestions(savedState.selectedQuestions)
+      setUserAnswers(savedState.userAnswers)
+      setTimeRemaining(savedState.timeRemaining)
+      setTimeTaken(savedState.timeTaken)
+      setAnswerResults(savedState.answerResults || [])
+    }
+    
+    // Check if cookies were previously accepted
+    setCookiesAccepted(hasAcceptedCookies())
+  }, [])
+
+  // Save quiz state whenever it changes (only if cookies accepted and quiz is in progress)
+  useEffect(() => {
+    if (cookiesAccepted && quizStatus === QUIZ_STATUS.IN_PROGRESS) {
+      saveQuizState({
+        quizStatus,
+        quizMode,
+        selectedQuestionCount,
+        currentQuestionIndex,
+        selectedQuestions,
+        userAnswers,
+        timeRemaining,
+        timeTaken,
+        answerResults,
+      })
+    }
+  }, [
+    cookiesAccepted,
+    quizStatus,
+    quizMode,
+    selectedQuestionCount,
+    currentQuestionIndex,
+    selectedQuestions,
+    userAnswers,
+    timeRemaining,
+    timeTaken,
+    answerResults,
+  ])
 
   // Calculate time limit: 10 minutes per 20 questions
   const calculateTimeLimit = useCallback((questionCount) => {
@@ -132,6 +183,7 @@ function App() {
 
   // Exit quiz handler
   const handleExitQuiz = useCallback(() => {
+    clearQuizState()
     setQuizStatus(QUIZ_STATUS.SETUP)
     setCurrentQuestionIndex(0)
     setSelectedQuestions([])
@@ -145,6 +197,7 @@ function App() {
 
   // Restart quiz handler
   const handleRestartQuiz = useCallback(() => {
+    clearQuizState()
     setQuizStatus(QUIZ_STATUS.SETUP)
     setCurrentQuestionIndex(0)
     setSelectedQuestions([])
@@ -153,6 +206,16 @@ function App() {
     setTimeRemaining(0)
     setTimeTaken(0)
     setShowFeedback(false)
+  }, [])
+
+  // Cookie consent handlers
+  const handleCookieAccept = useCallback(() => {
+    setCookiesAccepted(true)
+  }, [])
+
+  const handleCookieDecline = useCallback(() => {
+    setCookiesAccepted(false)
+    clearQuizState()
   }, [])
 
   // Keyboard navigation
@@ -217,6 +280,9 @@ function App() {
 
   return (
     <div className="min-h-screen py-8 px-4">
+      {/* Cookie Consent Dialog */}
+      <CookieConsent onAccept={handleCookieAccept} onDecline={handleCookieDecline} />
+      
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <header className="text-center mb-8 animate-fade-in">
@@ -332,7 +398,7 @@ function App() {
               </div>
               
               <p className="text-gray-600 mb-6">
-                Are you sure you want to exit? Your progress will be lost.
+                Are you sure you want to exit? {cookiesAccepted ? 'Your saved progress will be cleared.' : 'Your progress will be lost.'}
               </p>
               
               <div className="flex gap-3">
