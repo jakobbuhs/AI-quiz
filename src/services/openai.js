@@ -137,13 +137,33 @@ Please give me a more in-depth explanation to help me truly understand this conc
  * @returns {boolean}
  */
 export function isOpenAIConfigured() {
-  const hasKey = OPENAI_API_KEY && OPENAI_API_KEY !== 'your_openai_api_key_here' && OPENAI_API_KEY.trim().length > 0
+  // Debug: Log what we're getting (safely)
+  const keyExists = !!OPENAI_API_KEY
+  const keyLength = OPENAI_API_KEY ? OPENAI_API_KEY.length : 0
+  const keyStartsWith = OPENAI_API_KEY ? OPENAI_API_KEY.substring(0, 7) : 'none'
+  
+  console.log('🔍 OpenAI API Key Check:', {
+    exists: keyExists,
+    length: keyLength,
+    startsWith: keyStartsWith,
+    isDefault: OPENAI_API_KEY === 'your_openai_api_key_here',
+    isEmpty: OPENAI_API_KEY === '',
+    envMode: import.meta.env.MODE,
+    allEnvKeys: Object.keys(import.meta.env).filter(k => k.includes('OPENAI'))
+  })
+  
+  const hasKey = OPENAI_API_KEY && 
+                 OPENAI_API_KEY !== 'your_openai_api_key_here' && 
+                 OPENAI_API_KEY.trim().length > 0 &&
+                 OPENAI_API_KEY.startsWith('sk-')
+  
   if (!hasKey) {
-    console.warn('⚠️ OpenAI API key not found. Make sure:')
-    console.warn('   1. .env file exists in project root')
-    console.warn('   2. Contains: VITE_OPENAI_API_KEY=sk-...')
-    console.warn('   3. Dev server was restarted after creating .env')
-    console.warn('   Current value:', OPENAI_API_KEY ? 'exists but invalid' : 'undefined')
+    console.warn('⚠️ OpenAI API key not configured correctly.')
+    console.warn('   For GitHub Pages: Set secret VITE_OPENAI_API_KEY in repo settings')
+    console.warn('   For local dev: Create .env file with VITE_OPENAI_API_KEY=sk-...')
+  } else {
+    console.log('✅ OpenAI API key is configured')
   }
+  
   return hasKey
 }
