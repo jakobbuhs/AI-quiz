@@ -253,8 +253,8 @@ const QuizQuestion = memo(function QuizQuestion({
 
       {/* Navigation */}
       <div className="flex flex-col sm:flex-row gap-3">
-        {/* Previous Button - only in exam mode */}
-        {!isLearnMode && (
+        {/* Previous Button - show in exam mode or learn mode (when feedback is shown) */}
+        {(!isLearnMode || showFeedback) && (
           <button
             onClick={onPrevious}
             disabled={isFirst}
@@ -268,17 +268,30 @@ const QuizQuestion = memo(function QuizQuestion({
 
         {/* Next or Submit Button */}
         {isLearnMode ? (
-          // Learn mode - single continue button
+          // Learn mode - navigation buttons
           showFeedback ? (
-            <button
-              onClick={handleNext}
-              className="btn-primary flex items-center justify-center gap-2 w-full bg-gradient-to-r from-emerald-500 to-teal-500 shadow-emerald-500/30 hover:shadow-emerald-500/40"
-              aria-label={isLast ? "Finish" : "Next question"}
-            >
-              {isLast ? 'Finish' : 'Continue'}
-              <CornerDownLeft className="w-5 h-5" />
-              <span className="text-xs opacity-75 ml-1">Enter</span>
-            </button>
+            <div className="flex gap-3 w-full order-1">
+              {isLast ? (
+                <button
+                  onClick={handleNext}
+                  className="btn-primary flex items-center justify-center gap-2 flex-1 bg-gradient-to-r from-emerald-500 to-teal-500 shadow-emerald-500/30 hover:shadow-emerald-500/40"
+                  aria-label="Finish"
+                >
+                  Finish
+                  <CornerDownLeft className="w-5 h-5" />
+                  <span className="text-xs opacity-75 ml-1">Enter</span>
+                </button>
+              ) : (
+                <button
+                  onClick={handleNext}
+                  className="btn-primary flex items-center justify-center gap-2 flex-1 bg-gradient-to-r from-emerald-500 to-teal-500 shadow-emerald-500/30 hover:shadow-emerald-500/40"
+                  aria-label="Next question"
+                >
+                  Next
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              )}
+            </div>
           ) : (
             <div className="w-full text-center py-3 text-gray-400">
               Select an answer to continue

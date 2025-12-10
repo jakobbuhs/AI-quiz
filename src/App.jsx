@@ -246,7 +246,7 @@ function App() {
           }
           break
         case 'ArrowLeft':
-          if (quizMode === QUIZ_MODE.EXAM) {
+          if (quizMode === QUIZ_MODE.EXAM || (quizMode === QUIZ_MODE.LEARN && showFeedback)) {
             handlePreviousQuestion()
           }
           break
