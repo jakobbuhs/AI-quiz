@@ -1,4 +1,4 @@
-import { memo, useMemo, useState } from 'react'
+import { memo, useMemo, useState, useEffect, useRef, useCallback } from 'react'
 import { 
   Trophy, 
   Clock, 
@@ -8,6 +8,8 @@ import {
   XCircle, 
   ChevronDown,
   ChevronUp,
+  ChevronLeft,
+  ChevronRight,
   Tag,
   Award,
   TrendingUp,
@@ -33,9 +35,11 @@ const QuizResults = memo(function QuizResults({
   const isLearnMode = quizMode === QUIZ_MODE.LEARN
   const [expandedQuestions, setExpandedQuestions] = useState(new Set())
   const [showAll, setShowAll] = useState(false)
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [aiExplanations, setAiExplanations] = useState({}) // { questionIndex: explanation }
   const [loadingAI, setLoadingAI] = useState({}) // { questionIndex: true/false }
   const [aiErrors, setAiErrors] = useState({}) // { questionIndex: errorMessage }
+  const questionRefs = useRef({}) // Refs for scrolling to questions
 
   // Calculate results
   const results = useMemo(() => {
@@ -105,6 +109,17 @@ const QuizResults = memo(function QuizResults({
     setExpandedQuestions((prev) => {
       const newSet = new Set(prev)
       if (newSet.has(index)) {
+        // When collapsing, clear AI explanation for this question
+        setAiExplanations(prev => {
+          const newExplanations = { ...prev }
+          delete newExplanations[index]
+          return newExplanations
+        })
+        setAiErrors(prev => {
+          const newErrors = { ...prev }
+          delete newErrors[index]
+          return newErrors
+        })
         newSet.delete(index)
       } else {
         newSet.add(index)
@@ -112,6 +127,56 @@ const QuizResults = memo(function QuizResults({
       return newSet
     })
   }
+
+  // Navigate to next question
+  const handleNextQuestion = useCallback(() => {
+    if (currentQuestionIndex < results.questionResults.length - 1) {
+      const nextIndex = currentQuestionIndex + 1
+      setCurrentQuestionIndex(nextIndex)
+      // Auto-expand the next question
+      setExpandedQuestions(prev => new Set([...prev, nextIndex]))
+      // Clear AI explanation from previous question
+      clearAIExplanationForIndex(currentQuestionIndex)
+      // Scroll to the question
+      scrollToQuestion(nextIndex)
+    }
+  }, [currentQuestionIndex, results.questionResults.length, clearAIExplanationForIndex, scrollToQuestion])
+
+  // Navigate to previous question
+  const handlePreviousQuestion = useCallback(() => {
+    if (currentQuestionIndex > 0) {
+      const prevIndex = currentQuestionIndex - 1
+      setCurrentQuestionIndex(prevIndex)
+      // Auto-expand the previous question
+      setExpandedQuestions(prev => new Set([...prev, prevIndex]))
+      // Clear AI explanation from current question
+      clearAIExplanationForIndex(currentQuestionIndex)
+      // Scroll to the question
+      scrollToQuestion(prevIndex)
+    }
+  }, [currentQuestionIndex, clearAIExplanationForIndex, scrollToQuestion])
+
+  // Clear AI explanation for a specific index
+  const clearAIExplanationForIndex = useCallback((index) => {
+    setAiExplanations(prev => {
+      const newExplanations = { ...prev }
+      delete newExplanations[index]
+      return newExplanations
+    })
+    setAiErrors(prev => {
+      const newErrors = { ...prev }
+      delete newErrors[index]
+      return newErrors
+    })
+  }, [])
+
+  // Scroll to a specific question
+  const scrollToQuestion = useCallback((index) => {
+    const questionElement = questionRefs.current[index]
+    if (questionElement) {
+      questionElement.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+  }, [])
 
   // Expand/collapse all
   const toggleAll = () => {
@@ -143,6 +208,40 @@ const QuizResults = memo(function QuizResults({
       setLoadingAI(prev => ({ ...prev, [index]: false }))
     }
   }
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Don't handle keys if user is typing in an input/textarea
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+        return
+      }
+
+      switch (e.key) {
+        case 'ArrowRight':
+          e.preventDefault()
+          handleNextQuestion()
+          break
+        case 'ArrowLeft':
+          e.preventDefault()
+          handlePreviousQuestion()
+          break
+        default:
+          break
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [handleNextQuestion, handlePreviousQuestion])
+
+  // Auto-expand first question on mount
+  useEffect(() => {
+    if (results.questionResults.length > 0) {
+      setExpandedQuestions(new Set([0]))
+      setCurrentQuestionIndex(0)
+    }
+  }, [results.questionResults.length])
 
   return (
     <div className="space-y-6 animate-fade-in">
@@ -256,20 +355,49 @@ const QuizResults = memo(function QuizResults({
             <TrendingUp className="w-6 h-6 text-indigo-500" />
             Question Review
           </h3>
-          <button
-            onClick={toggleAll}
-            className="btn-secondary py-2 px-4 text-sm flex items-center gap-2"
-          >
-            {showAll ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-            {showAll ? 'Collapse All' : 'Expand All'}
-          </button>
+          <div className="flex items-center gap-3">
+            {/* Navigation Arrows */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handlePreviousQuestion}
+                disabled={currentQuestionIndex === 0}
+                className="p-2 rounded-lg border-2 border-gray-200 hover:border-indigo-400 hover:bg-indigo-50 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:border-gray-200 disabled:hover:bg-transparent"
+                title="Previous Question (←)"
+              >
+                <ChevronLeft className="w-5 h-5 text-gray-600" />
+              </button>
+              <span className="text-sm text-gray-600 font-medium px-2">
+                {currentQuestionIndex + 1} / {results.questionResults.length}
+              </span>
+              <button
+                onClick={handleNextQuestion}
+                disabled={currentQuestionIndex === results.questionResults.length - 1}
+                className="p-2 rounded-lg border-2 border-gray-200 hover:border-indigo-400 hover:bg-indigo-50 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:border-gray-200 disabled:hover:bg-transparent"
+                title="Next Question (→)"
+              >
+                <ChevronRight className="w-5 h-5 text-gray-600" />
+              </button>
+            </div>
+            <button
+              onClick={toggleAll}
+              className="btn-secondary py-2 px-4 text-sm flex items-center gap-2"
+            >
+              {showAll ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+              {showAll ? 'Collapse All' : 'Expand All'}
+            </button>
+          </div>
         </div>
 
         <div className="space-y-3">
           {results.questionResults.map((result, index) => (
             <div
               key={index}
+              ref={(el) => (questionRefs.current[index] = el)}
               className={`rounded-xl border-2 transition-all duration-200 ${
+                index === currentQuestionIndex
+                  ? 'ring-4 ring-indigo-300 ring-offset-2'
+                  : ''
+              } ${
                 result.isCorrect
                   ? 'border-emerald-200 bg-emerald-50/50'
                   : result.userAnswer === null
@@ -279,7 +407,14 @@ const QuizResults = memo(function QuizResults({
             >
               {/* Question Header */}
               <button
-                onClick={() => toggleQuestion(index)}
+                onClick={() => {
+                  // Clear AI explanation from previous question if switching
+                  if (index !== currentQuestionIndex) {
+                    clearAIExplanationForIndex(currentQuestionIndex)
+                  }
+                  setCurrentQuestionIndex(index)
+                  toggleQuestion(index)
+                }}
                 className="w-full p-4 flex items-center justify-between text-left"
               >
                 <div className="flex items-center gap-3">
@@ -463,7 +598,10 @@ const QuizResults = memo(function QuizResults({
       </div>
 
       {/* Restart Button */}
-      <div className="text-center">
+      <div className="text-center space-y-2">
+        <p className="text-sm text-gray-500 mb-4">
+          Use arrow keys (← →) or click the arrows above to navigate between questions
+        </p>
         <button
           onClick={onRestart}
           className="btn-primary py-4 px-8 text-lg flex items-center justify-center gap-3 mx-auto"
