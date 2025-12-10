@@ -1,674 +1,3279 @@
 [
   {
-    "question": "What is the primary function of the mitochondria in a cell?",
-    "options": ["Protein synthesis", "Energy production (ATP)", "DNA replication", "Cell division"],
-    "correct": "Energy production (ATP)",
-    "explanation": "Mitochondria are often called the 'powerhouse of the cell' because they generate most of the cell's supply of adenosine triphosphate (ATP), which is used as a source of chemical energy.",
-    "topic": "Biology"
-  },
-  {
-    "question": "Which planet in our solar system has the most moons?",
-    "options": ["Jupiter", "Saturn", "Uranus", "Neptune"],
-    "correct": "Saturn",
-    "explanation": "As of recent discoveries, Saturn has the most confirmed moons with over 140, surpassing Jupiter which has around 95 confirmed moons.",
-    "topic": "Astronomy"
-  },
-  {
-    "question": "What programming paradigm does JavaScript primarily support?",
-    "options": ["Only object-oriented", "Only functional", "Multi-paradigm", "Only procedural"],
-    "correct": "Multi-paradigm",
-    "explanation": "JavaScript is a multi-paradigm language that supports object-oriented, functional, and event-driven programming styles.",
-    "topic": "Programming"
-  },
-  {
-    "question": "Who painted the Mona Lisa?",
-    "options": ["Michelangelo", "Raphael", "Leonardo da Vinci", "Donatello"],
-    "correct": "Leonardo da Vinci",
-    "explanation": "The Mona Lisa was painted by Leonardo da Vinci between 1503 and 1519. It is now displayed at the Louvre Museum in Paris.",
-    "topic": "Art History"
-  },
-  {
-    "question": "What is the chemical symbol for gold?",
-    "options": ["Go", "Gd", "Au", "Ag"],
-    "correct": "Au",
-    "explanation": "Au comes from the Latin word 'aurum', which means 'shining dawn' or 'glow of sunrise'. Gold has been valued throughout history for its beauty and rarity.",
-    "topic": "Chemistry"
-  },
-  {
-    "question": "In which year did World War II end?",
-    "options": ["1943", "1944", "1945", "1946"],
-    "correct": "1945",
-    "explanation": "World War II ended in 1945 with the surrender of Germany in May and Japan in September following the atomic bombings of Hiroshima and Nagasaki.",
-    "topic": "History"
-  },
-  {
-    "question": "What is the largest ocean on Earth?",
-    "options": ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"],
-    "correct": "Pacific Ocean",
-    "explanation": "The Pacific Ocean covers approximately 165 million square kilometers, making it larger than all the land areas on Earth combined.",
-    "topic": "Geography"
-  },
-  {
-    "question": "What does CSS stand for in web development?",
-    "options": ["Computer Style Sheets", "Cascading Style Sheets", "Creative Style System", "Colorful Style Sheets"],
-    "correct": "Cascading Style Sheets",
-    "explanation": "CSS (Cascading Style Sheets) is used to describe how HTML elements should be displayed on screen, paper, or in other media.",
-    "topic": "Web Development"
-  },
-  {
-    "question": "Who wrote 'Romeo and Juliet'?",
-    "options": ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
-    "correct": "William Shakespeare",
-    "explanation": "William Shakespeare wrote Romeo and Juliet around 1594-1596. It remains one of the most performed and adapted plays in history.",
-    "topic": "Literature"
-  },
-  {
-    "question": "What is the speed of light in a vacuum?",
-    "options": ["300,000 km/s", "150,000 km/s", "500,000 km/s", "1,000,000 km/s"],
-    "correct": "300,000 km/s",
-    "explanation": "The speed of light in a vacuum is approximately 299,792 kilometers per second (about 300,000 km/s), often denoted as 'c' in physics equations.",
-    "topic": "Physics"
-  },
-  {
-    "question": "Which data structure uses LIFO (Last In, First Out)?",
-    "options": ["Queue", "Stack", "Linked List", "Tree"],
-    "correct": "Stack",
-    "explanation": "A stack follows the LIFO principle where the last element added is the first one to be removed, like a stack of plates.",
-    "topic": "Computer Science"
-  },
-  {
-    "question": "What is the capital of Australia?",
-    "options": ["Sydney", "Melbourne", "Canberra", "Perth"],
-    "correct": "Canberra",
-    "explanation": "Canberra is the capital of Australia, not Sydney or Melbourne as many people assume. It was purpose-built as the capital in the early 20th century.",
-    "topic": "Geography"
-  },
-  {
-    "question": "What is the smallest prime number?",
-    "options": ["0", "1", "2", "3"],
-    "correct": "2",
-    "explanation": "2 is the smallest and only even prime number. By definition, a prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.",
-    "topic": "Mathematics"
-  },
-  {
-    "question": "Which element has the atomic number 6?",
-    "options": ["Nitrogen", "Carbon", "Oxygen", "Boron"],
-    "correct": "Carbon",
-    "explanation": "Carbon has atomic number 6 and is the basis for all known life forms. It can form up to four covalent bonds, making it incredibly versatile.",
-    "topic": "Chemistry"
-  },
-  {
-    "question": "What does HTML stand for?",
-    "options": ["Hyper Text Markup Language", "High Tech Modern Language", "Hyper Transfer Markup Language", "Home Tool Markup Language"],
-    "correct": "Hyper Text Markup Language",
-    "explanation": "HTML (Hyper Text Markup Language) is the standard markup language for creating web pages and web applications.",
-    "topic": "Web Development"
-  },
-  {
-    "question": "Who developed the theory of relativity?",
-    "options": ["Isaac Newton", "Albert Einstein", "Niels Bohr", "Stephen Hawking"],
-    "correct": "Albert Einstein",
-    "explanation": "Albert Einstein developed the theory of relativity, with special relativity published in 1905 and general relativity in 1915.",
-    "topic": "Physics"
-  },
-  {
-    "question": "What is the largest mammal on Earth?",
-    "options": ["African Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
-    "correct": "Blue Whale",
-    "explanation": "The blue whale can grow up to 100 feet long and weigh up to 200 tons, making it the largest animal known to have ever existed on Earth.",
-    "topic": "Biology"
-  },
-  {
-    "question": "In what year did the first iPhone launch?",
-    "options": ["2005", "2006", "2007", "2008"],
-    "correct": "2007",
-    "explanation": "The first iPhone was announced by Steve Jobs on January 9, 2007, and released on June 29, 2007, revolutionizing the smartphone industry.",
-    "topic": "Technology"
-  },
-  {
-    "question": "What is the Big O notation for binary search?",
-    "options": ["O(1)", "O(n)", "O(log n)", "O(n²)"],
-    "correct": "O(log n)",
-    "explanation": "Binary search has O(log n) time complexity because it halves the search space with each comparison, making it very efficient for sorted arrays.",
-    "topic": "Computer Science"
-  },
-  {
-    "question": "Which country is home to the Great Barrier Reef?",
-    "options": ["Indonesia", "Philippines", "Australia", "Brazil"],
-    "correct": "Australia",
-    "explanation": "The Great Barrier Reef is located off the coast of Queensland, Australia. It is the world's largest coral reef system, stretching over 2,300 kilometers.",
-    "topic": "Geography"
-  },
-  {
-    "question": "What is the derivative of x²?",
-    "options": ["x", "2x", "x²", "2x²"],
-    "correct": "2x",
-    "explanation": "Using the power rule of differentiation, d/dx(x²) = 2x. The power rule states that d/dx(xⁿ) = nxⁿ⁻¹.",
-    "topic": "Mathematics"
-  },
-  {
-    "question": "Which HTTP status code indicates 'Not Found'?",
-    "options": ["200", "301", "404", "500"],
-    "correct": "404",
-    "explanation": "HTTP 404 is the standard response code indicating that the server could not find the requested resource. 200 means OK, 301 is redirect, and 500 is server error.",
-    "topic": "Web Development"
-  },
-  {
-    "question": "Who is known as the father of modern physics?",
-    "options": ["Galileo Galilei", "Isaac Newton", "Albert Einstein", "Niels Bohr"],
-    "correct": "Albert Einstein",
-    "explanation": "While Galileo is the father of modern science and Newton laid the foundation for classical mechanics, Einstein is often called the father of modern physics for his revolutionary theories.",
-    "topic": "Physics"
-  },
-  {
-    "question": "What is the main component of natural gas?",
-    "options": ["Propane", "Methane", "Ethane", "Butane"],
-    "correct": "Methane",
-    "explanation": "Methane (CH₄) makes up about 70-90% of natural gas. It is the simplest hydrocarbon and a potent greenhouse gas.",
-    "topic": "Chemistry"
-  },
-  {
-    "question": "Which sorting algorithm has the best average-case time complexity?",
-    "options": ["Bubble Sort", "Insertion Sort", "Merge Sort", "Selection Sort"],
-    "correct": "Merge Sort",
-    "explanation": "Merge Sort has O(n log n) average-case time complexity, which is better than O(n²) for Bubble Sort, Insertion Sort, and Selection Sort.",
-    "topic": "Computer Science"
-  },
-  {
-    "question": "What is the currency of Japan?",
-    "options": ["Yuan", "Won", "Yen", "Ringgit"],
-    "correct": "Yen",
-    "explanation": "The Japanese Yen (¥) is the official currency of Japan. It is the third most traded currency in the foreign exchange market after the US dollar and Euro.",
-    "topic": "General Knowledge"
-  },
-  {
-    "question": "Which organ produces insulin in the human body?",
-    "options": ["Liver", "Kidney", "Pancreas", "Stomach"],
-    "correct": "Pancreas",
-    "explanation": "Insulin is produced by beta cells in the islets of Langerhans in the pancreas. It regulates blood glucose levels.",
-    "topic": "Biology"
-  },
-  {
-    "question": "What does API stand for?",
-    "options": ["Application Programming Interface", "Advanced Program Integration", "Automatic Protocol Interface", "Application Process Integration"],
-    "correct": "Application Programming Interface",
-    "explanation": "An API (Application Programming Interface) defines interactions between software components, allowing applications to communicate with each other.",
-    "topic": "Programming"
-  },
-  {
-    "question": "Who painted 'The Starry Night'?",
-    "options": ["Claude Monet", "Vincent van Gogh", "Pablo Picasso", "Salvador Dalí"],
-    "correct": "Vincent van Gogh",
-    "explanation": "The Starry Night was painted by Vincent van Gogh in June 1889 while he was staying at the Saint-Paul-de-Mausole asylum in France.",
-    "topic": "Art History"
-  },
-  {
-    "question": "What is the square root of 144?",
-    "options": ["10", "11", "12", "14"],
-    "correct": "12",
-    "explanation": "12 × 12 = 144, so the square root of 144 is 12. This is a perfect square number.",
-    "topic": "Mathematics"
-  },
-  {
-    "question": "Which planet is known as the Red Planet?",
-    "options": ["Venus", "Mars", "Jupiter", "Mercury"],
-    "correct": "Mars",
-    "explanation": "Mars is called the Red Planet because of its reddish appearance, which is caused by iron oxide (rust) on its surface.",
-    "topic": "Astronomy"
-  },
-  {
-    "question": "What is the time complexity of accessing an element in an array by index?",
-    "options": ["O(1)", "O(n)", "O(log n)", "O(n²)"],
-    "correct": "O(1)",
-    "explanation": "Array access by index is O(1) or constant time because arrays store elements in contiguous memory locations, allowing direct calculation of any element's address.",
-    "topic": "Computer Science"
-  },
-  {
-    "question": "Which gas makes up the majority of Earth's atmosphere?",
-    "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
-    "correct": "Nitrogen",
-    "explanation": "Nitrogen makes up about 78% of Earth's atmosphere, while oxygen comprises about 21%. The remaining 1% includes argon, carbon dioxide, and other gases.",
-    "topic": "Science"
-  },
-  {
-    "question": "In which year was the World Wide Web invented?",
-    "options": ["1985", "1989", "1991", "1995"],
-    "correct": "1989",
-    "explanation": "Tim Berners-Lee invented the World Wide Web in 1989 while working at CERN. The first website went live in 1991.",
-    "topic": "Technology"
-  },
-  {
-    "question": "What is the largest country by land area?",
-    "options": ["China", "United States", "Canada", "Russia"],
-    "correct": "Russia",
-    "explanation": "Russia spans over 17 million square kilometers, making it the largest country by land area, covering more than 11% of the world's landmass.",
-    "topic": "Geography"
-  },
-  {
-    "question": "What does SQL stand for?",
-    "options": ["Structured Query Language", "Standard Query Language", "Simple Query Language", "System Query Language"],
-    "correct": "Structured Query Language",
-    "explanation": "SQL (Structured Query Language) is a domain-specific language used for managing and manipulating relational databases.",
-    "topic": "Database"
-  },
-  {
-    "question": "Who wrote '1984'?",
-    "options": ["Aldous Huxley", "George Orwell", "Ray Bradbury", "Philip K. Dick"],
-    "correct": "George Orwell",
-    "explanation": "George Orwell wrote '1984', published in 1949. It depicts a dystopian future of totalitarian rule and has become a classic of political fiction.",
-    "topic": "Literature"
-  },
-  {
-    "question": "What is the formula for calculating the area of a circle?",
-    "options": ["πr", "2πr", "πr²", "2πr²"],
-    "correct": "πr²",
-    "explanation": "The area of a circle is calculated using A = πr², where r is the radius. The circumference formula is 2πr.",
-    "topic": "Mathematics"
-  },
-  {
-    "question": "Which programming language was created by Guido van Rossum?",
-    "options": ["Java", "Python", "Ruby", "JavaScript"],
-    "correct": "Python",
-    "explanation": "Python was created by Guido van Rossum and first released in 1991. It was named after the British comedy group Monty Python.",
-    "topic": "Programming"
-  },
-  {
-    "question": "What is the boiling point of water at sea level in Celsius?",
-    "options": ["90°C", "95°C", "100°C", "105°C"],
-    "correct": "100°C",
-    "explanation": "Water boils at 100°C (212°F) at standard atmospheric pressure (sea level). This temperature decreases at higher altitudes.",
-    "topic": "Physics"
-  },
-  {
-    "question": "Which version control system is the most widely used?",
-    "options": ["SVN", "Mercurial", "Git", "CVS"],
-    "correct": "Git",
-    "explanation": "Git, created by Linus Torvalds in 2005, is the most widely used version control system, especially popular through platforms like GitHub and GitLab.",
-    "topic": "Software Development"
-  },
-  {
-    "question": "What is the smallest bone in the human body?",
-    "options": ["Anvil", "Hammer", "Stirrup", "Phalanx"],
-    "correct": "Stirrup",
-    "explanation": "The stapes (stirrup) in the middle ear is the smallest bone in the human body, measuring about 3mm. It helps transmit sound vibrations.",
-    "topic": "Biology"
-  },
-  {
-    "question": "Which country invented paper?",
-    "options": ["Japan", "India", "China", "Egypt"],
-    "correct": "China",
-    "explanation": "Paper was invented in China around 105 AD by Cai Lun during the Han Dynasty, though earlier forms existed. The technology later spread worldwide.",
-    "topic": "History"
-  },
-  {
-    "question": "What does JSON stand for?",
-    "options": ["JavaScript Object Notation", "Java Standard Object Notation", "JavaScript Oriented Notation", "Java Simple Object Notation"],
-    "correct": "JavaScript Object Notation",
-    "explanation": "JSON (JavaScript Object Notation) is a lightweight data interchange format that is easy for humans to read and write and easy for machines to parse.",
-    "topic": "Programming"
-  },
-  {
-    "question": "How many bits are in a byte?",
-    "options": ["4", "6", "8", "16"],
-    "correct": "8",
-    "explanation": "A byte consists of 8 bits. This is the standard unit of digital information in computing and telecommunications.",
-    "topic": "Computer Science"
-  },
-  {
-    "question": "Which river is the longest in the world?",
-    "options": ["Amazon", "Nile", "Yangtze", "Mississippi"],
-    "correct": "Nile",
-    "explanation": "The Nile River in Africa is traditionally considered the longest river at about 6,650 km, though some measurements suggest the Amazon might be longer.",
-    "topic": "Geography"
-  },
-  {
-    "question": "What is the value of Pi (π) to two decimal places?",
-    "options": ["3.12", "3.14", "3.16", "3.18"],
-    "correct": "3.14",
-    "explanation": "Pi (π) is approximately 3.14159... It represents the ratio of a circle's circumference to its diameter.",
-    "topic": "Mathematics"
-  },
-  {
-    "question": "Which company developed the React JavaScript library?",
-    "options": ["Google", "Microsoft", "Facebook (Meta)", "Amazon"],
-    "correct": "Facebook (Meta)",
-    "explanation": "React was developed by Facebook (now Meta) and was first released in 2013. It is now one of the most popular JavaScript libraries for building user interfaces.",
-    "topic": "Web Development"
-  },
-  {
-    "question": "What is the chemical formula for water?",
-    "options": ["H₂O", "CO₂", "NaCl", "HO₂"],
-    "correct": "H₂O",
-    "explanation": "Water's chemical formula H₂O indicates each molecule contains two hydrogen atoms bonded to one oxygen atom.",
-    "topic": "Chemistry"
-  },
-  {
-    "question": "Who discovered penicillin?",
-    "options": ["Louis Pasteur", "Alexander Fleming", "Joseph Lister", "Robert Koch"],
-    "correct": "Alexander Fleming",
-    "explanation": "Alexander Fleming discovered penicillin in 1928 when he noticed that mold had killed bacteria in a petri dish. This led to the development of antibiotics.",
-    "topic": "Science"
-  },
-  {
-    "question": "What does REST stand for in web services?",
-    "options": ["Remote Execution State Transfer", "Representational State Transfer", "Resource State Transfer", "Remote State Transmission"],
-    "correct": "Representational State Transfer",
-    "explanation": "REST (Representational State Transfer) is an architectural style for designing networked applications, commonly used in web APIs.",
-    "topic": "Web Development"
-  },
-  {
-    "question": "Which organ is responsible for filtering blood in the human body?",
-    "options": ["Liver", "Lungs", "Kidneys", "Heart"],
-    "correct": "Kidneys",
-    "explanation": "The kidneys filter about 120-150 quarts of blood daily, removing waste and extra fluid to produce urine.",
-    "topic": "Biology"
-  },
-  {
-    "question": "What is the result of 2^10?",
-    "options": ["512", "1024", "2048", "4096"],
-    "correct": "1024",
-    "explanation": "2^10 = 1024, which is why 1 kilobyte in binary computing is traditionally defined as 1024 bytes.",
-    "topic": "Mathematics"
-  },
-  {
-    "question": "Which ancient wonder was located in Alexandria?",
-    "options": ["Hanging Gardens", "Colossus", "Lighthouse", "Mausoleum"],
-    "correct": "Lighthouse",
-    "explanation": "The Lighthouse of Alexandria (Pharos) was one of the Seven Wonders of the Ancient World, built around 280 BC and standing about 100-130 meters tall.",
-    "topic": "History"
-  },
-  {
-    "question": "What is the main purpose of the DNS system?",
-    "options": ["Encrypt data", "Route packets", "Translate domain names to IP addresses", "Store web pages"],
-    "correct": "Translate domain names to IP addresses",
-    "explanation": "DNS (Domain Name System) translates human-readable domain names (like google.com) to IP addresses that computers use to identify each other on the network.",
-    "topic": "Networking"
-  },
-  {
-    "question": "Which layer of the OSI model handles routing?",
-    "options": ["Data Link", "Network", "Transport", "Session"],
-    "correct": "Network",
-    "explanation": "The Network layer (Layer 3) of the OSI model handles routing and forwarding of data packets between different networks using IP addresses.",
-    "topic": "Networking"
-  },
-  {
-    "question": "What is the half-life of Carbon-14?",
-    "options": ["1,000 years", "5,730 years", "10,000 years", "50,000 years"],
-    "correct": "5,730 years",
-    "explanation": "Carbon-14 has a half-life of approximately 5,730 years, making it useful for radiocarbon dating of organic materials up to about 50,000 years old.",
-    "topic": "Physics"
-  },
-  {
-    "question": "Which design pattern ensures only one instance of a class exists?",
-    "options": ["Factory", "Observer", "Singleton", "Decorator"],
-    "correct": "Singleton",
-    "explanation": "The Singleton pattern restricts a class to a single instance and provides a global point of access to it. It's commonly used for logging, configuration, and database connections.",
-    "topic": "Software Design"
-  },
-  {
-    "question": "What is the largest planet in our solar system?",
-    "options": ["Saturn", "Neptune", "Jupiter", "Uranus"],
-    "correct": "Jupiter",
-    "explanation": "Jupiter is the largest planet in our solar system, with a mass more than twice that of all other planets combined. Its diameter is about 11 times that of Earth.",
-    "topic": "Astronomy"
-  },
-  {
-    "question": "Which Nobel Prize category did Marie Curie win twice?",
-    "options": ["Physics and Chemistry", "Peace and Literature", "Medicine and Physics", "Chemistry and Medicine"],
-    "correct": "Physics and Chemistry",
-    "explanation": "Marie Curie won the Nobel Prize in Physics (1903) for her work on radioactivity and in Chemistry (1911) for discovering polonium and radium.",
-    "topic": "Science History"
-  },
-  {
-    "question": "What does SOLID stand for in software development?",
-    "options": ["Simple, Open, Liskov, Interface, Dependency", "Single, Open, Liskov, Interface, Dependency", "Structured, Object, Linear, Interface, Design", "Single, Object, Liskov, Inheritance, Dependency"],
-    "correct": "Single, Open, Liskov, Interface, Dependency",
-    "explanation": "SOLID represents five design principles: Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion.",
-    "topic": "Software Design"
-  },
-  {
-    "question": "Which blood type is known as the universal donor?",
-    "options": ["A", "B", "AB", "O"],
-    "correct": "O",
-    "explanation": "Type O negative is the universal donor because it lacks A, B, and Rh antigens, making it compatible with all other blood types in emergencies.",
-    "topic": "Biology"
-  },
-  {
-    "question": "What year did the first programmable computer, ENIAC, become operational?",
-    "options": ["1943", "1946", "1950", "1955"],
-    "correct": "1946",
-    "explanation": "ENIAC (Electronic Numerical Integrator and Computer) became operational in 1946 at the University of Pennsylvania. It weighed 30 tons and occupied 1,800 square feet.",
-    "topic": "Computer History"
-  },
-  {
-    "question": "What is the escape velocity from Earth's surface?",
-    "options": ["7.9 km/s", "11.2 km/s", "15.5 km/s", "25.0 km/s"],
-    "correct": "11.2 km/s",
-    "explanation": "Earth's escape velocity is about 11.2 km/s (approximately 25,000 mph). Objects must reach this speed to break free from Earth's gravitational pull.",
-    "topic": "Physics"
-  },
-  {
-    "question": "Which encryption algorithm is considered asymmetric?",
-    "options": ["AES", "DES", "RSA", "Blowfish"],
-    "correct": "RSA",
-    "explanation": "RSA is an asymmetric encryption algorithm that uses a public key for encryption and a private key for decryption. AES, DES, and Blowfish are symmetric algorithms.",
-    "topic": "Cryptography"
-  },
-  {
-    "question": "What is the official language of Brazil?",
-    "options": ["Spanish", "Portuguese", "Italian", "French"],
-    "correct": "Portuguese",
-    "explanation": "Portuguese is the official language of Brazil due to Portuguese colonization beginning in 1500. Brazil has the largest Portuguese-speaking population in the world.",
-    "topic": "Geography"
-  },
-  {
-    "question": "Which physicist proposed the uncertainty principle?",
-    "options": ["Albert Einstein", "Werner Heisenberg", "Erwin Schrödinger", "Max Planck"],
-    "correct": "Werner Heisenberg",
-    "explanation": "Werner Heisenberg formulated the uncertainty principle in 1927, stating that one cannot simultaneously know both the exact position and momentum of a particle.",
-    "topic": "Physics"
-  },
-  {
-    "question": "What is the main difference between HTTP and HTTPS?",
-    "options": ["Speed", "Security (encryption)", "Data format", "Port number only"],
-    "correct": "Security (encryption)",
-    "explanation": "HTTPS (HTTP Secure) uses SSL/TLS encryption to secure data transmitted between browser and server, protecting against eavesdropping and tampering.",
-    "topic": "Web Security"
-  },
-  {
-    "question": "Which data structure is best for implementing a priority queue?",
-    "options": ["Array", "Linked List", "Heap", "Stack"],
-    "correct": "Heap",
-    "explanation": "A heap (typically binary heap) is optimal for priority queues as it provides O(log n) insertion and O(log n) extraction of the minimum/maximum element.",
-    "topic": "Data Structures"
-  },
-  {
-    "question": "What does CPU stand for?",
-    "options": ["Central Processing Unit", "Computer Personal Unit", "Central Program Utility", "Core Processing Unit"],
-    "correct": "Central Processing Unit",
-    "explanation": "The CPU (Central Processing Unit) is the primary component of a computer that performs most of the processing, executing instructions from programs.",
-    "topic": "Computer Hardware"
-  },
-  {
-    "question": "Which element is the most abundant in the universe?",
-    "options": ["Oxygen", "Carbon", "Helium", "Hydrogen"],
-    "correct": "Hydrogen",
-    "explanation": "Hydrogen makes up about 75% of all normal matter in the universe by mass. It is the simplest and lightest element, with only one proton.",
-    "topic": "Chemistry"
-  },
-  {
-    "question": "What is the Fibonacci sequence's next number after 21?",
-    "options": ["28", "32", "34", "42"],
-    "correct": "34",
-    "explanation": "In the Fibonacci sequence, each number is the sum of the two preceding ones. After 13 and 21 comes 34 (13 + 21 = 34).",
-    "topic": "Mathematics"
-  },
-  {
-    "question": "Which protocol is used for sending email?",
-    "options": ["FTP", "SMTP", "HTTP", "POP3"],
-    "correct": "SMTP",
-    "explanation": "SMTP (Simple Mail Transfer Protocol) is used for sending emails. POP3 and IMAP are used for receiving/retrieving emails.",
-    "topic": "Networking"
-  },
-  {
-    "question": "What is the powerhouse of a computer?",
-    "options": ["CPU", "GPU", "RAM", "PSU"],
-    "correct": "PSU",
-    "explanation": "The PSU (Power Supply Unit) converts AC power from the outlet to DC power for the computer's components. Without it, no component would function.",
-    "topic": "Computer Hardware"
-  },
-  {
-    "question": "Which ancient civilization built the pyramids of Giza?",
-    "options": ["Romans", "Greeks", "Egyptians", "Mesopotamians"],
-    "correct": "Egyptians",
-    "explanation": "The Great Pyramids of Giza were built by the ancient Egyptians during the Old Kingdom period, around 2560 BC for Pharaoh Khufu.",
-    "topic": "History"
-  },
-  {
-    "question": "What is the default port for HTTP?",
-    "options": ["21", "80", "443", "8080"],
-    "correct": "80",
-    "explanation": "Port 80 is the default port for HTTP. Port 443 is used for HTTPS, port 21 for FTP, and 8080 is often used as an alternative HTTP port.",
-    "topic": "Networking"
-  },
-  {
-    "question": "Which hormone regulates sleep-wake cycles?",
-    "options": ["Insulin", "Cortisol", "Melatonin", "Adrenaline"],
-    "correct": "Melatonin",
-    "explanation": "Melatonin is produced by the pineal gland and helps regulate the circadian rhythm (sleep-wake cycle). Its production increases in darkness.",
-    "topic": "Biology"
-  },
-  {
-    "question": "What does IDE stand for in programming?",
-    "options": ["Integrated Development Environment", "Interactive Design Editor", "Internal Data Exchange", "Integrated Data Environment"],
-    "correct": "Integrated Development Environment",
-    "explanation": "An IDE (Integrated Development Environment) is software that provides comprehensive facilities for software development, including code editor, compiler, debugger, and more.",
-    "topic": "Programming"
-  },
-  {
-    "question": "Which continent has the most countries?",
-    "options": ["Asia", "Europe", "Africa", "South America"],
-    "correct": "Africa",
-    "explanation": "Africa has 54 recognized countries, making it the continent with the most nations. Asia has 48, Europe has 44, and South America has 12.",
-    "topic": "Geography"
-  },
-  {
-    "question": "What is the atomic number of oxygen?",
-    "options": ["6", "7", "8", "9"],
-    "correct": "8",
-    "explanation": "Oxygen has atomic number 8, meaning it has 8 protons in its nucleus. It is the third most abundant element in the universe.",
-    "topic": "Chemistry"
-  },
-  {
-    "question": "Which programming concept allows objects of different types to be treated uniformly?",
-    "options": ["Encapsulation", "Inheritance", "Polymorphism", "Abstraction"],
-    "correct": "Polymorphism",
-    "explanation": "Polymorphism allows objects of different classes to be treated as objects of a common superclass. The same method can behave differently based on the object type.",
-    "topic": "Object-Oriented Programming"
-  },
-  {
-    "question": "What is the freezing point of water in Fahrenheit?",
-    "options": ["0°F", "32°F", "100°F", "212°F"],
-    "correct": "32°F",
-    "explanation": "Water freezes at 32°F (0°C) at standard atmospheric pressure. 212°F is the boiling point of water in Fahrenheit.",
-    "topic": "Physics"
-  },
-  {
-    "question": "Which company created the Java programming language?",
-    "options": ["Microsoft", "Sun Microsystems", "IBM", "Apple"],
-    "correct": "Sun Microsystems",
-    "explanation": "Java was created by James Gosling at Sun Microsystems and released in 1995. Oracle Corporation acquired Sun Microsystems in 2010.",
-    "topic": "Programming"
-  },
-  {
-    "question": "What is the study of fungi called?",
-    "options": ["Botany", "Mycology", "Zoology", "Virology"],
-    "correct": "Mycology",
-    "explanation": "Mycology is the branch of biology concerned with the study of fungi, including their genetic and biochemical properties, taxonomy, and use to humans.",
-    "topic": "Biology"
-  },
-  {
-    "question": "Which sorting algorithm is the fastest on average for large datasets?",
-    "options": ["Bubble Sort", "Quick Sort", "Insertion Sort", "Selection Sort"],
-    "correct": "Quick Sort",
-    "explanation": "Quick Sort has an average time complexity of O(n log n) and is generally faster in practice than other O(n log n) algorithms due to better cache performance.",
-    "topic": "Algorithms"
-  },
-  {
-    "question": "What is the longest bone in the human body?",
-    "options": ["Tibia", "Humerus", "Femur", "Spine"],
-    "correct": "Femur",
-    "explanation": "The femur (thigh bone) is the longest and strongest bone in the human body, typically about 1/4 of a person's height.",
-    "topic": "Biology"
-  },
-  {
-    "question": "Which year did the first moon landing occur?",
-    "options": ["1967", "1968", "1969", "1970"],
-    "correct": "1969",
-    "explanation": "Apollo 11 landed on the Moon on July 20, 1969. Neil Armstrong became the first human to walk on the lunar surface.",
-    "topic": "History"
-  },
-  {
-    "question": "What does RAM stand for?",
-    "options": ["Random Access Memory", "Read Access Memory", "Rapid Access Memory", "Remote Access Memory"],
-    "correct": "Random Access Memory",
-    "explanation": "RAM (Random Access Memory) is a type of computer memory that can be read and changed in any order, used to store working data and machine code.",
-    "topic": "Computer Hardware"
-  },
-  {
-    "question": "Which gas is used in balloons to make them float?",
-    "options": ["Oxygen", "Nitrogen", "Helium", "Carbon Dioxide"],
-    "correct": "Helium",
-    "explanation": "Helium is used in balloons because it is lighter than air (about 7 times less dense) and is non-flammable, making it safe for recreational use.",
-    "topic": "Physics"
-  },
-  {
-    "question": "What is the primary function of a compiler?",
-    "options": ["Execute code directly", "Convert source code to machine code", "Debug programs", "Manage memory"],
-    "correct": "Convert source code to machine code",
-    "explanation": "A compiler translates source code written in a high-level programming language into machine code (object code) that a computer's CPU can execute.",
-    "topic": "Computer Science"
-  },
-  {
-    "question": "Which planet has the shortest year (orbital period)?",
-    "options": ["Venus", "Mercury", "Mars", "Earth"],
-    "correct": "Mercury",
-    "explanation": "Mercury has the shortest orbital period at about 88 Earth days because it is closest to the Sun and travels faster in its orbit.",
-    "topic": "Astronomy"
-  },
-  {
-    "question": "What is the primary purpose of an index in a database?",
-    "options": ["Store data", "Backup data", "Speed up queries", "Validate data"],
-    "correct": "Speed up queries",
-    "explanation": "Database indexes improve query performance by allowing the database to find data without scanning every row. They work like a book's index.",
-    "topic": "Database"
-  },
-  {
-    "question": "Which vitamin is produced when skin is exposed to sunlight?",
-    "options": ["Vitamin A", "Vitamin C", "Vitamin D", "Vitamin E"],
-    "correct": "Vitamin D",
-    "explanation": "Vitamin D is synthesized in the skin when exposed to UVB radiation from sunlight. It's essential for bone health and immune function.",
-    "topic": "Biology"
-  },
-  {
-    "question": "What is the time complexity of searching in a balanced binary search tree?",
-    "options": ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
-    "correct": "O(log n)",
-    "explanation": "In a balanced BST, search operations take O(log n) time because the tree's height is logarithmic relative to the number of nodes, halving the search space at each step.",
-    "topic": "Data Structures"
-  },
-  {
-    "question": "Which ocean is the deepest?",
-    "options": ["Atlantic", "Indian", "Pacific", "Arctic"],
-    "correct": "Pacific",
-    "explanation": "The Pacific Ocean contains the Mariana Trench, the deepest point on Earth at about 11,034 meters (36,201 feet) below sea level.",
-    "topic": "Geography"
-  },
-  {
-    "question": "What is Docker primarily used for?",
-    "options": ["Version control", "Containerization", "Code compilation", "Network security"],
-    "correct": "Containerization",
-    "explanation": "Docker is a platform for developing, shipping, and running applications in containers - lightweight, standalone packages that include everything needed to run software.",
-    "topic": "DevOps"
+    "question": "Which of the following is MOST clearly a classification task?",
+    "options": [
+      "Predicting the price of a used car",
+      "Predicting whether a customer will churn or not",
+      "Estimating tomorrow's temperature in degrees",
+      "Estimating the number of items sold next week"
+    ],
+    "correct": "Predicting whether a customer will churn or not",
+    "explanation": "Customer churn prediction has discrete outcomes (churn / not churn), which is typical for classification.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Which of the following is MOST clearly a regression task?",
+    "options": [
+      "Predicting whether an email is spam",
+      "Predicting which product a user will click",
+      "Predicting the total amount a customer will spend next month",
+      "Grouping customers into segments"
+    ],
+    "correct": "Predicting the total amount a customer will spend next month",
+    "explanation": "The output is a continuous numeric value, which is characteristic of regression problems.",
+    "topic": "Regression Models"
+  },
+  {
+    "question": "A multi-class classification model is one that:",
+    "options": [
+      "Can only distinguish between two classes",
+      "Can assign one example to one of three or more possible classes",
+      "Always assigns multiple labels to each example",
+      "Only works with numeric labels"
+    ],
+    "correct": "Can assign one example to one of three or more possible classes",
+    "explanation": "Multi-class classification handles more than two mutually exclusive classes.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Which description best fits a multi-label classification problem?",
+    "options": [
+      "Each example belongs to exactly one of two classes",
+      "Each example belongs to exactly one class out of many",
+      "Each example can be associated with zero, one, or several labels simultaneously",
+      "Labels are continuous rather than discrete"
+    ],
+    "correct": "Each example can be associated with zero, one, or several labels simultaneously",
+    "explanation": "Multi-label tasks allow multiple labels to be true for the same instance, such as movie genres.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "In sentiment analysis of product reviews, labels such as 'negative', 'neutral', and 'positive' indicate:",
+    "options": [
+      "A regression problem",
+      "A clustering problem",
+      "A multi-class classification problem",
+      "A sequence prediction problem"
+    ],
+    "correct": "A multi-class classification problem",
+    "explanation": "There are three possible categorical outcomes and each review gets exactly one label.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Which is the BEST example of an AI application in healthcare?",
+    "options": [
+      "A spreadsheet summing patient bills",
+      "A rule that prints 'hello' every morning",
+      "An ML model that analyzes radiology images to detect tumors",
+      "A PDF viewer for medical reports"
+    ],
+    "correct": "An ML model that analyzes radiology images to detect tumors",
+    "explanation": "Using ML to analyze medical images is a widely studied AI application in healthcare.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Which task is MOST suitable for computer vision?",
+    "options": [
+      "Predicting the next word in a sentence",
+      "Detecting objects in traffic camera images",
+      "Calculating compound interest",
+      "Parsing programming languages"
+    ],
+    "correct": "Detecting objects in traffic camera images",
+    "explanation": "Computer vision deals with understanding and analyzing visual data such as images or video.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Which task is MOST suitable for natural language processing (NLP)?",
+    "options": [
+      "Clustering customers by location",
+      "Translating a document from English to German",
+      "Recognizing faces in a photo",
+      "Detecting anomalies in sensor data"
+    ],
+    "correct": "Translating a document from English to German",
+    "explanation": "Machine translation is a classic NLP task that focuses on understanding and generating text.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Which step usually comes directly AFTER collecting raw data in an AI pipeline?",
+    "options": [
+      "Deploying the model to production",
+      "Exploratory data analysis and cleaning",
+      "Selecting evaluation metrics",
+      "Writing user documentation"
+    ],
+    "correct": "Exploratory data analysis and cleaning",
+    "explanation": "After data collection, you typically explore, clean, and preprocess the data before modeling.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "Which of the following is MOST likely a data quality issue?",
+    "options": [
+      "Using CSV instead of JSON",
+      "Duplicated records with inconsistent labels",
+      "Having many features",
+      "Having separate train and test sets"
+    ],
+    "correct": "Duplicated records with inconsistent labels",
+    "explanation": "Conflicting labels for identical examples are a serious data quality problem.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "The term 'feature' in machine learning refers to:",
+    "options": [
+      "The loss function",
+      "A single input variable used by the model",
+      "The model output",
+      "The evaluation metric"
+    ],
+    "correct": "A single input variable used by the model",
+    "explanation": "Features are measurable properties or characteristics used as inputs to models.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "The term 'label' in supervised learning refers to:",
+    "options": [
+      "A special input feature",
+      "The true output or target value for each example",
+      "The learning rate parameter",
+      "The predicted output of the model"
+    ],
+    "correct": "The true output or target value for each example",
+    "explanation": "Labels provide the ground truth that models learn to predict from inputs.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "In a dataset of apartment prices, which is MOST likely a label in a supervised learning setup?",
+    "options": [
+      "Number of rooms",
+      "Size in square meters",
+      "Neighborhood code",
+      "Final sale price"
+    ],
+    "correct": "Final sale price",
+    "explanation": "The sale price is the outcome we want to predict; features describe the apartment.",
+    "topic": "Regression Models"
+  },
+  {
+    "question": "Which statement about supervised and unsupervised learning is TRUE?",
+    "options": [
+      "Supervised learning uses labels; unsupervised does not",
+      "Unsupervised learning always performs better",
+      "Supervised learning is only used for images",
+      "Unsupervised learning is only used for text"
+    ],
+    "correct": "Supervised learning uses labels; unsupervised does not",
+    "explanation": "The main distinction is whether labeled target values are available for training.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Clustering customer transaction data without known customer segments is an example of:",
+    "options": [
+      "Supervised learning",
+      "Unsupervised learning",
+      "Reinforcement learning",
+      "Semi-supervised learning"
+    ],
+    "correct": "Unsupervised learning",
+    "explanation": "Without labels and with a goal to discover structure, clustering is unsupervised.",
+    "topic": "Unsupervised Learning"
+  },
+  {
+    "question": "Which algorithm is MOST commonly associated with clustering?",
+    "options": [
+      "k-means",
+      "Logistic regression",
+      "Linear regression",
+      "Naive Bayes"
+    ],
+    "correct": "k-means",
+    "explanation": "k-means is a widely used clustering algorithm for partitioning data into k groups.",
+    "topic": "Unsupervised Learning"
+  },
+  {
+    "question": "Which of the following is a MAIN limitation of k-means clustering?",
+    "options": [
+      "It cannot handle numeric features",
+      "It assumes clusters are roughly spherical and similar in size",
+      "It cannot scale to large datasets",
+      "It requires labeled data"
+    ],
+    "correct": "It assumes clusters are roughly spherical and similar in size",
+    "explanation": "k-means works best when clusters are fairly compact and similar in scale.",
+    "topic": "Unsupervised Learning"
+  },
+  {
+    "question": "Which task is a good candidate for anomaly detection?",
+    "options": [
+      "Predicting tomorrow's weather",
+      "Grouping news articles by topic",
+      "Finding unusual credit card transactions that might indicate fraud",
+      "Translating between languages"
+    ],
+    "correct": "Finding unusual credit card transactions that might indicate fraud",
+    "explanation": "Anomaly detection aims to identify rare, unusual events that deviate from normal patterns.",
+    "topic": "Unsupervised Learning"
+  },
+  {
+    "question": "Which statement about anomaly detection models is TRUE?",
+    "options": [
+      "They usually require labels for all anomalies",
+      "They can often be trained using only examples of normal behavior",
+      "They only work on text data",
+      "They require deep reinforcement learning"
+    ],
+    "correct": "They can often be trained using only examples of normal behavior",
+    "explanation": "Many anomaly detectors learn normal patterns and flag deviations as anomalies.",
+    "topic": "Unsupervised Learning"
+  },
+  {
+    "question": "Which of the following is a common reason to use dimensionality reduction?",
+    "options": [
+      "To increase memory usage",
+      "To deliberately overfit the model",
+      "To reduce noise and simplify models by removing redundant features",
+      "To convert categorical features into numerical ones"
+    ],
+    "correct": "To reduce noise and simplify models by removing redundant features",
+    "explanation": "Reducing dimensionality can help denoise data and improve model performance or interpretability.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Principal Component Analysis (PCA) is typically used to:",
+    "options": [
+      "Cluster data into k groups",
+      "Perform supervised classification",
+      "Project data into a lower-dimensional space capturing maximum variance",
+      "Label unlabeled data"
+    ],
+    "correct": "Project data into a lower-dimensional space capturing maximum variance",
+    "explanation": "PCA finds directions (components) that explain the most variance in the data.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which scenario BEST illustrates concept drift?",
+    "options": [
+      "Measuring gravity in a physics laboratory",
+      "Predicting movie ratings with no change in user preferences",
+      "Predicting online ad clicks when user interests change over time",
+      "Using a constant mapping from input to output"
+    ],
+    "correct": "Predicting online ad clicks when user interests change over time",
+    "explanation": "When user behavior evolves, the relationship between inputs and labels changes, causing concept drift.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Data drift is BEST described as:",
+    "options": [
+      "Changes in the model architecture",
+      "Changes in the distribution of input features over time",
+      "A bug in the loss function",
+      "A sudden improvement in accuracy"
+    ],
+    "correct": "Changes in the distribution of input features over time",
+    "explanation": "Data drift refers to a shift in the input data distribution compared to training data.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which approach can help address data drift in production?",
+    "options": [
+      "Never retraining the model",
+      "Regularly monitoring data and retraining with updated data",
+      "Turning off logging to reduce overhead",
+      "Reducing the number of features to one"
+    ],
+    "correct": "Regularly monitoring data and retraining with updated data",
+    "explanation": "Continuous monitoring and periodic retraining are standard ways to handle drift.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which is an example of a non-functional requirement for an AI system?",
+    "options": [
+      "The model should achieve at least 90% accuracy",
+      "The model should use gradient descent",
+      "The prediction latency must be under 100 milliseconds",
+      "The model must be a decision tree"
+    ],
+    "correct": "The prediction latency must be under 100 milliseconds",
+    "explanation": "Latency is a non-functional requirement about system performance, not about the function or algorithm itself.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Which is an example of a functional requirement for an AI application?",
+    "options": [
+      "The system must respond within 200 ms",
+      "The system must classify incoming emails as spam or not spam",
+      "The system must use a GPU",
+      "The system must consume less than 1GB of RAM"
+    ],
+    "correct": "The system must classify incoming emails as spam or not spam",
+    "explanation": "Functional requirements describe what the system should do, such as performing spam classification.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Which metric is commonly used to measure the quality of a clustering result when labels are NOT available?",
+    "options": [
+      "Accuracy",
+      "Silhouette score",
+      "Precision",
+      "Recall"
+    ],
+    "correct": "Silhouette score",
+    "explanation": "The silhouette score measures how similar an object is to its own cluster compared to other clusters.",
+    "topic": "Unsupervised Learning"
+  },
+  {
+    "question": "Which metric would you typically use to measure an anomaly detection model where anomalies are rare and labeled?",
+    "options": [
+      "Accuracy only",
+      "Precision and recall (or F1-score) for the anomaly class",
+      "Mean squared error only",
+      "Silhouette score"
+    ],
+    "correct": "Precision and recall (or F1-score) for the anomaly class",
+    "explanation": "When the positive class (anomalies) is rare, precision, recall, and F1-score provide more insight than accuracy.",
+    "topic": "Unsupervised Learning"
+  },
+  {
+    "question": "In a confusion matrix, true negatives (TN) correspond to:",
+    "options": [
+      "Correctly predicted positive cases",
+      "Correctly predicted negative cases",
+      "Incorrectly predicted positive cases",
+      "Incorrectly predicted negative cases"
+    ],
+    "correct": "Correctly predicted negative cases",
+    "explanation": "TN are negative examples that the model correctly predicted as negative.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Which of the following is a typical property of linear regression?",
+    "options": [
+      "It models nonlinear decision boundaries only",
+      "It assumes a linear relationship between features and target",
+      "It can only output values between 0 and 1",
+      "It always uses a sigmoid activation"
+    ],
+    "correct": "It assumes a linear relationship between features and target",
+    "explanation": "Linear regression models the target as a linear combination of input features.",
+    "topic": "Regression Models"
+  },
+  {
+    "question": "R-squared (coefficient of determination) is commonly used to:",
+    "options": [
+      "Evaluate classification models",
+      "Measure the variance explained by a regression model",
+      "Compute class probabilities",
+      "Select the number of clusters"
+    ],
+    "correct": "Measure the variance explained by a regression model",
+    "explanation": "R-squared indicates how well the regression model explains variance in the target variable.",
+    "topic": "Regression Models"
+  },
+  {
+    "question": "What does a very low R-squared value suggest about a regression model?",
+    "options": [
+      "The model explains little of the variability in the target",
+      "The model is perfectly accurate",
+      "The model is guaranteed to be unbiased",
+      "The model is always overfitting"
+    ],
+    "correct": "The model explains little of the variability in the target",
+    "explanation": "Low R-squared means the model's predictions do not capture much of the variation in the target.",
+    "topic": "Regression Models"
+  },
+  {
+    "question": "Which model is typically used to estimate the probability of a binary outcome?",
+    "options": [
+      "Linear regression",
+      "Logistic regression",
+      "k-means clustering",
+      "ARIMA"
+    ],
+    "correct": "Logistic regression",
+    "explanation": "Logistic regression models log-odds and outputs probabilities between 0 and 1.",
+    "topic": "Regression Models"
+  },
+  {
+    "question": "Which of the following is TRUE about logistic regression?",
+    "options": [
+      "It predicts continuous numeric values",
+      "It is mainly used for clustering",
+      "It is commonly used for binary classification tasks",
+      "It cannot output probabilities"
+    ],
+    "correct": "It is commonly used for binary classification tasks",
+    "explanation": "Logistic regression is a linear model suitable for classifying inputs into two classes.",
+    "topic": "Regression Models"
+  },
+  {
+    "question": "Which of these is a reason to prefer a simpler model over a more complex one, given similar performance?",
+    "options": [
+      "Simpler models are always slower",
+      "Simpler models are usually harder to interpret",
+      "Simpler models tend to generalize better and are easier to explain",
+      "Complex models cannot overfit"
+    ],
+    "correct": "Simpler models tend to generalize better and are easier to explain",
+    "explanation": "Occam's razor suggests preferring simpler models that are easier to maintain and interpret.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which term describes the practice of repeatedly training models with different hyperparameters to find the best one?",
+    "options": [
+      "Feature engineering",
+      "Hyperparameter tuning",
+      "Regularization",
+      "Normalization"
+    ],
+    "correct": "Hyperparameter tuning",
+    "explanation": "Hyperparameter tuning explores different configurations to optimize model performance.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Grid search and random search are methods for:",
+    "options": [
+      "Feature scaling",
+      "Hyperparameter optimization",
+      "Label encoding",
+      "Data anonymization"
+    ],
+    "correct": "Hyperparameter optimization",
+    "explanation": "Grid and random search systematically or randomly explore combinations of hyperparameters.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which statement about random search vs grid search is often TRUE?",
+    "options": [
+      "Random search always checks fewer configurations",
+      "Random search can be more efficient than grid search in high-dimensional hyperparameter spaces",
+      "Grid search always finds better models",
+      "Grid search is random, random search is systematic"
+    ],
+    "correct": "Random search can be more efficient than grid search in high-dimensional hyperparameter spaces",
+    "explanation": "Random search explores hyperparameter space more broadly when many dimensions are involved.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which approach can help reduce overfitting in a deep neural network?",
+    "options": [
+      "Using a larger model with more parameters",
+      "Training for many more epochs without monitoring",
+      "Applying dropout and using more data",
+      "Removing the validation set"
+    ],
+    "correct": "Applying dropout and using more data",
+    "explanation": "Dropout and additional training data are classic methods to improve generalization.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "Which of the following is NOT typically a hyperparameter of a neural network?",
+    "options": [
+      "Number of hidden layers",
+      "Learning rate",
+      "Batch size",
+      "Model's learned weight values"
+    ],
+    "correct": "Model's learned weight values",
+    "explanation": "Weights are learned from data; hyperparameters are set before training.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "Which part of a neural network is updated during backpropagation?",
+    "options": [
+      "Only the input data",
+      "The loss function definition",
+      "The weights and biases of the model",
+      "The training labels"
+    ],
+    "correct": "The weights and biases of the model",
+    "explanation": "Backpropagation computes gradients and adjusts trainable parameters to minimize loss.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "Which learning rate behavior is generally desirable during training?",
+    "options": [
+      "A learning rate that is extremely large and constant",
+      "A learning rate that decreases over time to help fine-tune the model",
+      "A learning rate that is always zero",
+      "A learning rate that changes randomly every batch"
+    ],
+    "correct": "A learning rate that decreases over time to help fine-tune the model",
+    "explanation": "Higher learning rates early and smaller rates later can help converge more smoothly.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "In convolutional neural networks, pooling layers are primarily used to:",
+    "options": [
+      "Increase the resolution of the image",
+      "Reduce spatial dimensions and extract dominant features",
+      "Convert images to text",
+      "Compute the loss function"
+    ],
+    "correct": "Reduce spatial dimensions and extract dominant features",
+    "explanation": "Pooling reduces the size of feature maps and provides translational invariance.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "Which is a typical activation function used in hidden layers of deep networks?",
+    "options": [
+      "Softmax",
+      "ReLU",
+      "Linear identity only",
+      "Euclidean distance"
+    ],
+    "correct": "ReLU",
+    "explanation": "ReLU is commonly used thanks to its simplicity and effectiveness for deep networks.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "Softmax activation is most commonly used in:",
+    "options": [
+      "Hidden layers of regression models",
+      "Output layer of multi-class classification networks",
+      "Input normalization",
+      "Clustering algorithms"
+    ],
+    "correct": "Output layer of multi-class classification networks",
+    "explanation": "Softmax converts logits into probabilities over several classes.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "In NLP, a 'vocabulary' typically refers to:",
+    "options": [
+      "All sentences in the corpus",
+      "The set of distinct tokens (e.g., words or subwords) used by the model",
+      "All documents in a dataset",
+      "All possible topics"
+    ],
+    "correct": "The set of distinct tokens (e.g., words or subwords) used by the model",
+    "explanation": "The vocabulary defines the mapping from tokens to IDs used in training and inference.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Which of the following is a typical pre-processing step for text data?",
+    "options": [
+      "Image augmentation",
+      "Tokenization and lowercasing",
+      "Fourier transform",
+      "Histogram equalization"
+    ],
+    "correct": "Tokenization and lowercasing",
+    "explanation": "Tokenization and normalization such as lowercasing are standard steps in text preprocessing.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Which of these is a common risk when using AI for automated hiring decisions?",
+    "options": [
+      "The model will always be perfectly fair",
+      "The model may learn and amplify historical hiring biases",
+      "The model will refuse to make any prediction",
+      "The model will ignore all input data"
+    ],
+    "correct": "The model may learn and amplify historical hiring biases",
+    "explanation": "If historical data is biased, the AI system can perpetuate or exacerbate that bias.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which practice can improve fairness in a hiring model?",
+    "options": [
+      "Relying only on historical labels",
+      "Ignoring all evaluation metrics",
+      "Auditing datasets for bias and including fairness constraints in training",
+      "Reducing dataset size drastically"
+    ],
+    "correct": "Auditing datasets for bias and including fairness constraints in training",
+    "explanation": "Assessing biases and designing fairness-aware training help mitigate unfair outcomes.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which statement about AI transparency is correct?",
+    "options": [
+      "It is never required in real systems",
+      "Transparent systems make their behavior and limitations understandable to stakeholders",
+      "Transparency means publishing all source code",
+      "Transparency guarantees no errors will occur"
+    ],
+    "correct": "Transparent systems make their behavior and limitations understandable to stakeholders",
+    "explanation": "Transparency is about clarity of operation, not necessarily full code disclosure.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which term describes a human's tendency to trust AI decisions more than they should?",
+    "options": [
+      "Automation bias",
+      "Data drift",
+      "Overfitting",
+      "Clustering"
+    ],
+    "correct": "Automation bias",
+    "explanation": "Automation bias is the over-reliance on automated decision systems, even when they are wrong.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Why is documentation important in AI projects?",
+    "options": [
+      "It replaces evaluation metrics",
+      "It makes experiments impossible to reproduce",
+      "It helps others understand data, methods, and limitations of the system",
+      "It is only needed for legal reasons"
+    ],
+    "correct": "It helps others understand data, methods, and limitations of the system",
+    "explanation": "Good documentation supports transparency, maintenance, and responsible use.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which of the following is an example of a data preprocessing pipeline step?",
+    "options": [
+      "Choosing hyperparameters",
+      "Scaling numeric features and encoding categorical variables",
+      "Deploying the model",
+      "Monitoring model drift"
+    ],
+    "correct": "Scaling numeric features and encoding categorical variables",
+    "explanation": "Transforming and preparing input features is a core part of preprocessing pipelines.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "Which is a common data engineering challenge for AI systems?",
+    "options": [
+      "Having too many GPUs",
+      "Ensuring data flows reliably from source systems to the model with correct formats",
+      "Having too clear documentation",
+      "Avoiding logging"
+    ],
+    "correct": "Ensuring data flows reliably from source systems to the model with correct formats",
+    "explanation": "Data engineering deals with building robust pipelines to feed clean data into AI models.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "Which of these best describes MLOps?",
+    "options": [
+      "Only tuning hyperparameters",
+      "Applying DevOps principles to the machine learning lifecycle",
+      "A type of neural network",
+      "An unsupervised learning algorithm"
+    ],
+    "correct": "Applying DevOps principles to the machine learning lifecycle",
+    "explanation": "MLOps focuses on automation, reproducibility, and monitoring across ML development and deployment.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which is a benefit of using version control for data and models?",
+    "options": [
+      "You never need backups",
+      "It prevents any changes",
+      "It enables reproducibility and traceability of experiments",
+      "It guarantees fairness"
+    ],
+    "correct": "It enables reproducibility and traceability of experiments",
+    "explanation": "Versioning helps track which data and models created which results.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which risk is associated with using black-box models for loan approval decisions?",
+    "options": [
+      "They are always too slow",
+      "They may be impossible to explain to regulators and applicants",
+      "They cannot achieve high accuracy",
+      "They cannot handle numeric features"
+    ],
+    "correct": "They may be impossible to explain to regulators and applicants",
+    "explanation": "Financial regulation often requires clear explanations of why a loan was approved or denied.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which technique can provide local explanations for a single model prediction?",
+    "options": [
+      "Train-test split",
+      "k-means clustering",
+      "LIME (Local Interpretable Model-agnostic Explanations)",
+      "Batch normalization"
+    ],
+    "correct": "LIME (Local Interpretable Model-agnostic Explanations)",
+    "explanation": "LIME approximates a complex model locally with a simpler, interpretable model.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which is a potential downside of using very large language models in production?",
+    "options": [
+      "They never produce incorrect information",
+      "They require no computational resources",
+      "They can be expensive to run and may hallucinate incorrect facts",
+      "They cannot be fine-tuned"
+    ],
+    "correct": "They can be expensive to run and may hallucinate incorrect facts",
+    "explanation": "LLMs often need significant compute and can generate plausible but wrong outputs.",
+    "topic": "Generative AI"
+  },
+  {
+    "question": "Which statement about hallucinations in large language models is TRUE?",
+    "options": [
+      "They refer to hardware failures",
+      "They mean the model refuses to answer any question",
+      "They are confident-sounding but factually incorrect outputs",
+      "They occur only when the model is not trained"
+    ],
+    "correct": "They are confident-sounding but factually incorrect outputs",
+    "explanation": "Hallucinations are a known issue where models invent details without evidence.",
+    "topic": "Generative AI"
+  },
+  {
+    "question": "Which is a typical safeguard when deploying a generative text model in a customer-facing chatbot?",
+    "options": [
+      "No monitoring at all",
+      "Allowing the model to respond with any content",
+      "Adding content filters, guardrails, and human review for high-risk cases",
+      "Disabling logging"
+    ],
+    "correct": "Adding content filters, guardrails, and human review for high-risk cases",
+    "explanation": "Safety measures reduce the risk of inappropriate or harmful responses.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which situation is MOST likely to create a feedback loop in an AI system?",
+    "options": [
+      "Using static training data only once",
+      "Model decisions influence future data, which is then used to retrain the model",
+      "Deploying the model without any users",
+      "Training with fully random data"
+    ],
+    "correct": "Model decisions influence future data, which is then used to retrain the model",
+    "explanation": "Feedback loops arise when model outputs impact future inputs, potentially reinforcing biases.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "In recommender systems, 'filter bubble' refers to:",
+    "options": [
+      "A method for cleaning data",
+      "A phenomenon where users only see content similar to what they already like",
+      "A technique for filtering spam",
+      "A clustering algorithm"
+    ],
+    "correct": "A phenomenon where users only see content similar to what they already like",
+    "explanation": "Filter bubbles can reduce exposure to diverse information and perspectives.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which approach can help mitigate filter bubbles?",
+    "options": [
+      "Only showing highly personalized recommendations",
+      "Occasionally injecting diverse or exploratory content into recommendations",
+      "Removing all recommendations",
+      "Ignoring user feedback"
+    ],
+    "correct": "Occasionally injecting diverse or exploratory content into recommendations",
+    "explanation": "Diversity-aware recommendation strategies can reduce filter bubble effects.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which of the following best describes collaborative filtering in recommender systems?",
+    "options": [
+      "Recommending items based only on item metadata",
+      "Recommending items based on what similar users liked",
+      "Recommending items randomly",
+      "Recommending only the most expensive items"
+    ],
+    "correct": "Recommending items based on what similar users liked",
+    "explanation": "Collaborative filtering finds patterns in user-item interactions to suggest items.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Content-based recommendation primarily uses:",
+    "options": [
+      "Other users' ratings without item attributes",
+      "The textual or feature-based description of items a user liked",
+      "Random sampling of items",
+      "Only price information"
+    ],
+    "correct": "The textual or feature-based description of items a user liked",
+    "explanation": "Content-based systems recommend items with similar characteristics to those previously liked.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Which metric is commonly used to evaluate recommender systems offline?",
+    "options": [
+      "Mean average precision or hit rate",
+      "Silhouette score",
+      "R-squared",
+      "Cross-entropy loss only"
+    ],
+    "correct": "Mean average precision or hit rate",
+    "explanation": "Ranking metrics like MAP or hit rate are standard for evaluating top-N recommendation quality.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Which scenario best illustrates reinforcement learning in an online service?",
+    "options": [
+      "Clustering users once per year",
+      "Training a static classifier for spam detection",
+      "An agent adapting which news articles to show based on click feedback",
+      "Predicting tomorrow's sales from historical data"
+    ],
+    "correct": "An agent adapting which news articles to show based on click feedback",
+    "explanation": "RL agents choose actions to maximize long-term reward, such as user engagement.",
+    "topic": "Reinforcement Learning"
+  },
+  {
+    "question": "Which is a typical difference between supervised learning and reinforcement learning?",
+    "options": [
+      "RL uses labeled examples; supervised does not",
+      "RL learns from trial-and-error interactions and reward signals, not direct labels for each state",
+      "Supervised learning only works with images",
+      "RL only works in offline settings"
+    ],
+    "correct": "RL learns from trial-and-error interactions and reward signals, not direct labels for each state",
+    "explanation": "In RL, the agent explores and receives feedback through rewards instead of explicit labels for each example.",
+    "topic": "Reinforcement Learning"
+  },
+  {
+    "question": "Which factor can make reinforcement learning difficult to deploy in the real world?",
+    "options": [
+      "It always requires labels",
+      "Exploration can be risky or costly in real environments",
+      "It never learns optimal policies",
+      "It cannot model sequential decisions"
+    ],
+    "correct": "Exploration can be risky or costly in real environments",
+    "explanation": "Trying new actions to explore can cause harm or costly mistakes in real-world systems.",
+    "topic": "Reinforcement Learning"
+  },
+  {
+    "question": "Which of these is an example of a sequential decision-making problem?",
+    "options": [
+      "Predicting a single house price",
+      "Choosing the next ad to show a user at each page view",
+      "Clustering users into groups once",
+      "Predicting one-off exam grades"
+    ],
+    "correct": "Choosing the next ad to show a user at each page view",
+    "explanation": "Sequential decisions consider how current actions affect future states and rewards.",
+    "topic": "Reinforcement Learning"
+  },
+  {
+    "question": "Which is a main reason to log inputs and outputs of AI systems in production?",
+    "options": [
+      "To reduce disk usage",
+      "To ensure models cannot be updated",
+      "To enable monitoring, debugging, and future retraining using real data",
+      "To hide system behavior from auditors"
+    ],
+    "correct": "To enable monitoring, debugging, and future retraining using real data",
+    "explanation": "Logs are vital for understanding behavior, diagnosing issues, and improving models.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Why is it important to carefully manage access to production AI logs?",
+    "options": [
+      "They never contain sensitive information",
+      "They might contain personal or confidential data that must be protected",
+      "They cannot be analyzed",
+      "They are always encrypted by default"
+    ],
+    "correct": "They might contain personal or confidential data that must be protected",
+    "explanation": "Logs can include sensitive information, so access control and privacy safeguards are essential.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which term describes a system that combines human decision-makers and AI models to achieve better performance than either alone?",
+    "options": [
+      "Human-in-the-loop system",
+      "Fully autonomous system",
+      "Rule-based system",
+      "Static pipeline"
+    ],
+    "correct": "Human-in-the-loop system",
+    "explanation": "Human-in-the-loop designs leverage both AI and human expertise for more robust decisions.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which is a typical advantage of keeping a human in the loop for high-stakes AI decisions?",
+    "options": [
+      "Humans always make perfect decisions",
+      "It removes the need for documentation",
+      "Humans can catch obvious errors and provide contextual judgment",
+      "It eliminates the need for model testing"
+    ],
+    "correct": "Humans can catch obvious errors and provide contextual judgment",
+    "explanation": "Human oversight can mitigate model failures and consider additional context.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which describes the main goal of responsible AI?",
+    "options": [
+      "Maximizing accuracy regardless of consequences",
+      "Deploying as many AI systems as possible",
+      "Ensuring AI systems are ethical, fair, transparent, and aligned with human values",
+      "Removing all humans from decision-making"
+    ],
+    "correct": "Ensuring AI systems are ethical, fair, transparent, and aligned with human values",
+    "explanation": "Responsible AI emphasizes the broader societal impact beyond technical performance.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which scenario is MOST likely to raise privacy concerns in an AI project?",
+    "options": [
+      "Using fully synthetic, non-identifiable data",
+      "Using aggregate statistics with no individual detail",
+      "Using detailed location traces and identities of users without their consent",
+      "Using weather data from a public API"
+    ],
+    "correct": "Using detailed location traces and identities of users without their consent",
+    "explanation": "Detailed, identifiable personal data without consent is a major privacy issue.",
+    "topic": "AI Ethics and Explainability"
+  }, 
+  {
+    "question": "Which of the following is a typical FIRST step in an AI project?",
+    "options": [
+      "Choose the neural network architecture",
+      "Collect any data you can find",
+      "Define the problem and success criteria clearly",
+      "Deploy a baseline model to production"
+    ],
+    "correct": "Define the problem and success criteria clearly",
+    "explanation": "Before collecting data or training models, you must understand the business problem and define what success looks like.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which question is MOST appropriate when scoping an AI use case?",
+    "options": [
+      "Which GPU brand should we buy?",
+      "How many hidden layers will our model have?",
+      "How will we measure if the model solves the user’s problem?",
+      "Which cloud provider has the cheapest storage?"
+    ],
+    "correct": "How will we measure if the model solves the user’s problem?",
+    "explanation": "Scoping focuses on defining objectives and metrics, not technical details like GPUs or cloud providers.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "What is the main purpose of exploratory data analysis (EDA) in an AI project?",
+    "options": [
+      "To finalize the model architecture",
+      "To understand data quality, distributions, and potential issues",
+      "To tune hyperparameters",
+      "To deploy the model to production"
+    ],
+    "correct": "To understand data quality, distributions, and potential issues",
+    "explanation": "EDA helps you familiarize yourself with the data, detect anomalies, and guide later modeling decisions.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "Which of the following is usually inspected during exploratory data analysis?",
+    "options": [
+      "GPU temperature logs",
+      "CPU cache sizes",
+      "Distributions of features and missing values",
+      "Production latency metrics"
+    ],
+    "correct": "Distributions of features and missing values",
+    "explanation": "EDA typically involves inspecting feature distributions, missingness, and correlations.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "What is a typical risk of manually inspecting only a small subset of a large dataset?",
+    "options": [
+      "You will find too many patterns",
+      "You may miss rare but important cases or biases",
+      "You cannot compute averages",
+      "You cannot train a model afterwards"
+    ],
+    "correct": "You may miss rare but important cases or biases",
+    "explanation": "Small samples may not represent the full distribution, causing you to overlook important edge cases.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "Which type of data issue is most likely to cause problems when training a supervised model?",
+    "options": [
+      "High-resolution images",
+      "Inconsistent labels for similar examples",
+      "Multiple features per example",
+      "Using a CSV format instead of JSON"
+    ],
+    "correct": "Inconsistent labels for similar examples",
+    "explanation": "Label noise makes learning the true mapping harder and can significantly reduce model performance.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "What does it usually mean if your model performs very well on both the training and validation sets?",
+    "options": [
+      "The model is probably overfitting",
+      "The model may be underfitting",
+      "The model generalizes well to similar data",
+      "The dataset is too small to train any model"
+    ],
+    "correct": "The model generalizes well to similar data",
+    "explanation": "Strong performance on both train and validation typically indicates good generalization (assuming no leakage).",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "If your model has low training error but high validation error, what does this suggest?",
+    "options": [
+      "Underfitting",
+      "Overfitting",
+      "Perfect generalization",
+      "Data leakage"
+    ],
+    "correct": "Overfitting",
+    "explanation": "The model has learned the training data too well but fails to generalize to unseen validation data.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which of the following can help mitigate underfitting?",
+    "options": [
+      "Using a simpler model",
+      "Reducing the number of training examples",
+      "Increasing model complexity or adding more informative features",
+      "Adding stronger regularization"
+    ],
+    "correct": "Increasing model complexity or adding more informative features",
+    "explanation": "Underfitting means the model is too simple; more complexity or better features can help capture the pattern.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "What is regularization in machine learning?",
+    "options": [
+      "A method to perfectly fit the training data",
+      "A technique to penalize model complexity to reduce overfitting",
+      "A method to generate synthetic data",
+      "A way to increase the number of layers in a network"
+    ],
+    "correct": "A technique to penalize model complexity to reduce overfitting",
+    "explanation": "Regularization discourages overly complex models, helping them generalize better.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "L2 regularization in linear models primarily:",
+    "options": [
+      "Encourages weights to be exactly zero",
+      "Penalizes large weights by their squared magnitude",
+      "Increases the learning rate",
+      "Changes the labels in the dataset"
+    ],
+    "correct": "Penalizes large weights by their squared magnitude",
+    "explanation": "L2 adds a penalty proportional to the sum of squared weights, shrinking them but rarely to zero.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which statement about L1 regularization is correct?",
+    "options": [
+      "It often produces sparse models with many weights exactly zero",
+      "It always increases model complexity",
+      "It cannot be combined with linear models",
+      "It is only used in unsupervised learning"
+    ],
+    "correct": "It often produces sparse models with many weights exactly zero",
+    "explanation": "L1 regularization can push some weights exactly to zero, effectively performing feature selection.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which metric is MOST appropriate when you care equally about false positives and false negatives in binary classification?",
+    "options": [
+      "Precision",
+      "Recall",
+      "Accuracy",
+      "Training loss"
+    ],
+    "correct": "Accuracy",
+    "explanation": "If errors are equally costly and classes are reasonably balanced, accuracy is a reasonable overall metric.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Precision in binary classification measures:",
+    "options": [
+      "The proportion of positive predictions that are correct",
+      "The proportion of positive samples detected",
+      "The overall fraction of correct predictions",
+      "The number of true negatives"
+    ],
+    "correct": "The proportion of positive predictions that are correct",
+    "explanation": "Precision = TP / (TP + FP); it answers: \"Of what we predicted as positive, how many were actually positive?\"",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Recall in binary classification measures:",
+    "options": [
+      "The proportion of positive predictions that are correct",
+      "The proportion of actual positives that are correctly detected",
+      "The fraction of negative samples detected",
+      "The number of false negatives"
+    ],
+    "correct": "The proportion of actual positives that are correctly detected",
+    "explanation": "Recall = TP / (TP + FN); it answers: \"Of all true positives, how many did we find?\"",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Which metric is often used when missing a positive case is much worse than raising a false alarm?",
+    "options": [
+      "Recall",
+      "Precision",
+      "RMSE",
+      "R-squared"
+    ],
+    "correct": "Recall",
+    "explanation": "High recall ensures most actual positives are detected, important when false negatives are costly.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "The F1-score is the harmonic mean of:",
+    "options": [
+      "Accuracy and recall",
+      "Precision and recall",
+      "Precision and accuracy",
+      "Loss and accuracy"
+    ],
+    "correct": "Precision and recall",
+    "explanation": "F1 combines precision and recall, giving a balanced measure when both are important.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Which situation suggests that precision is more important than recall?",
+    "options": [
+      "Detecting all cancer cases in medical screening",
+      "Filtering spam emails where a few spam messages in the inbox are acceptable",
+      "Detecting all fraudulent transactions regardless of false alarms",
+      "Detecting rare machine failures where missing one is catastrophic"
+    ],
+    "correct": "Filtering spam emails where a few spam messages in the inbox are acceptable",
+    "explanation": "For spam filters, marking legitimate mail as spam (false positives) is worse, so you favor high precision.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "In a confusion matrix, which cell corresponds to false positives (FP)?",
+    "options": [
+      "Predicted negative, actual negative",
+      "Predicted negative, actual positive",
+      "Predicted positive, actual positive",
+      "Predicted positive, actual negative"
+    ],
+    "correct": "Predicted positive, actual negative",
+    "explanation": "A false positive is when the model predicts positive but the true label is negative.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "The ROC curve plots:",
+    "options": [
+      "Precision vs recall",
+      "True positive rate vs false positive rate",
+      "Accuracy vs loss",
+      "True positives vs true negatives"
+    ],
+    "correct": "True positive rate vs false positive rate",
+    "explanation": "ROC curves show trade-offs between TPR (sensitivity) and FPR at different thresholds.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "AUC (Area Under the ROC Curve) close to 0.5 suggests that the model is:",
+    "options": [
+      "Performing perfectly",
+      "Performing worse than random guessing",
+      "Performing similarly to random guessing",
+      "Overfitting the training data"
+    ],
+    "correct": "Performing similarly to random guessing",
+    "explanation": "An AUC of 0.5 means the classifier has no discriminative power, like random guessing.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Which of the following is an example of a parametric model?",
+    "options": [
+      "k-nearest neighbors",
+      "Linear regression with fixed number of features",
+      "Decision tree with unlimited depth",
+      "k-means with dynamic number of clusters"
+    ],
+    "correct": "Linear regression with fixed number of features",
+    "explanation": "Parametric models have a fixed number of parameters determined by the feature set, independent of data size.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which of these is a non-parametric algorithm?",
+    "options": [
+      "Linear regression",
+      "Logistic regression",
+      "k-nearest neighbors",
+      "Lasso regression"
+    ],
+    "correct": "k-nearest neighbors",
+    "explanation": "kNN stores the data and bases predictions on neighboring points; complexity grows with data size.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "How does k-nearest neighbors classify a new point?",
+    "options": [
+      "By fitting a global line through the data",
+      "By selecting the majority class among the k closest training examples",
+      "By computing the average label of all examples",
+      "By randomly picking a label"
+    ],
+    "correct": "By selecting the majority class among the k closest training examples",
+    "explanation": "kNN uses local neighbors to make predictions; the majority label among them is chosen.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "What is a typical drawback of k-nearest neighbors?",
+    "options": [
+      "It cannot classify nonlinear patterns",
+      "It requires no distance metric",
+      "It can be slow at prediction time on large datasets",
+      "It does not use any training data"
+    ],
+    "correct": "It can be slow at prediction time on large datasets",
+    "explanation": "kNN must compare the query point to many training examples, which is expensive at inference time.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Which of the following is a typical hyperparameter in k-nearest neighbors?",
+    "options": [
+      "Learning rate",
+      "Number of epochs",
+      "Number of neighbors k",
+      "Batch size"
+    ],
+    "correct": "Number of neighbors k",
+    "explanation": "k determines how many neighbors are used to make the prediction.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "In a decision tree, which criterion is commonly used to select the best split for classification?",
+    "options": [
+      "Mean squared error",
+      "Gini impurity or entropy",
+      "Cosine similarity",
+      "Euclidean distance"
+    ],
+    "correct": "Gini impurity or entropy",
+    "explanation": "Decision trees often use Gini or entropy to measure the purity of splits for classification tasks.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Random forests reduce overfitting compared to a single decision tree by:",
+    "options": [
+      "Using fewer features",
+      "Averaging predictions over many diverse trees",
+      "Removing randomness from training",
+      "Using only one deep tree"
+    ],
+    "correct": "Averaging predictions over many diverse trees",
+    "explanation": "Random forests create an ensemble of trees trained on different subsets of data and features, then average their predictions.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Which statement about gradient boosting is correct?",
+    "options": [
+      "It trains all trees completely independently",
+      "It trains trees sequentially, each correcting the errors of the previous",
+      "It does not use gradients",
+      "It is the same as k-means clustering"
+    ],
+    "correct": "It trains trees sequentially, each correcting the errors of the previous",
+    "explanation": "Gradient boosting builds an ensemble iteratively, focusing on residual errors from previous models.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Which of the following is a typical benefit of using gradient boosted trees (e.g., XGBoost, LightGBM)?",
+    "options": [
+      "They require no hyperparameter tuning",
+      "They often achieve strong performance on tabular data",
+      "They only work with image inputs",
+      "They never overfit"
+    ],
+    "correct": "They often achieve strong performance on tabular data",
+    "explanation": "Gradient boosted trees are strong baselines for many structured/tabular data problems.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Which method is commonly used to deal with missing numerical values?",
+    "options": [
+      "Deleting all columns",
+      "Imputing with the mean or median",
+      "Changing all values to zero",
+      "Randomly generating new labels"
+    ],
+    "correct": "Imputing with the mean or median",
+    "explanation": "Simple imputation methods fill missing values with summary statistics like mean or median.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "Which encoding technique is commonly used for categorical variables with no natural order?",
+    "options": [
+      "One-hot encoding",
+      "Mean normalization",
+      "Standardization",
+      "Min-max scaling"
+    ],
+    "correct": "One-hot encoding",
+    "explanation": "One-hot encoding represents each category with a binary vector, suitable for unordered categories.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "Which situation could lead to target leakage?",
+    "options": [
+      "Using features that are highly correlated",
+      "Using features that are derived from the label itself",
+      "Using multiple input features",
+      "Using a validation set"
+    ],
+    "correct": "Using features that are derived from the label itself",
+    "explanation": "If features contain direct information about the target that would not be available at prediction time, leakage occurs.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Why is it important to shuffle data before splitting into train and test sets?",
+    "options": [
+      "To reduce file size",
+      "To ensure no correlation between features",
+      "To avoid temporal or ordering patterns that would bias the split",
+      "To make the labels easier to predict"
+    ],
+    "correct": "To avoid temporal or ordering patterns that would bias the split",
+    "explanation": "If data is ordered (e.g., by time), without shuffling you may end up with non-representative train/test splits.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "Which validation approach is especially useful when data is limited?",
+    "options": [
+      "Using no validation set",
+      "K-fold cross-validation",
+      "Using only a test set",
+      "Randomly changing labels"
+    ],
+    "correct": "K-fold cross-validation",
+    "explanation": "Cross-validation maximizes data usage by rotating which folds are used for training and validation.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "What is early stopping in model training?",
+    "options": [
+      "Stopping training after the first epoch",
+      "Stopping training when validation performance stops improving",
+      "Stopping training when training loss reaches zero",
+      "Stopping training when the model size is too large"
+    ],
+    "correct": "Stopping training when validation performance stops improving",
+    "explanation": "Early stopping is a regularization technique that prevents overfitting by halting training based on validation metrics.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "Which of the following is an example of data augmentation in computer vision?",
+    "options": [
+      "Adding more labels to the dataset",
+      "Randomly rotating and flipping input images",
+      "Removing noisy images",
+      "Reducing the image resolution"
+    ],
+    "correct": "Randomly rotating and flipping input images",
+    "explanation": "Augmentation creates modified versions of existing images to enlarge the dataset and improve generalization.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "Why is batch normalization often used in deep neural networks?",
+    "options": [
+      "To remove all non-linearities",
+      "To normalize activations and stabilize training",
+      "To reduce dataset size",
+      "To convert labels into probabilities"
+    ],
+    "correct": "To normalize activations and stabilize training",
+    "explanation": "Batch normalization helps keep intermediate activations in a stable range, speeding up convergence.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "In NLP, a word embedding is:",
+    "options": [
+      "A numeric representation of words in a continuous vector space",
+      "A one-hot encoding of characters",
+      "A list of all words in a document",
+      "A rule-based translation table"
+    ],
+    "correct": "A numeric representation of words in a continuous vector space",
+    "explanation": "Embeddings map words to dense vectors that capture semantic similarity.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Which advantage do transformer-based models have over traditional RNNs for NLP tasks?",
+    "options": [
+      "They cannot use attention mechanisms",
+      "They process sequences strictly left-to-right",
+      "They handle long-range dependencies more effectively using self-attention",
+      "They use fewer parameters than any RNN"
+    ],
+    "correct": "They handle long-range dependencies more effectively using self-attention",
+    "explanation": "Transformers rely on self-attention, which allows them to capture relationships between words regardless of distance.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "Which of the following is a typical risk when deploying an AI system that interacts directly with end users?",
+    "options": [
+      "The model will always achieve 100% accuracy",
+      "Users may rely too heavily on model outputs without critical thinking",
+      "The system will never produce biased outputs",
+      "The system cannot learn from new data"
+    ],
+    "correct": "Users may rely too heavily on model outputs without critical thinking",
+    "explanation": "Over-trust in AI systems can lead users to accept incorrect or biased predictions.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "What does 'fairness through unawareness' mean in AI?",
+    "options": [
+      "Ignoring all demographic features guarantees fairness",
+      "Not using sensitive attributes in training or prediction",
+      "Removing all labels from the dataset",
+      "Not monitoring the model after deployment"
+    ],
+    "correct": "Not using sensitive attributes in training or prediction",
+    "explanation": "Fairness through unawareness omits protected attributes, though this alone does not guarantee fairness.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Why might simply removing a protected attribute (e.g., gender) from the data be insufficient to avoid bias?",
+    "options": [
+      "Because models cannot handle missing attributes",
+      "Because other features may act as proxies for the protected attribute",
+      "Because we must always include all attributes",
+      "Because bias only exists in the labels"
+    ],
+    "correct": "Because other features may act as proxies for the protected attribute",
+    "explanation": "Even without explicit sensitive features, correlated features can leak similar information, sustaining bias.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which of the following BEST describes 'model interpretability'?",
+    "options": [
+      "How fast a model trains",
+      "How easy it is for humans to understand how the model makes decisions",
+      "How small the model file is",
+      "How many GPUs are required for training"
+    ],
+    "correct": "How easy it is for humans to understand how the model makes decisions",
+    "explanation": "Interpretability focuses on making model logic understandable to humans.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which of the following models is usually considered easier to interpret?",
+    "options": [
+      "A single small decision tree",
+      "A very deep neural network with millions of parameters",
+      "A large ensemble of gradient boosted trees",
+      "A transformer-based language model"
+    ],
+    "correct": "A single small decision tree",
+    "explanation": "Small decision trees can be visualized and followed step-by-step, making them more interpretable.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "What is the main purpose of tools like LIME or SHAP?",
+    "options": [
+      "To optimize GPU usage",
+      "To automatically label datasets",
+      "To provide local explanations for individual model predictions",
+      "To compress neural networks"
+    ],
+    "correct": "To provide local explanations for individual model predictions",
+    "explanation": "LIME and SHAP are post-hoc explanation methods that help interpret black-box models.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which statement about data governance in AI is correct?",
+    "options": [
+      "It focuses only on model hyperparameters",
+      "It defines how data is collected, stored, accessed, and used responsibly",
+      "It only applies to public datasets",
+      "It is only relevant for deep learning models"
+    ],
+    "correct": "It defines how data is collected, stored, accessed, and used responsibly",
+    "explanation": "Data governance sets rules and processes for ethical and compliant data use.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "GDPR (General Data Protection Regulation) in the EU is mainly concerned with:",
+    "options": [
+      "Optimizing deep learning performance",
+      "Regulating cryptocurrency",
+      "Protecting personal data and privacy of individuals",
+      "Deciding which AI models are allowed"
+    ],
+    "correct": "Protecting personal data and privacy of individuals",
+    "explanation": "GDPR sets rules on how organizations can collect and process personal data.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which of the following describes 'data minimization'?",
+    "options": [
+      "Collecting as much data as possible",
+      "Collecting only the data necessary for a specific purpose",
+      "Deleting all existing datasets",
+      "Using only synthetic data"
+    ],
+    "correct": "Collecting only the data necessary for a specific purpose",
+    "explanation": "Data minimization is a privacy principle that limits data collection to what is strictly needed.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which threat is MOST related to AI security?",
+    "options": [
+      "Slow user interface",
+      "Unauthorized weight updates to the model",
+      "High model accuracy",
+      "Small training set"
+    ],
+    "correct": "Unauthorized weight updates to the model",
+    "explanation": "Tampering with model parameters can change behavior and undermine trust and safety.",
+    "topic": "AI Security"
+  },
+  {
+    "question": "Which example describes a 'poisoning attack' on a training dataset?",
+    "options": [
+      "Adding adversarial noise to test images",
+      "Injecting carefully crafted malicious data into the training set to manipulate the model",
+      "Removing all labels from the dataset",
+      "Compressing images to save storage"
+    ],
+    "correct": "Injecting carefully crafted malicious data into the training set to manipulate the model",
+    "explanation": "In poisoning attacks, adversaries corrupt training data to influence model behavior.",
+    "topic": "AI Security"
+  },
+  {
+    "question": "Which property does differential privacy aim to provide?",
+    "options": [
+      "Perfect accuracy",
+      "Unlimited data sharing",
+      "Formal guarantees that individual records have limited influence on model outputs",
+      "Faster training time"
+    ],
+    "correct": "Formal guarantees that individual records have limited influence on model outputs",
+    "explanation": "Differential privacy ensures that removing or adding a single data point does not significantly change model outputs.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which of the following is a benefit of using pre-trained models in computer vision?",
+    "options": [
+      "They always match the exact target domain",
+      "They allow you to start from useful visual features and train with less labeled data",
+      "They remove the need for any training",
+      "They guarantee zero bias"
+    ],
+    "correct": "They allow you to start from useful visual features and train with less labeled data",
+    "explanation": "Pre-trained models capture generic features; fine-tuning them can save time and data.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "Which scenario is well suited for transfer learning?",
+    "options": [
+      "You have millions of labeled images for your specific task",
+      "You have only a small labeled dataset similar to a large public dataset",
+      "You have no data at all",
+      "You need an unsupervised clustering solution"
+    ],
+    "correct": "You have only a small labeled dataset similar to a large public dataset",
+    "explanation": "Transfer learning is particularly useful when labeled data is scarce but related pre-trained models exist.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "What is model deployment?",
+    "options": [
+      "Saving the model to disk only",
+      "Using the trained model in a production environment to serve predictions",
+      "Deleting the training data",
+      "Visualizing the training loss"
+    ],
+    "correct": "Using the trained model in a production environment to serve predictions",
+    "explanation": "Deployment is when the model is integrated into applications or services for real users.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which of the following is important for model monitoring after deployment?",
+    "options": [
+      "GPU fan speed",
+      "User keyboard layout",
+      "Tracking input distributions and model performance over time",
+      "The color of the web interface"
+    ],
+    "correct": "Tracking input distributions and model performance over time",
+    "explanation": "Monitoring detects data drift and performance degradation in production.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which concept refers to automatically retraining and re-deploying models as new data becomes available?",
+    "options": [
+      "Static modeling",
+      "Continuous integration",
+      "Continuous training and deployment (MLOps)",
+      "Batch normalization"
+    ],
+    "correct": "Continuous training and deployment (MLOps)",
+    "explanation": "MLOps practices support ongoing retraining, evaluation, and redeployment of models.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which objective is MOST important when designing an AI system for a safety-critical application (e.g., autonomous driving)?",
+    "options": [
+      "Maximizing user engagement",
+      "Minimizing training time",
+      "Ensuring reliability, robustness, and fail-safe behavior",
+      "Using the newest model architecture"
+    ],
+    "correct": "Ensuring reliability, robustness, and fail-safe behavior",
+    "explanation": "Safety-critical systems must prioritize reliability and safety over novelty or training speed.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which statement best describes supervised vs unsupervised learning?",
+    "options": [
+      "Supervised uses labeled data; unsupervised uses unlabeled data",
+      "Supervised uses images; unsupervised uses text",
+      "Supervised is always better than unsupervised",
+      "Unsupervised learning does not use data"
+    ],
+    "correct": "Supervised uses labeled data; unsupervised uses unlabeled data",
+    "explanation": "The main difference is the presence or absence of labels for training.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which learning paradigm is MOST appropriate for grouping news articles into thematic clusters without predefined labels?",
+    "options": [
+      "Supervised learning",
+      "Unsupervised learning",
+      "Reinforcement learning",
+      "Semi-supervised learning"
+    ],
+    "correct": "Unsupervised learning",
+    "explanation": "Clustering without labels is an unsupervised learning task.",
+    "topic": "Unsupervised Learning"
+  },
+  {
+    "question": "Which type of model would be most appropriate for predicting tomorrow's stock price movement (up or down)?",
+    "options": [
+      "Binary classification model",
+      "k-means clustering model",
+      "Unsupervised anomaly detector",
+      "Topic model"
+    ],
+    "correct": "Binary classification model",
+    "explanation": "Predicting up vs down is a binary classification task.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "If a regression model consistently predicts values that are too low, which situation does this indicate?",
+    "options": [
+      "Low variance",
+      "High variance",
+      "High bias",
+      "Low bias"
+    ],
+    "correct": "High bias",
+    "explanation": "Systematic error in one direction suggests bias in the model.",
+    "topic": "Regression Models"
+  },
+  {
+    "question": "Which metric is commonly used to evaluate regression models?",
+    "options": [
+      "Precision",
+      "Recall",
+      "Mean absolute error (MAE)",
+      "Accuracy"
+    ],
+    "correct": "Mean absolute error (MAE)",
+    "explanation": "MAE measures the average absolute difference between predictions and true values.",
+    "topic": "Regression Models"
+  },
+  {
+    "question": "Which statement about RMSE (Root Mean Squared Error) is correct?",
+    "options": [
+      "It penalizes large errors more than MAE",
+      "It is always equal to MAE",
+      "It is only used for classification",
+      "It ignores outliers"
+    ],
+    "correct": "It penalizes large errors more than MAE",
+    "explanation": "Because errors are squared before averaging, RMSE is more sensitive to large errors.",
+    "topic": "Regression Models"
+  },
+  {
+    "question": "Which type of problem would benefit from multi-label classification?",
+    "options": [
+      "Predicting a single house price",
+      "Assigning multiple genres (e.g., comedy and romance) to a movie",
+      "Clustering customers by spending",
+      "Detecting anomalies in sensor data"
+    ],
+    "correct": "Assigning multiple genres (e.g., comedy and romance) to a movie",
+    "explanation": "Multi-label classification allows assigning several labels to one instance.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Which of the following is an example of time series data?",
+    "options": [
+      "A set of random images",
+      "Daily temperature measurements for one city over a year",
+      "A list of unique IDs",
+      "An unordered set of sentences"
+    ],
+    "correct": "Daily temperature measurements for one city over a year",
+    "explanation": "Time series data is indexed by time and order matters.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Which challenge is specific to time series forecasting compared to standard regression?",
+    "options": [
+      "The labels are categorical",
+      "The observations are independent and identically distributed",
+      "The observations are ordered and often autocorrelated",
+      "No training data is available"
+    ],
+    "correct": "The observations are ordered and often autocorrelated",
+    "explanation": "Time series models must account for temporal dependencies and ordering.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Which model type is often used for univariate time series forecasting?",
+    "options": [
+      "ARIMA models",
+      "k-means clustering",
+      "Naive Bayes classifier",
+      "Topic models"
+    ],
+    "correct": "ARIMA models",
+    "explanation": "ARIMA is a classical method for time series forecasting using autoregressive and moving average components.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "In reinforcement learning, a policy defines:",
+    "options": [
+      "The reward function",
+      "The value of each state",
+      "How the agent selects actions based on states",
+      "The environment transition probabilities"
+    ],
+    "correct": "How the agent selects actions based on states",
+    "explanation": "A policy maps states to actions, guiding the agent's behavior.",
+    "topic": "Reinforcement Learning"
+  },
+  {
+    "question": "Which of the following is an example of a reward function in a game-playing RL agent?",
+    "options": [
+      "The architecture of the neural network",
+      "The score received at the end of the game",
+      "The number of training episodes",
+      "The learning rate schedule"
+    ],
+    "correct": "The score received at the end of the game",
+    "explanation": "Reward functions map states and actions (or episodes) to scalar feedback values like game scores.",
+    "topic": "Reinforcement Learning"
+  },
+  {
+    "question": "What is the discount factor (gamma) in reinforcement learning used for?",
+    "options": [
+      "Controlling learning rate",
+      "Balancing immediate and future rewards",
+      "Selecting the exploration strategy",
+      "Normalizing input features"
+    ],
+    "correct": "Balancing immediate and future rewards",
+    "explanation": "Gamma determines how much future rewards influence current decisions.",
+    "topic": "Reinforcement Learning"
+  },
+  {
+    "question": "Which exploration strategy in RL involves choosing a random action with probability ε and the best-known action otherwise?",
+    "options": [
+      "Softmax policy",
+      "ε-greedy policy",
+      "Greedy policy with no exploration",
+      "Random walk"
+    ],
+    "correct": "ε-greedy policy",
+    "explanation": "ε-greedy balances exploration and exploitation via a small probability of random actions.",
+    "topic": "Reinforcement Learning"
+  },
+  {
+    "question": "Which situation is MOST likely to cause concept drift?",
+    "options": [
+      "Temperature sensor readings in a lab with constant conditions",
+      "Customer preferences changing over time in an online shop",
+      "Static physical constants like the speed of light",
+      "Historical books in a library"
+    ],
+    "correct": "Customer preferences changing over time in an online shop",
+    "explanation": "When the relationship between inputs and outputs changes over time, concept drift occurs.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which statement about offline vs online learning is correct?",
+    "options": [
+      "Offline learning updates the model continuously with each new example",
+      "Online learning trains once on a fixed batch of data",
+      "Online learning updates the model incrementally as new data arrives",
+      "They are identical concepts"
+    ],
+    "correct": "Online learning updates the model incrementally as new data arrives",
+    "explanation": "Online learning adapts to new data in a streaming fashion; offline learning uses static datasets.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which problem arises if you evaluate many models on the same test set and pick the best one?",
+    "options": [
+      "Data leakage in training",
+      "Overfitting to the test set",
+      "Underfitting all models",
+      "No problem; this is recommended"
+    ],
+    "correct": "Overfitting to the test set",
+    "explanation": "Repeatedly choosing the best model on the same test set can make results overly optimistic.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which approach helps reduce the risk of overfitting to the test set?",
+    "options": [
+      "Using a separate validation set and keeping the test set untouched until final evaluation",
+      "Using only the test set for training",
+      "Never using a validation set",
+      "Randomly changing the labels in the test set"
+    ],
+    "correct": "Using a separate validation set and keeping the test set untouched until final evaluation",
+    "explanation": "The validation set is used for model selection; the test set is reserved for final assessment.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "In responsible AI, which group should ideally be involved when defining requirements and evaluating systems?",
+    "options": [
+      "Only the data scientists",
+      "Only software engineers",
+      "Stakeholders including domain experts, end-users, and affected groups",
+      "Only upper management"
+    ],
+    "correct": "Stakeholders including domain experts, end-users, and affected groups",
+    "explanation": "Engaging diverse stakeholders helps surface requirements, risks, and fairness concerns.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which is a potential environmental concern related to training large AI models?",
+    "options": [
+      "They always reduce energy consumption",
+      "They require no electricity",
+      "They can consume significant computational resources and energy",
+      "They cannot be trained on GPUs"
+    ],
+    "correct": "They can consume significant computational resources and energy",
+    "explanation": "Large models often need substantial compute, leading to notable energy usage and carbon footprint.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which statement about synthetic data is correct?",
+    "options": [
+      "It is always a perfect replacement for real data",
+      "It can help protect privacy but may not capture all real-world nuances",
+      "It cannot be used for training models",
+      "It is always less diverse than real data"
+    ],
+    "correct": "It can help protect privacy but may not capture all real-world nuances",
+    "explanation": "Synthetic data provides privacy benefits, but its quality and representativeness must be validated.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "Which scenario illustrates a 'black-box' model?",
+    "options": [
+      "A small rule-based system with explicit rules",
+      "A shallow linear regression with two features",
+      "A deep neural network with millions of parameters and no simple explanation",
+      "A simple decision tree with three levels"
+    ],
+    "correct": "A deep neural network with millions of parameters and no simple explanation",
+    "explanation": "Complex deep nets are often considered black boxes due to their lack of transparent decision rules.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "What is a key challenge with black-box AI models in regulated domains (e.g., finance)?",
+    "options": [
+      "They are always too slow",
+      "They do not support classification tasks",
+      "They may violate requirements for transparency and explainability",
+      "They cannot handle numerical data"
+    ],
+    "correct": "They may violate requirements for transparency and explainability",
+    "explanation": "Regulators may require understandable decision-making, which conflicts with opaque models.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which of the following AI applications is MOST directly related to anomaly detection?",
+    "options": [
+      "Topic modeling of news articles",
+      "Real-time fraud detection in credit card transactions",
+      "Machine translation between languages",
+      "Image segmentation in medical scans"
+    ],
+    "correct": "Real-time fraud detection in credit card transactions",
+    "explanation": "Fraud often appears as unusual patterns departing from normal behavior, a classic anomaly detection task.",
+    "topic": "Unsupervised Learning"
+  },
+  {
+    "question": "Why are autoencoders often used for anomaly detection?",
+    "options": [
+      "They memorize every training example exactly",
+      "They learn to reconstruct normal data; large reconstruction error may indicate anomalies",
+      "They always produce perfect classifications",
+      "They require no training data"
+    ],
+    "correct": "They learn to reconstruct normal data; large reconstruction error may indicate anomalies",
+    "explanation": "Autoencoders trained on normal data struggle to reconstruct unusual patterns, signaling anomalies.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "Which statement about clustering evaluation without labels is correct?",
+    "options": [
+      "It is impossible to evaluate clustering without labels",
+      "You can use internal metrics like silhouette score to measure cluster separation",
+      "You must always create manual labels first",
+      "Only visual inspection is allowed"
+    ],
+    "correct": "You can use internal metrics like silhouette score to measure cluster separation",
+    "explanation": "Internal metrics evaluate clustering based on cohesion and separation without external labels.",
+    "topic": "Unsupervised Learning"
+  },
+  {
+    "question": "Which challenge often arises when choosing the number of clusters k in k-means?",
+    "options": [
+      "k must always equal the number of features",
+      "There is no single objective way to pick k; it often requires experimentation and domain knowledge",
+      "k must always be 2",
+      "k is automatically determined by the algorithm"
+    ],
+    "correct": "There is no single objective way to pick k; it often requires experimentation and domain knowledge",
+    "explanation": "Choosing k is problem-dependent and typically involves methods like the elbow method plus domain input.",
+    "topic": "Unsupervised Learning"
+  },
+  {
+    "question": "Which type of AI system adjusts its behavior based on feedback but does NOT explicitly learn from data?",
+    "options": [
+      "Rule-based expert system with manually updated rules",
+      "Deep neural network",
+      "Linear regression model",
+      "Random forest classifier"
+    ],
+    "correct": "Rule-based expert system with manually updated rules",
+    "explanation": "Expert systems rely on human-updated rules rather than data-driven learning.",
+    "topic": "AI Fundamentals"
+  },
+  {
+    "question": "Which is a main limitation of rule-based systems compared to modern ML systems?",
+    "options": [
+      "They cannot be implemented in software",
+      "They become hard to maintain as the number of rules grows",
+      "They require large labeled datasets",
+      "They always outperform neural networks"
+    ],
+    "correct": "They become hard to maintain as the number of rules grows",
+    "explanation": "Rule sets can become inconsistent and unmanageable as complexity increases.",
+    "topic": "AI Fundamentals"
+  },
+  {
+    "question": "Which property makes AI systems different from traditional software in many applications?",
+    "options": [
+      "AI systems never fail",
+      "AI systems can learn patterns from data instead of being fully hand-coded",
+      "AI systems require no testing",
+      "AI systems can run without hardware"
+    ],
+    "correct": "AI systems can learn patterns from data instead of being fully hand-coded",
+    "explanation": "ML-based AI learns from data, while traditional software encodes explicit rules.",
+    "topic": "AI Fundamentals"
+  },
+  {
+    "question": "Which term describes errors in a dataset where labels are systematically incorrect for a specific group?",
+    "options": [
+      "Random noise",
+      "Sampling error",
+      "Label bias",
+      "Overfitting"
+    ],
+    "correct": "Label bias",
+    "explanation": "Label bias occurs when certain groups are labeled incorrectly more often, embedding historical unfairness.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which mitigation strategy can improve robustness against label bias?",
+    "options": [
+      "Ignoring evaluation metrics",
+      "Collecting more diverse and carefully checked labeled data",
+      "Removing the training data",
+      "Using a more complex model regardless of data quality"
+    ],
+    "correct": "Collecting more diverse and carefully checked labeled data",
+    "explanation": "Better, more representative, and audited labels can reduce biased patterns the model might learn.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which statement best describes artificial intelligence (AI)?",
+    "options": [
+      "Any software that runs on a computer",
+      "Systems that perform tasks requiring human-like intelligence",
+      "Only robots that move and act in the physical world",
+      "Any program that uses a database"
+    ],
+    "correct": "Systems that perform tasks requiring human-like intelligence",
+    "explanation": "AI focuses on building systems that can perform tasks such as perception, reasoning, and learning that typically require human intelligence.",
+    "topic": "AI Fundamentals"
+  },
+  {
+    "question": "What is the main difference between narrow AI and general AI?",
+    "options": [
+      "Narrow AI works only with images, general AI only with text",
+      "Narrow AI is rule-based, general AI is not",
+      "Narrow AI is built for specific tasks, general AI can handle a wide range of tasks",
+      "Narrow AI requires big data, general AI does not"
+    ],
+    "correct": "Narrow AI is built for specific tasks, general AI can handle a wide range of tasks",
+    "explanation": "Narrow AI is specialized for a single or limited set of tasks, while general AI would exhibit flexible, human-level intelligence across many domains.",
+    "topic": "AI Fundamentals"
+  },
+  {
+    "question": "Which of the following is an example of narrow AI?",
+    "options": [
+      "A robot that can do any job a human can do",
+      "A chess-playing program that beats world champions",
+      "A system that understands and reasons about everything",
+      "A computer that designs new AI systems without data"
+    ],
+    "correct": "A chess-playing program that beats world champions",
+    "explanation": "Game-playing systems like Deep Blue or AlphaZero are classic examples of narrow AI focused on a single task.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Which term describes computers performing tasks that normally require human intelligence, like learning or reasoning?",
+    "options": [
+      "Machine coding",
+      "Robotics process automation",
+      "Artificial intelligence",
+      "Cloud computing"
+    ],
+    "correct": "Artificial intelligence",
+    "explanation": "Artificial intelligence is the field concerned with automating tasks that usually require human intelligence.",
+    "topic": "AI Fundamentals"
+  },
+  {
+    "question": "What is a key characteristic of supervised learning?",
+    "options": [
+      "It does not use any data",
+      "It uses labeled examples of inputs and outputs",
+      "It never updates its model parameters",
+      "It only works for clustering tasks"
+    ],
+    "correct": "It uses labeled examples of inputs and outputs",
+    "explanation": "Supervised learning requires labeled data, where the correct output is known for each input.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Which of the following tasks is most suitable for supervised learning?",
+    "options": [
+      "Discovering groups of similar customers",
+      "Detecting fraudulent credit card transactions as 'fraud' or 'not fraud'",
+      "Generating synthetic data",
+      "Compressing images without losing information"
+    ],
+    "correct": "Detecting fraudulent credit card transactions as 'fraud' or 'not fraud'",
+    "explanation": "Fraud detection is a classification problem with labeled examples, making it a good fit for supervised learning.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Which learning paradigm is primarily concerned with discovering structure in unlabeled data?",
+    "options": [
+      "Supervised learning",
+      "Unsupervised learning",
+      "Reinforcement learning",
+      "Semi-supervised learning"
+    ],
+    "correct": "Unsupervised learning",
+    "explanation": "Unsupervised learning tries to find patterns or groupings in data where labels are not provided.",
+    "topic": "Unsupervised Learning"
+  },
+  {
+    "question": "Clustering algorithms are typically used to:",
+    "options": [
+      "Predict continuous values like house prices",
+      "Assign predefined labels to examples",
+      "Group similar examples without predefined labels",
+      "Generate new synthetic images"
+    ],
+    "correct": "Group similar examples without predefined labels",
+    "explanation": "Clustering is an unsupervised learning technique that groups similar data points without using labels.",
+    "topic": "Unsupervised Learning"
+  },
+  {
+    "question": "Reinforcement learning is best described as:",
+    "options": [
+      "Learning from labeled examples of correct behavior",
+      "Learning by exploring an environment and receiving rewards or penalties",
+      "Learning by copying the model weights of another agent",
+      "Learning from static rules defined by experts"
+    ],
+    "correct": "Learning by exploring an environment and receiving rewards or penalties",
+    "explanation": "Reinforcement learning agents learn by interacting with an environment and optimizing cumulative reward.",
+    "topic": "Reinforcement Learning"
+  },
+  {
+    "question": "Which scenario is a good example of reinforcement learning?",
+    "options": [
+      "Grouping products by similarity based on purchase data",
+      "Training an agent to play a video game by trial and error",
+      "Classifying emails as spam or not spam",
+      "Predicting tomorrow's temperature"
+    ],
+    "correct": "Training an agent to play a video game by trial and error",
+    "explanation": "Game-playing agents that learn by trial and error with rewards fit the reinforcement learning paradigm.",
+    "topic": "Reinforcement Learning"
+  },
+  {
+    "question": "What type of machine learning is used when a model predicts housing prices based on past sales data?",
+    "options": [
+      "Clustering",
+      "Classification",
+      "Regression",
+      "Dimensionality reduction"
+    ],
+    "correct": "Regression",
+    "explanation": "Predicting a continuous value such as price is a regression task.",
+    "topic": "Regression Models"
+  },
+  {
+    "question": "Which of the following is a typical output of a classification model?",
+    "options": [
+      "Predicted house price in euros",
+      "Cluster index of a data point",
+      "Probability that an email is spam",
+      "Reconstructed compressed image"
+    ],
+    "correct": "Probability that an email is spam",
+    "explanation": "Classification models predict class labels or probabilities for discrete categories like spam or not spam.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "In a spam filter, the labels 'spam' and 'not spam' are examples of:",
+    "options": [
+      "Continuous variables",
+      "Classes",
+      "Hyperparameters",
+      "Loss functions"
+    ],
+    "correct": "Classes",
+    "explanation": "In supervised classification, each possible category is called a class.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Which of the following is most likely a regression problem?",
+    "options": [
+      "Predicting which product a user will click",
+      "Estimating the number of sales next week",
+      "Classifying images of animals into species",
+      "Detecting fraudulent transactions"
+    ],
+    "correct": "Estimating the number of sales next week",
+    "explanation": "Estimating a numeric quantity, like sales count, is a regression task.",
+    "topic": "Regression Models"
+  },
+  {
+    "question": "What is the main goal of a classification algorithm?",
+    "options": [
+      "To group similar items without labels",
+      "To predict continuous numerical targets",
+      "To find the best sequence of actions in an environment",
+      "To assign an input to one of several predefined categories"
+    ],
+    "correct": "To assign an input to one of several predefined categories",
+    "explanation": "Classification maps inputs to discrete labels such as 'cat' or 'dog'.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Which statement about outliers is generally true?",
+    "options": [
+      "Outliers are always removed from the dataset",
+      "Outliers never influence machine learning models",
+      "How to treat outliers depends on the problem and model",
+      "Outliers only exist in categorical data"
+    ],
+    "correct": "How to treat outliers depends on the problem and model",
+    "explanation": "Sometimes outliers represent important rare events; sometimes they are noise. Treatment depends on context.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "What is feature engineering?",
+    "options": [
+      "The process of randomly shuffling data",
+      "The process of transforming raw data into useful input features",
+      "The process of labeling data with ground truth",
+      "The process of training the final model"
+    ],
+    "correct": "The process of transforming raw data into useful input features",
+    "explanation": "Feature engineering creates or transforms variables to make patterns easier for models to learn.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "Which of the following is an example of feature engineering?",
+    "options": [
+      "Randomly dropping half of the dataset",
+      "Combining 'day', 'month', and 'year' columns into a single 'date' feature",
+      "Shuffling the order of the training examples",
+      "Splitting the dataset into train and test sets"
+    ],
+    "correct": "Combining 'day', 'month', and 'year' columns into a single 'date' feature",
+    "explanation": "Creating new features from existing columns is a classic feature engineering step.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "When you do a typical 70%/30% train-test split, what is the main purpose of the test set?",
+    "options": [
+      "To train the model faster",
+      "To tune hyperparameters during training",
+      "To evaluate how well the model generalizes to unseen data",
+      "To generate more training examples"
+    ],
+    "correct": "To evaluate how well the model generalizes to unseen data",
+    "explanation": "The test set is held out from training and used to estimate performance on new, unseen data.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "Which statement best describes cross-validation?",
+    "options": [
+      "Using the same data for training and testing",
+      "Repeatedly splitting the data into different train and validation sets to evaluate performance",
+      "Training multiple different models on completely different datasets",
+      "Randomly shuffling the labels to remove bias"
+    ],
+    "correct": "Repeatedly splitting the data into different train and validation sets to evaluate performance",
+    "explanation": "Cross-validation helps estimate how a model will perform on unseen data by rotating which samples are used for training and validation.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "Why is it important that the training and test data come from the same distribution?",
+    "options": [
+      "To make the model train faster",
+      "So the model can memorize the test data",
+      "So evaluation results reflect how the model will behave in production",
+      "Because models cannot handle any distribution shift"
+    ],
+    "correct": "So evaluation results reflect how the model will behave in production",
+    "explanation": "If training and test data are drawn from different distributions, test performance may not reflect real-world performance.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "A model trained only on adult cat images performs poorly on kitten images in production. What is the best way to address this?",
+    "options": [
+      "Reduce the number of training examples",
+      "Add representative kitten images to the training data",
+      "Increase the learning rate",
+      "Remove all cat images from training"
+    ],
+    "correct": "Add representative kitten images to the training data",
+    "explanation": "The production distribution includes kitten images, so training data should include similar examples.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "What does overfitting mean in the context of machine learning?",
+    "options": [
+      "The model has too few parameters to learn the pattern",
+      "The model performs well on training data but poorly on new data",
+      "The model uses too little training data",
+      "The model converges too quickly"
+    ],
+    "correct": "The model performs well on training data but poorly on new data",
+    "explanation": "Overfitting occurs when a model memorizes training data instead of learning general patterns.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which strategy is commonly used to reduce overfitting?",
+    "options": [
+      "Using a more complex model",
+      "Collecting more training data",
+      "Removing the validation set",
+      "Increasing the number of training epochs indefinitely"
+    ],
+    "correct": "Collecting more training data",
+    "explanation": "More diverse data helps models generalize better and reduces overfitting.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "The bias-variance tradeoff refers to:",
+    "options": [
+      "Balancing training and test set sizes",
+      "Balancing the number of features and samples",
+      "Balancing underfitting and overfitting in model complexity",
+      "Balancing the number of labels and unlabeled samples"
+    ],
+    "correct": "Balancing underfitting and overfitting in model complexity",
+    "explanation": "High bias can cause underfitting, while high variance can cause overfitting; choosing the right complexity balances these.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "What is the primary purpose of a loss function in supervised learning?",
+    "options": [
+      "To generate new training data",
+      "To measure how far predictions are from true labels",
+      "To split data into batches",
+      "To normalize input features"
+    ],
+    "correct": "To measure how far predictions are from true labels",
+    "explanation": "The loss function quantifies prediction error and guides the optimization process.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which of the following is a common loss function for regression problems?",
+    "options": [
+      "Cross-entropy loss",
+      "Mean squared error",
+      "Hinge loss",
+      "F1-score"
+    ],
+    "correct": "Mean squared error",
+    "explanation": "Mean squared error is widely used to measure the average squared difference between predictions and true values in regression.",
+    "topic": "Regression Models"
+  },
+  {
+    "question": "Which metric is most suitable for evaluating binary classification performance on an imbalanced dataset?",
+    "options": [
+      "Accuracy",
+      "Mean squared error",
+      "F1-score",
+      "Mean absolute error"
+    ],
+    "correct": "F1-score",
+    "explanation": "F1-score balances precision and recall, making it more informative than accuracy on imbalanced data.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Which of the following best describes a confusion matrix?",
+    "options": [
+      "A matrix showing correlations between features",
+      "A table summarizing correct and incorrect classifications",
+      "A table storing model hyperparameters",
+      "A matrix of distances between data points"
+    ],
+    "correct": "A table summarizing correct and incorrect classifications",
+    "explanation": "A confusion matrix shows counts of true positives, false positives, true negatives, and false negatives.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Why is feature scaling (normalization or standardization) often important?",
+    "options": [
+      "To convert categorical data into numbers",
+      "To reduce model interpretability",
+      "To ensure features contribute roughly equally to distance-based or gradient-based algorithms",
+      "To remove all correlations between features"
+    ],
+    "correct": "To ensure features contribute roughly equally to distance-based or gradient-based algorithms",
+    "explanation": "If features are on very different scales, optimization and distance calculations can be dominated by large-scale features.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "Which of the following is an example of synthetic data generation?",
+    "options": [
+      "Removing rows with missing values",
+      "Creating simulated customer transactions that resemble real ones",
+      "Normalizing all features to have mean zero",
+      "Labeling images with object categories"
+    ],
+    "correct": "Creating simulated customer transactions that resemble real ones",
+    "explanation": "Synthetic data is artificially generated to mimic properties of real data.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "Data anonymization is primarily used to:",
+    "options": [
+      "Improve model accuracy",
+      "Speed up training",
+      "Protect the privacy of individuals in a dataset",
+      "Increase the number of features"
+    ],
+    "correct": "Protect the privacy of individuals in a dataset",
+    "explanation": "Anonymization removes or masks identifying information to protect individuals' privacy.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "In machine learning projects, practitioners typically spend most of their time on:",
+    "options": [
+      "Designing model architectures",
+      "Data collection, cleaning, and preprocessing",
+      "Tuning learning rates",
+      "Writing documentation"
+    ],
+    "correct": "Data collection, cleaning, and preprocessing",
+    "explanation": "In practice, preparing high-quality data is often the most time-consuming part of a project.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "What is the main purpose of splitting data into training, validation, and test sets?",
+    "options": [
+      "To use each split for a different algorithm",
+      "To hide part of the data from the model permanently",
+      "To train, tune, and objectively evaluate the model respectively",
+      "To increase the total number of samples"
+    ],
+    "correct": "To train, tune, and objectively evaluate the model respectively",
+    "explanation": "Training data fits the model, validation data tunes hyperparameters, and test data measures final performance.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which of the following best describes a hyperparameter?",
+    "options": [
+      "A parameter learned by the model from data",
+      "A parameter that controls the learning process and is set by the practitioner",
+      "Any parameter in the loss function",
+      "The bias term in a linear model"
+    ],
+    "correct": "A parameter that controls the learning process and is set by the practitioner",
+    "explanation": "Hyperparameters like learning rate or tree depth are set before training and control how the model learns.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "In a decision tree, what is the purpose of splitting on features?",
+    "options": [
+      "To create new labels",
+      "To partition the data into subsets that are more homogeneous with respect to the target variable",
+      "To increase the number of features",
+      "To normalize the data"
+    ],
+    "correct": "To partition the data into subsets that are more homogeneous with respect to the target variable",
+    "explanation": "Decision trees split data so that each branch is more pure (similar labels) than before the split.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "What is one advantage of decision trees?",
+    "options": [
+      "They are always the most accurate model",
+      "They are easy to interpret and visualize",
+      "They never overfit the training data",
+      "They require no features"
+    ],
+    "correct": "They are easy to interpret and visualize",
+    "explanation": "Decision trees present decisions in a tree structure that humans can inspect and understand.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Which of the following algorithms assumes that features are conditionally independent given the class label?",
+    "options": [
+      "k-means clustering",
+      "Naive Bayes",
+      "Linear regression",
+      "k-nearest neighbors"
+    ],
+    "correct": "Naive Bayes",
+    "explanation": "Naive Bayes relies on the simplifying assumption that features are independent given the class.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "What is a hyperplane in the context of support vector machines (SVMs)?",
+    "options": [
+      "A method for scaling data",
+      "A decision boundary that separates classes",
+      "A type of activation function",
+      "A loss function used for regression"
+    ],
+    "correct": "A decision boundary that separates classes",
+    "explanation": "SVMs use hyperplanes in feature space as decision boundaries between classes.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Why are support vector machines often effective for classification problems?",
+    "options": [
+      "They do not require any features",
+      "They find a decision boundary with maximum margin between classes",
+      "They always output probabilities directly",
+      "They cannot handle nonlinear decision boundaries"
+    ],
+    "correct": "They find a decision boundary with maximum margin between classes",
+    "explanation": "Maximizing the margin often improves generalization, making SVMs effective.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Which type of regression is used when the output is binary (0 or 1)?",
+    "options": [
+      "Linear regression",
+      "Polynomial regression",
+      "Logistic regression",
+      "k-means regression"
+    ],
+    "correct": "Logistic regression",
+    "explanation": "Logistic regression models the probability of a binary outcome using a logistic (sigmoid) function.",
+    "topic": "Regression Models"
+  },
+  {
+    "question": "The sigmoid function outputs values in which range?",
+    "options": [
+      "-1 to 1",
+      "0 to 1",
+      "0 to 10",
+      "0 to 100"
+    ],
+    "correct": "0 to 1",
+    "explanation": "The sigmoid activation squashes real-valued inputs to the range between 0 and 1.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which of the following best describes a neural network?",
+    "options": [
+      "A set of hand-written rules",
+      "A collection of interconnected nodes (neurons) that transform inputs through layers",
+      "A single linear equation with one parameter",
+      "A type of decision tree"
+    ],
+    "correct": "A collection of interconnected nodes (neurons) that transform inputs through layers",
+    "explanation": "Neural networks are composed of layers of artificial neurons connected by weighted edges.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "What is the role of an activation function in a neural network?",
+    "options": [
+      "To initialize weights",
+      "To add non-linearity so the network can learn complex patterns",
+      "To sort training examples",
+      "To compute the loss function"
+    ],
+    "correct": "To add non-linearity so the network can learn complex patterns",
+    "explanation": "Activation functions like ReLU or sigmoid allow networks to approximate complex, non-linear functions.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "ReLU (Rectified Linear Unit) activation is defined as:",
+    "options": [
+      "1 / (1 + e^-x)",
+      "max(0, x)",
+      "x^2",
+      "-x",
+      "log(1 + e^x)"
+    ],
+    "correct": "max(0, x)",
+    "explanation": "ReLU outputs zero for negative inputs and the input itself for non-negative inputs.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "Which neural network architecture is particularly well-suited for image recognition?",
+    "options": [
+      "Recurrent neural networks",
+      "Convolutional neural networks",
+      "Naive Bayes networks",
+      "Bayesian belief networks"
+    ],
+    "correct": "Convolutional neural networks",
+    "explanation": "CNNs use convolutional layers that exploit spatial structure in images.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "What is a convolutional filter (kernel) used for in CNNs?",
+    "options": [
+      "To randomly initialize weights",
+      "To compute global averages",
+      "To detect local patterns like edges or textures",
+      "To generate labels for images"
+    ],
+    "correct": "To detect local patterns like edges or textures",
+    "explanation": "Convolutional filters slide over the image to detect local features.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "Which neural network architecture is typically used for sequence data such as text or time series?",
+    "options": [
+      "Convolutional neural network",
+      "Recurrent neural network",
+      "Decision tree",
+      "k-means network"
+    ],
+    "correct": "Recurrent neural network",
+    "explanation": "RNNs, including LSTMs and GRUs, are designed to handle sequential data.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "What is backpropagation used for in neural networks?",
+    "options": [
+      "To initialize weights",
+      "To compute weight updates using gradients of the loss function",
+      "To normalize the input data",
+      "To generate synthetic training data"
+    ],
+    "correct": "To compute weight updates using gradients of the loss function",
+    "explanation": "Backpropagation computes gradients of the loss with respect to each weight and propagates errors backward through the network.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "Which optimization algorithm is commonly used with neural networks?",
+    "options": [
+      "Breadth-first search",
+      "Gradient descent and its variants",
+      "Dijkstra's algorithm",
+      "Kruskal's algorithm"
+    ],
+    "correct": "Gradient descent and its variants",
+    "explanation": "Neural networks are typically trained via gradient-based optimization methods like SGD or Adam.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "What is dropout in deep learning?",
+    "options": [
+      "A data augmentation technique",
+      "A method for scaling learning rates",
+      "A regularization technique that randomly disables neurons during training",
+      "A way to initialize network weights"
+    ],
+    "correct": "A regularization technique that randomly disables neurons during training",
+    "explanation": "Dropout reduces overfitting by randomly setting some activations to zero during training.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "In natural language processing, tokenization refers to:",
+    "options": [
+      "Encrypting text",
+      "Splitting text into units such as words or subwords",
+      "Removing all punctuation from text",
+      "Translating text into another language"
+    ],
+    "correct": "Splitting text into units such as words or subwords",
+    "explanation": "Tokenization breaks a text sequence into tokens that are then processed numerically.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Which of the following is a typical application of computer vision?",
+    "options": [
+      "Machine translation between languages",
+      "Image classification of medical scans",
+      "Speech-to-text transcription",
+      "Recommending music playlists"
+    ],
+    "correct": "Image classification of medical scans",
+    "explanation": "Computer vision deals with analysis and understanding of visual data such as images or video.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Recommendation systems used by services like Netflix or Amazon are usually classified as:",
+    "options": [
+      "General AI",
+      "Narrow AI",
+      "Super AI",
+      "Reinforcement-only AI"
+    ],
+    "correct": "Narrow AI",
+    "explanation": "Recommender systems are specialized AI systems focused on a specific task: recommending items.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Chatbots like Siri, Alexa, or Google Assistant are examples of:",
+    "options": [
+      "Super AI",
+      "General AI",
+      "Narrow AI",
+      "Unsupervised AI"
+    ],
+    "correct": "Narrow AI",
+    "explanation": "They are designed for specific tasks like voice interaction and information retrieval, not general intelligence.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Which of the following is a common type of recommendation approach?",
+    "options": [
+      "Rule-based reasoning",
+      "Content-based and collaborative filtering",
+      "Graph search only",
+      "Brute-force search over all products"
+    ],
+    "correct": "Content-based and collaborative filtering",
+    "explanation": "Modern recommenders often use content-based methods and/or collaborative filtering based on user behavior.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Which type of data labeling is typically needed for supervised image classification?",
+    "options": [
+      "Labels indicating which class each image belongs to",
+      "Labels showing which cluster each image is in",
+      "No labels are needed",
+      "Labels only for a small random subset of images"
+    ],
+    "correct": "Labels indicating which class each image belongs to",
+    "explanation": "Supervised classification requires knowing the correct class for each training example.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "Which learning setup is most suitable if you have a very large unlabeled dataset and a small labeled dataset?",
+    "options": [
+      "Pure supervised learning",
+      "Unsupervised learning only",
+      "Semi-supervised learning",
+      "No learning is possible"
+    ],
+    "correct": "Semi-supervised learning",
+    "explanation": "Semi-supervised learning leverages both labeled and unlabeled data.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "What is transfer learning?",
+    "options": [
+      "Training a model on multiple GPUs",
+      "Transferring labels between datasets",
+      "Using a model pre-trained on one task as a starting point for another task",
+      "Transferring ownership of a dataset"
+    ],
+    "correct": "Using a model pre-trained on one task as a starting point for another task",
+    "explanation": "Transfer learning reuses knowledge from one task to improve learning on a related task.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "Which of the following is an example of generative AI?",
+    "options": [
+      "A model that clusters customers",
+      "A model that predicts housing prices",
+      "A model that creates realistic images from text prompts",
+      "A model that compresses files"
+    ],
+    "correct": "A model that creates realistic images from text prompts",
+    "explanation": "Generative AI models such as diffusion models or GANs can generate new images from textual descriptions.",
+    "topic": "Generative AI"
+  },
+  {
+    "question": "Large language models like GPT are primarily trained using:",
+    "options": [
+      "Supervised learning on labeled sentiment data only",
+      "Unsupervised or self-supervised learning on large text corpora",
+      "Reinforcement learning only",
+      "Purely rule-based systems"
+    ],
+    "correct": "Unsupervised or self-supervised learning on large text corpora",
+    "explanation": "They learn to predict the next token or fill in missing text based on massive unlabeled datasets.",
+    "topic": "Generative AI"
+  },
+  {
+    "question": "Which risk is associated with using large language models?",
+    "options": [
+      "They cannot generalize to new inputs",
+      "They always output the same answer",
+      "They may generate plausible but incorrect or biased information",
+      "They never scale to large datasets"
+    ],
+    "correct": "They may generate plausible but incorrect or biased information",
+    "explanation": "LLMs can produce convincing but factually wrong or biased content, which is a key concern.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "What is explainable AI (XAI) mainly concerned with?",
+    "options": [
+      "Maximizing the number of hidden layers in models",
+      "Making AI systems faster to train",
+      "Providing understandable reasons for model predictions",
+      "Ensuring AI systems never make mistakes"
+    ],
+    "correct": "Providing understandable reasons for model predictions",
+    "explanation": "Explainable AI aims to make model behavior transparent and interpretable to humans.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Algorithmic bias in AI refers to:",
+    "options": [
+      "Random noise in the training data",
+      "Any error in model predictions",
+      "Systematic unfairness in how a model treats different groups",
+      "Differences in model accuracy between train and test sets"
+    ],
+    "correct": "Systematic unfairness in how a model treats different groups",
+    "explanation": "Bias arises when models consistently disadvantage certain individuals or groups.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which approach can help reduce unfair bias in a machine learning model?",
+    "options": [
+      "Ignoring sensitive attributes during evaluation",
+      "Carefully balancing the training data across groups",
+      "Training only on historical data",
+      "Removing the test set"
+    ],
+    "correct": "Carefully balancing the training data across groups",
+    "explanation": "Balanced and representative data can reduce bias learned from skewed historical patterns.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "What is 'human-in-the-loop' learning?",
+    "options": [
+      "Humans manually execute all predictions",
+      "Humans occasionally review and correct model outputs to improve performance",
+      "Humans control the power supply of the AI system",
+      "Humans are excluded from the decision-making process"
+    ],
+    "correct": "Humans occasionally review and correct model outputs to improve performance",
+    "explanation": "Human-in-the-loop systems incorporate human feedback into the training or decision process.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which of the following is a key principle of responsible AI?",
+    "options": [
+      "Maximizing accuracy at any cost",
+      "Hiding how the model makes decisions",
+      "Ensuring fairness, accountability, and transparency",
+      "Avoiding any human oversight"
+    ],
+    "correct": "Ensuring fairness, accountability, and transparency",
+    "explanation": "Responsible AI frameworks emphasize ethical and transparent use of AI.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which scenario illustrates a privacy concern in AI applications?",
+    "options": [
+      "Using public weather data to predict rainfall",
+      "Using anonymized medical images without identifiers",
+      "Using detailed location and identity data from users without consent",
+      "Using synthetic data generated from scratch"
+    ],
+    "correct": "Using detailed location and identity data from users without consent",
+    "explanation": "Collecting and using sensitive personal data without consent is a clear privacy issue.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Why can using historical hiring data to train an AI recruitment model be problematic?",
+    "options": [
+      "Historical data always has missing values",
+      "Historical data cannot be stored digitally",
+      "Historical data may contain existing human biases",
+      "Historical data is too large for machine learning"
+    ],
+    "correct": "Historical data may contain existing human biases",
+    "explanation": "If past decisions were biased, the model can learn and perpetuate those biases.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which of the following best describes a data pipeline?",
+    "options": [
+      "A neural network with many layers",
+      "A series of steps for collecting, processing, and loading data for analysis or modeling",
+      "A physical cable connecting servers",
+      "A set of model hyperparameters"
+    ],
+    "correct": "A series of steps for collecting, processing, and loading data for analysis or modeling",
+    "explanation": "Data pipelines automate the flow of data from source to model.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "In an AI project, problem scoping usually comes before:",
+    "options": [
+      "Evaluating the final model",
+      "Collecting and exploring data",
+      "Deploying into production",
+      "Writing documentation"
+    ],
+    "correct": "Collecting and exploring data",
+    "explanation": "You need to clearly define the problem before deciding what data is needed.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which step commonly comes last in a typical AI project cycle?",
+    "options": [
+      "Problem scoping",
+      "Data acquisition",
+      "Model training",
+      "Model evaluation and deployment"
+    ],
+    "correct": "Model evaluation and deployment",
+    "explanation": "After scoping, acquiring data, and training models, you evaluate and deploy the best model.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which of the following best describes an AI winter?",
+    "options": [
+      "A period when AI models outperform humans in most tasks",
+      "A period of reduced interest and funding in AI research",
+      "A period with too many successful AI startups",
+      "A period when AI replaces all manual labor"
+    ],
+    "correct": "A period of reduced interest and funding in AI research",
+    "explanation": "AI winters are periods when progress slows and funding for AI declines due to unmet expectations.",
+    "topic": "AI History"
+  },
+  {
+    "question": "Which historic event is often considered the starting point of AI as a formal field?",
+    "options": [
+      "The launch of the World Wide Web",
+      "The Dartmouth Conference in 1956",
+      "The first iPhone release",
+      "The creation of the first search engine"
+    ],
+    "correct": "The Dartmouth Conference in 1956",
+    "explanation": "The Dartmouth Conference brought together researchers and coined the term 'artificial intelligence'.",
+    "topic": "AI History"
+  },
+  {
+    "question": "Which breakthrough showed that AI systems could defeat world champions in complex board games like Go?",
+    "options": [
+      "IBM Watson on Jeopardy!",
+      "Deep Blue vs Kasparov",
+      "AlphaGo vs Lee Sedol",
+      "A* search algorithm"
+    ],
+    "correct": "AlphaGo vs Lee Sedol",
+    "explanation": "DeepMind's AlphaGo defeated Lee Sedol, demonstrating powerful deep reinforcement learning.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "Which challenge is common in training deep learning models on very large datasets?",
+    "options": [
+      "Lack of any open-source libraries",
+      "Insufficient computational resources and long training times",
+      "Inability to use GPUs",
+      "Too few model parameters"
+    ],
+    "correct": "Insufficient computational resources and long training times",
+    "explanation": "Large models and datasets require significant compute, making training expensive and time-consuming.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "What is adversarial example in the context of machine learning?",
+    "options": [
+      "A random noise image the model ignores",
+      "A specially crafted input that causes the model to make a wrong prediction",
+      "Any example from the test set",
+      "A training example with missing labels"
+    ],
+    "correct": "A specially crafted input that causes the model to make a wrong prediction",
+    "explanation": "Adversarial examples exploit model vulnerabilities by making small perturbations that fool the model.",
+    "topic": "AI Security"
+  },
+  {
+    "question": "What is adversarial training used for?",
+    "options": [
+      "To speed up training",
+      "To increase dataset size",
+      "To improve robustness by training on adversarial examples",
+      "To reduce the number of model parameters"
+    ],
+    "correct": "To improve robustness by training on adversarial examples",
+    "explanation": "Adversarial training exposes the model to adversarial inputs so it learns to resist them.",
+    "topic": "AI Security"
+  },
+  {
+    "question": "Why can small stickers or graffiti on traffic signs cause problems for self-driving cars?",
+    "options": [
+      "Cars cannot detect colors",
+      "Cameras stop working in sunlight",
+      "The perturbations can cause vision models to misclassify the sign",
+      "The sensors shut down when they see text"
+    ],
+    "correct": "The perturbations can cause vision models to misclassify the sign",
+    "explanation": "Adversarial perturbations can cause misclassification, leading to unsafe driving decisions.",
+    "topic": "AI Security"
+  },
+  {
+    "question": "Which of the following best describes model drift (or data drift)?",
+    "options": [
+      "The model size increases during training",
+      "The training loss becomes zero",
+      "The underlying data distribution changes over time, reducing model performance",
+      "The model weights are stored on a different server"
+    ],
+    "correct": "The underlying data distribution changes over time, reducing model performance",
+    "explanation": "When production data changes, models trained on old data may no longer perform well.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which MLOps practice helps detect when a deployed model's performance starts degrading?",
+    "options": [
+      "Ignoring new data",
+      "Disabling logging in production",
+      "Monitoring prediction quality and key metrics over time",
+      "Training only once and never updating"
+    ],
+    "correct": "Monitoring prediction quality and key metrics over time",
+    "explanation": "Continuous monitoring is essential to notice when models no longer work as expected.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "In reinforcement learning, the signal used to evaluate an action is called:",
+    "options": [
+      "Label",
+      "Loss",
+      "Reward",
+      "Feature"
+    ],
+    "correct": "Reward",
+    "explanation": "Rewards indicate how good an action was in a given state.",
+    "topic": "Reinforcement Learning"
+  },
+  {
+    "question": "Which of the following is a typical use case of Q-learning?",
+    "options": [
+      "Clustering images",
+      "Solving maze navigation problems",
+      "Predicting house prices",
+      "Detecting spam emails"
+    ],
+    "correct": "Solving maze navigation problems",
+    "explanation": "Q-learning learns value estimates for state-action pairs, often applied to navigation tasks.",
+    "topic": "Reinforcement Learning"
+  },
+  {
+    "question": "Why might an AI model for medical diagnosis require especially strong explainability?",
+    "options": [
+      "Because images are always easy to interpret",
+      "Because models are never wrong in medicine",
+      "Because doctors and patients need to understand and trust the basis for decisions",
+      "Because explainability speeds up training"
+    ],
+    "correct": "Because doctors and patients need to understand and trust the basis for decisions",
+    "explanation": "High-stakes decisions require transparency so humans can validate and trust the system.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which of the following is NOT a typical non-functional requirement for an AI system?",
+    "options": [
+      "Latency of predictions",
+      "Fairness across user groups",
+      "Model accuracy",
+      "User interface color scheme"
+    ],
+    "correct": "User interface color scheme",
+    "explanation": "Accuracy, latency, and fairness are non-functional qualities of the AI system; UI color is unrelated.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "What is one advantage of ensemble methods like random forests?",
+    "options": [
+      "They always use fewer trees than a single decision tree",
+      "They often achieve better performance by combining multiple models",
+      "They require no training data",
+      "They are always easier to interpret than single trees"
+    ],
+    "correct": "They often achieve better performance by combining multiple models",
+    "explanation": "Ensembles reduce variance and can improve accuracy by aggregating the predictions of many models.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "Which term describes the use of AI to generate convincing fake audio or video of real people?",
+    "options": [
+      "Data anonymization",
+      "Deepfake generation",
+      "Clustering",
+      "Regularization"
+    ],
+    "correct": "Deepfake generation",
+    "explanation": "Deepfakes are synthetic media created using generative models to mimic real individuals.",
+    "topic": "Generative AI"
+  },
+  {
+    "question": "Why are deepfakes a concern in the context of elections?",
+    "options": [
+      "They always improve voter turnout",
+      "They have no effect on public opinion",
+      "They can be used to spread misinformation about candidates",
+      "They only affect internal model metrics"
+    ],
+    "correct": "They can be used to spread misinformation about candidates",
+    "explanation": "Deepfakes may manipulate public opinion by depicting candidates saying or doing things they never did.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "Which of the following best describes 'algorithmic accountability'?",
+    "options": [
+      "Ensuring humans can be blamed for any error",
+      "Ensuring AI systems provide traceable and justifiable decisions",
+      "Ensuring models are as complex as possible",
+      "Ensuring models train faster than before"
+    ],
+    "correct": "Ensuring AI systems provide traceable and justifiable decisions",
+    "explanation": "Algorithmic accountability focuses on transparency and responsibility in AI decision-making.",
+    "topic": "AI Ethics and Explainability"
+  },
+  {
+    "question": "What is an example of a classification label in sentiment analysis?",
+    "options": [
+      "3.14",
+      "\"positive\"",
+      "0.567",
+      "\"2022-01-01\""
+    ],
+    "correct": "\"positive\"",
+    "explanation": "Sentiment models often use labels such as 'positive', 'neutral', or 'negative'.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "A dataset of customer reviews is labeled with 'angry', 'neutral', and 'happy'. Which type of task is this most likely?",
+    "options": [
+      "Clustering",
+      "Regression",
+      "Multi-class classification",
+      "Reinforcement learning"
+    ],
+    "correct": "Multi-class classification",
+    "explanation": "There are more than two discrete labels, making this a multi-class classification problem.",
+    "topic": "Supervised Learning"
+  },
+  {
+    "question": "What is the main goal when using association rule learning in market basket analysis?",
+    "options": [
+      "Predicting continuous values",
+      "Finding interesting relationships like \"customers who buy X also buy Y\"",
+      "Clustering customers into groups",
+      "Minimizing training loss"
+    ],
+    "correct": "Finding interesting relationships like \"customers who buy X also buy Y\"",
+    "explanation": "Association rule learning discovers co-occurrence patterns in transactional data.",
+    "topic": "AI Applications"
+  },
+  {
+    "question": "In a housing price prediction model, which of the following is most likely an input feature rather than a label?",
+    "options": [
+      "Selling price",
+      "Number of bedrooms",
+      "Future interest rate",
+      "Prediction error"
+    ],
+    "correct": "Number of bedrooms",
+    "explanation": "Number of bedrooms is an explanatory variable used to predict the label (selling price).",
+    "topic": "Regression Models"
+  },
+  {
+    "question": "Which situation describes data leakage?",
+    "options": [
+      "Using too small a learning rate",
+      "Using information in training that will not be available at prediction time",
+      "Using only numerical features",
+      "Using a large test set"
+    ],
+    "correct": "Using information in training that will not be available at prediction time",
+    "explanation": "Leakage gives the model an unfair advantage and leads to overly optimistic evaluation.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Why is normalization especially important for distance-based algorithms like k-nearest neighbors?",
+    "options": [
+      "Because they require categorical features",
+      "Because distances are sensitive to feature scales",
+      "Because normalization reduces overfitting automatically",
+      "Because they ignore large features"
+    ],
+    "correct": "Because distances are sensitive to feature scales",
+    "explanation": "Unscaled features with large ranges can dominate distance calculations.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "Which of the following best describes semi-supervised learning?",
+    "options": [
+      "Learning without any labels",
+      "Learning with all data labeled",
+      "Learning from a mix of labeled and unlabeled data",
+      "Learning only from rewards"
+    ],
+    "correct": "Learning from a mix of labeled and unlabeled data",
+    "explanation": "Semi-supervised methods exploit small labeled sets and large unlabeled sets together.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "What is a typical reason to use dimensionality reduction techniques like PCA?",
+    "options": [
+      "To add more features",
+      "To create labels automatically",
+      "To reduce the number of features while preserving important variance",
+      "To increase overfitting"
+    ],
+    "correct": "To reduce the number of features while preserving important variance",
+    "explanation": "Dimensionality reduction simplifies models and can improve performance by removing redundant information.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which of the following would most likely be handled with an unsupervised anomaly detection algorithm?",
+    "options": [
+      "Classifying images of animals",
+      "Detecting unusual network traffic patterns indicating possible cyberattacks",
+      "Predicting next month’s sales",
+      "Translating text from English to French"
+    ],
+    "correct": "Detecting unusual network traffic patterns indicating possible cyberattacks",
+    "explanation": "Anomaly detection finds outliers that differ significantly from typical patterns.",
+    "topic": "Unsupervised Learning"
+  },
+  {
+    "question": "In which scenario would k-means clustering be appropriate?",
+    "options": [
+      "Predicting a customer's exact spending next month",
+      "Grouping customers into segments based on their purchase behavior",
+      "Classifying emails as spam or not spam",
+      "Forecasting temperature over time"
+    ],
+    "correct": "Grouping customers into segments based on their purchase behavior",
+    "explanation": "k-means is used to partition data into k clusters based on similarity.",
+    "topic": "Unsupervised Learning"
+  },
+  {
+    "question": "Which statement about labeled data is correct?",
+    "options": [
+      "Labeled data includes inputs and their associated correct outputs",
+      "Labeled data never contains errors",
+      "Labeled data is only used in clustering",
+      "Labeled data is not needed for supervised learning"
+    ],
+    "correct": "Labeled data includes inputs and their associated correct outputs",
+    "explanation": "Labels provide the ground truth that supervised models learn to predict.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "What is one common challenge when labeling large datasets?",
+    "options": [
+      "Labels never change over time",
+      "Labeling is always automatic",
+      "Labeling can be expensive and time-consuming",
+      "Labels are not needed for most tasks"
+    ],
+    "correct": "Labeling can be expensive and time-consuming",
+    "explanation": "Human annotation often requires domain expertise and significant effort.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "Why might we generate synthetic data for training a model?",
+    "options": [
+      "To remove privacy constraints from real data",
+      "To reduce model complexity",
+      "To replace all real data",
+      "To avoid evaluating the model"
+    ],
+    "correct": "To remove privacy constraints from real data",
+    "explanation": "Synthetic data can mimic statistical properties of real data without revealing sensitive details.",
+    "topic": "Data Preprocessing"
+  },
+  {
+    "question": "Which best describes a linear relationship in data?",
+    "options": [
+      "The output changes randomly regardless of the input",
+      "The output changes proportionally with the input",
+      "The output is always constant",
+      "The output is categorical"
+    ],
+    "correct": "The output changes proportionally with the input",
+    "explanation": "In a linear relationship, changes in input cause proportional changes in output.",
+    "topic": "Regression Models"
+  },
+  {
+    "question": "Which of the following is a sign that a regression model might be underfitting?",
+    "options": [
+      "Low error on training data and high error on test data",
+      "High error on both training and test data",
+      "Low error on both training and test data",
+      "High error on training data but low error on test data"
+    ],
+    "correct": "High error on both training and test data",
+    "explanation": "Underfitting occurs when the model is too simple to capture the underlying pattern, leading to high error everywhere.",
+    "topic": "ML Fundamentals"
+  },
+  {
+    "question": "Which of the following is a typical characteristic of deep learning models compared to traditional machine learning models?",
+    "options": [
+      "They use fewer parameters",
+      "They often require more data and compute resources",
+      "They cannot work with images",
+      "They are always easier to interpret"
+    ],
+    "correct": "They often require more data and compute resources",
+    "explanation": "Deep networks have many parameters and generally need large datasets and compute.",
+    "topic": "Deep Learning"
+  },
+  {
+    "question": "Why are GPUs commonly used for training deep neural networks?",
+    "options": [
+      "They have larger hard drives",
+      "They can perform many parallel numerical operations efficiently",
+      "They reduce the need for memory",
+      "They guarantee zero training error"
+    ],
+    "correct": "They can perform many parallel numerical operations efficiently",
+    "explanation": "Matrix operations in neural networks map well onto GPUs' parallel architecture.",
+    "topic": "Deep Learning"
   }
 ]
