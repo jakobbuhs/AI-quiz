@@ -36,7 +36,7 @@ const FocusVideo = () => {
   // Show fallback if video fails to load
   if (videoError) {
     return (
-      <div className="fixed left-0 top-0 h-screen w-3/4 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 z-0 hidden lg:block overflow-hidden flex items-center justify-center">
+      <div className="fixed left-0 top-0 h-screen w-1/2 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 z-0 hidden lg:block overflow-hidden flex items-center justify-center">
         <div className="text-white/50 text-sm text-center p-4">
           Video unavailable
         </div>
@@ -45,7 +45,7 @@ const FocusVideo = () => {
   }
 
   return (
-    <div className="fixed left-0 top-0 h-screen w-3/4 bg-black z-0 hidden lg:block overflow-hidden">
+    <div className="fixed left-0 top-0 h-screen w-1/2 bg-black z-0 hidden lg:block overflow-hidden">
       <video
         ref={videoRef}
         className="w-full h-full object-cover"

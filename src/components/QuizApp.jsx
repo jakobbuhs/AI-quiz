@@ -317,7 +317,7 @@ function QuizApp() {
       />
       
       {/* Main Content - Offset for video on large screens */}
-      <div className="max-w-full mx-auto lg:ml-[75%] lg:w-1/4 px-4">
+      <div className="max-w-full mx-auto lg:ml-[50%] lg:w-1/2 px-4">
         {/* Header */}
         <header className="text-center mb-8 animate-fade-in">
           <div className="flex items-center justify-center gap-3 mb-2">
