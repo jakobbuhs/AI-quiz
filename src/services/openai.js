@@ -1,13 +1,6 @@
 // OpenAI API service for in-depth explanations
 const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY
 
-// Debug: Log if API key is configured (only shows first/last 4 chars for security)
-if (OPENAI_API_KEY && OPENAI_API_KEY !== 'your_openai_api_key_here') {
-  console.log('✅ OpenAI API key configured:', OPENAI_API_KEY.slice(0, 7) + '...' + OPENAI_API_KEY.slice(-4))
-} else {
-  console.warn('⚠️ OpenAI API key NOT configured. Check your .env file.')
-}
-
 // Rate limiting: max 10 calls per minute
 const RATE_LIMIT = {
   maxCalls: 10,
