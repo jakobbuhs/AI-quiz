@@ -9,8 +9,15 @@ const RATE_LIMIT = {
 }
 
 // Check if user has unlimited AI access (check localStorage directly to avoid circular deps)
+// Note: This is a synchronous check for rate limiting. For accurate data, use API.
 function hasUnlimitedAI() {
   try {
+    // Check if we have a session token (user is logged in)
+    const sessionToken = localStorage.getItem('sessionToken')
+    if (!sessionToken) return false
+    
+    // For now, we'll check localStorage as fallback
+    // In production, this should be checked via API before making the call
     const currentUser = localStorage.getItem('currentUser')
     if (!currentUser) return false
     const userData = JSON.parse(currentUser)
@@ -64,16 +71,71 @@ function recordCall() {
   RATE_LIMIT.calls.push(Date.now())
 }
 
+// Cache for rate limit status (to avoid too many API calls)
+let rateLimitCache = {
+  data: null,
+  timestamp: 0,
+  cacheDuration: 5000, // 5 seconds
+}
+
 /**
  * Get the current rate limit status
  * @returns {{ remainingCalls: number, resetInSeconds: number, unlimited: boolean, dailyLimit?: number, dailyUsed?: number }}
  */
-export function getRateLimitStatus() {
-  if (hasUnlimitedAI()) {
-    return { remainingCalls: Infinity, resetInSeconds: 0, unlimited: true }
+export async function getRateLimitStatus() {
+  // Check cache first
+  const now = Date.now()
+  if (rateLimitCache.data && (now - rateLimitCache.timestamp) < rateLimitCache.cacheDuration) {
+    return rateLimitCache.data
   }
-  
-  // Check if user is logged in (has daily limits)
+
+  // Check if user is logged in via API
+  try {
+    const sessionToken = localStorage.getItem('sessionToken')
+    if (sessionToken) {
+      const API_BASE_URL = import.meta.env.VITE_API_URL || (
+        typeof window !== 'undefined' && window.location.hostname !== 'localhost' 
+          ? '/api' 
+          : 'http://localhost:3001/api'
+      )
+      const response = await fetch(`${API_BASE_URL}/users/daily-calls`, {
+        headers: {
+          'Authorization': `Bearer ${sessionToken}`,
+        },
+      })
+
+      if (response.ok) {
+        const data = await response.json()
+        const result = {
+          remainingCalls: data.unlimited ? Infinity : Math.max(0, data.dailyLimit - data.dailyUsed),
+          resetInSeconds: 0,
+          unlimited: data.unlimited,
+          dailyLimit: data.dailyLimit,
+          dailyUsed: data.dailyUsed,
+        }
+        
+        // Cache the result
+        rateLimitCache = {
+          data: result,
+          timestamp: now,
+          cacheDuration: 5000,
+        }
+        
+        return result
+      }
+    }
+  } catch (error) {
+    console.error('Error checking daily limits via API:', error)
+  }
+
+  // Fallback: Check localStorage
+  if (hasUnlimitedAI()) {
+    const result = { remainingCalls: Infinity, resetInSeconds: 0, unlimited: true }
+    rateLimitCache = { data: result, timestamp: now, cacheDuration: 5000 }
+    return result
+  }
+
+  // Check localStorage for daily limits
   try {
     const currentUser = localStorage.getItem('currentUser')
     if (currentUser) {
@@ -82,33 +144,34 @@ export function getRateLimitStatus() {
       const user = users.find(u => u.id === userData.id)
       
       if (user && !user.unlimitedAI) {
-        // User is logged in with daily limits
         const dailyLimit = user.dailyAILimit || 10
         const dailyCalls = JSON.parse(localStorage.getItem('userDailyCalls') || '{}')
         const today = new Date().toDateString()
         const userCalls = dailyCalls[user.id] || {}
         
-        // Reset if it's a new day
         if (userCalls.date !== today) {
-          return { 
+          const result = { 
             remainingCalls: dailyLimit, 
             resetInSeconds: 0, 
             unlimited: false,
             dailyLimit: dailyLimit,
             dailyUsed: 0
           }
+          rateLimitCache = { data: result, timestamp: now, cacheDuration: 5000 }
+          return result
         }
         
         const dailyUsed = userCalls.count || 0
         const remaining = Math.max(0, dailyLimit - dailyUsed)
-        
-        return { 
+        const result = { 
           remainingCalls: remaining, 
           resetInSeconds: 0, 
           unlimited: false,
           dailyLimit: dailyLimit,
           dailyUsed: dailyUsed
         }
+        rateLimitCache = { data: result, timestamp: now, cacheDuration: 5000 }
+        return result
       }
     }
   } catch (error) {
@@ -117,7 +180,9 @@ export function getRateLimitStatus() {
   
   // Not logged in - use per-minute rate limit
   const { remainingCalls, resetInSeconds } = checkRateLimit()
-  return { remainingCalls, resetInSeconds, unlimited: false }
+  const result = { remainingCalls, resetInSeconds, unlimited: false }
+  rateLimitCache = { data: result, timestamp: now, cacheDuration: 5000 }
+  return result
 }
 
 /**
@@ -137,64 +202,27 @@ export async function getInDepthExplanation({ question, correctAnswer, userAnswe
   }
 
   // Check rate limit (skip if user has unlimited AI access)
-  if (!hasUnlimitedAI()) {
-    // Check if user is logged in (has daily limits)
+  const sessionToken = localStorage.getItem('sessionToken')
+  
+  if (sessionToken) {
+    // User is logged in - check daily limits via API
     try {
-      const currentUser = localStorage.getItem('currentUser')
-      if (currentUser) {
-        const userData = JSON.parse(currentUser)
-        const users = JSON.parse(localStorage.getItem('users') || '[]')
-        const user = users.find(u => u.id === userData.id)
-        
-        if (user && !user.unlimitedAI) {
-          // Check daily limit
-          const dailyLimit = user.dailyAILimit || 10
-          const dailyCalls = JSON.parse(localStorage.getItem('userDailyCalls') || '{}')
-          const today = new Date().toDateString()
-          const userCalls = dailyCalls[user.id] || {}
-          
-          // Reset if it's a new day
-          if (userCalls.date !== today) {
-            userCalls.date = today
-            userCalls.count = 0
-          }
-          
-          const dailyUsed = userCalls.count || 0
-          
-          if (dailyUsed >= dailyLimit) {
-            throw new Error(
-              `Daily limit exceeded. You've used all ${dailyLimit} AI explanations for today. ` +
-              `Your limit will reset tomorrow. Contact an admin for unlimited access.`
-            )
-          }
-        } else {
-          // Not logged in - use per-minute rate limit
-          const { allowed, remainingCalls, resetInSeconds } = checkRateLimit()
-          if (!allowed) {
-            throw new Error(
-              `Rate limit exceeded. You've used all 10 AI explanations for this minute. ` +
-              `Please wait ${resetInSeconds} seconds before trying again. ` +
-              `Login for daily AI access!`
-            )
-          }
-        }
-      } else {
-        // Not logged in - use per-minute rate limit
-        const { allowed, remainingCalls, resetInSeconds } = checkRateLimit()
-        if (!allowed) {
-          throw new Error(
-            `Rate limit exceeded. You've used all 10 AI explanations for this minute. ` +
-            `Please wait ${resetInSeconds} seconds before trying again. ` +
-            `Login for daily AI access!`
-          )
-        }
+      const status = await getRateLimitStatus()
+      
+      if (status.unlimited) {
+        // Unlimited access, proceed
+      } else if (status.remainingCalls <= 0) {
+        throw new Error(
+          `Daily limit exceeded. You've used all ${status.dailyLimit || 10} AI explanations for today. ` +
+          `Your limit will reset tomorrow. Contact an admin for unlimited access.`
+        )
       }
     } catch (error) {
       // If it's already an Error with message, rethrow it
       if (error.message && error.message.includes('Daily limit exceeded')) {
         throw error
       }
-      // Otherwise, fall back to per-minute limit
+      // Fallback to per-minute limit
       const { allowed, remainingCalls, resetInSeconds } = checkRateLimit()
       if (!allowed) {
         throw new Error(
@@ -202,6 +230,16 @@ export async function getInDepthExplanation({ question, correctAnswer, userAnswe
           `Please wait ${resetInSeconds} seconds before trying again.`
         )
       }
+    }
+  } else {
+    // Not logged in - use per-minute rate limit
+    const { allowed, remainingCalls, resetInSeconds } = checkRateLimit()
+    if (!allowed) {
+      throw new Error(
+        `Rate limit exceeded. You've used all 10 AI explanations for this minute. ` +
+        `Please wait ${resetInSeconds} seconds before trying again. ` +
+        `Login for daily AI access!`
+      )
     }
   }
 
@@ -221,41 +259,56 @@ Please give me a more in-depth explanation to help me truly understand this conc
 
   try {
     // Record the call before making the request (only if not unlimited)
-    if (!hasUnlimitedAI()) {
-      // Check if user is logged in (track daily calls)
+    const sessionToken = localStorage.getItem('sessionToken')
+    
+    if (sessionToken) {
+      // User is logged in - record via API
       try {
-        const currentUser = localStorage.getItem('currentUser')
-        if (currentUser) {
-          const userData = JSON.parse(currentUser)
-          const users = JSON.parse(localStorage.getItem('users') || '[]')
-          const user = users.find(u => u.id === userData.id)
-          
-          if (user && !user.unlimitedAI) {
-            // Record daily call
-            const dailyCalls = JSON.parse(localStorage.getItem('userDailyCalls') || '{}')
-            const today = new Date().toDateString()
-            const userCalls = dailyCalls[user.id] || {}
+        const API_BASE_URL = import.meta.env.VITE_API_URL || (
+        typeof window !== 'undefined' && window.location.hostname !== 'localhost' 
+          ? '/api' 
+          : 'http://localhost:3001/api'
+      )
+        await fetch(`${API_BASE_URL}/users/record-call`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${sessionToken}`,
+          },
+        })
+        // Clear cache to force refresh
+        rateLimitCache = { data: null, timestamp: 0, cacheDuration: 5000 }
+      } catch (error) {
+        console.error('Error recording call via API:', error)
+        // Fallback to localStorage
+        try {
+          const currentUser = localStorage.getItem('currentUser')
+          if (currentUser) {
+            const userData = JSON.parse(currentUser)
+            const users = JSON.parse(localStorage.getItem('users') || '[]')
+            const user = users.find(u => u.id === userData.id)
             
-            if (userCalls.date !== today) {
-              userCalls.date = today
-              userCalls.count = 0
+            if (user && !user.unlimitedAI) {
+              const dailyCalls = JSON.parse(localStorage.getItem('userDailyCalls') || '{}')
+              const today = new Date().toDateString()
+              const userCalls = dailyCalls[user.id] || {}
+              
+              if (userCalls.date !== today) {
+                userCalls.date = today
+                userCalls.count = 0
+              }
+              
+              userCalls.count = (userCalls.count || 0) + 1
+              dailyCalls[user.id] = userCalls
+              localStorage.setItem('userDailyCalls', JSON.stringify(dailyCalls))
             }
-            
-            userCalls.count = (userCalls.count || 0) + 1
-            dailyCalls[user.id] = userCalls
-            localStorage.setItem('userDailyCalls', JSON.stringify(dailyCalls))
-          } else {
-            // Not logged in - record per-minute call
-            recordCall()
           }
-        } else {
-          // Not logged in - record per-minute call
-          recordCall()
+        } catch {
+          // Ignore localStorage errors
         }
-      } catch {
-        // Fallback to per-minute tracking
-        recordCall()
       }
+    } else {
+      // Not logged in - record per-minute call
+      recordCall()
     }
 
     const response = await fetch('https://api.openai.com/v1/chat/completions', {

@@ -20,15 +20,9 @@ import {
   deleteAdminUser, 
   logoutAdmin,
   getCurrentAdmin,
-  validatePIN 
-} from '../utils/adminAuth'
-import {
-  getUsers,
-  createUserByAdmin,
-  updateUser,
-  deleteUser,
+  validatePIN,
   validatePassword,
-} from '../utils/userAuth'
+} from '../utils/apiAuth'
 
 const AdminDashboard = ({ onLogout }) => {
   const [admins, setAdmins] = useState([])
@@ -60,20 +54,36 @@ const AdminDashboard = ({ onLogout }) => {
 
   // Load admins and users on mount
   useEffect(() => {
-    loadAdmins()
-    loadUsers()
-    setCurrentAdmin(getCurrentAdmin())
+    const loadData = async () => {
+      await loadAdmins()
+      await loadUsers()
+      const admin = await getCurrentAdmin()
+      setCurrentAdmin(admin)
+    }
+    loadData()
   }, [])
 
-  const loadAdmins = () => {
-    setAdmins(getAdminUsers())
+  const loadAdmins = async () => {
+    try {
+      const adminList = await getAdminUsers()
+      setAdmins(adminList)
+    } catch (error) {
+      console.error('Error loading admins:', error)
+      setAdmins([])
+    }
   }
 
-  const loadUsers = () => {
-    setUsers(getUsers())
+  const loadUsers = async () => {
+    try {
+      const userList = await getUsers()
+      setUsers(userList)
+    } catch (error) {
+      console.error('Error loading users:', error)
+      setUsers([])
+    }
   }
 
-  const handleAddAdmin = () => {
+  const handleAddAdmin = async () => {
     setError('')
     setSuccess('')
     
@@ -94,11 +104,11 @@ const AdminDashboard = ({ onLogout }) => {
     }
 
     try {
-      addAdminUser(formData.username, formData.pin, aiLimit)
+      await addAdminUser(formData.username, formData.pin, aiLimit)
       setSuccess('Admin user added successfully!')
       setFormData({ username: '', pin: '', aiLimit: '100' })
       setShowAddForm(false)
-      loadAdmins()
+      await loadAdmins()
       
       // Clear success message after 3 seconds
       setTimeout(() => setSuccess(''), 3000)
@@ -119,7 +129,7 @@ const AdminDashboard = ({ onLogout }) => {
     setShowAddForm(false)
   }
 
-  const handleUpdate = (id) => {
+  const handleUpdate = async (id) => {
     setError('')
     setSuccess('')
     
@@ -140,7 +150,7 @@ const AdminDashboard = ({ onLogout }) => {
     }
 
     try {
-      updateAdminUser(id, {
+      await updateAdminUser(id, {
         username: formData.username.trim(),
         pin: formData.pin,
         aiLimit: aiLimit,
@@ -148,10 +158,10 @@ const AdminDashboard = ({ onLogout }) => {
       setSuccess('Admin user updated successfully!')
       setEditingId(null)
       setFormData({ username: '', pin: '', aiLimit: '100' })
-      loadAdmins()
+      await loadAdmins()
       
       // Update current admin if it was edited
-      const updated = getCurrentAdmin()
+      const updated = await getCurrentAdmin()
       if (updated && updated.id === id) {
         setCurrentAdmin(updated)
       }
@@ -162,15 +172,15 @@ const AdminDashboard = ({ onLogout }) => {
     }
   }
 
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this admin user?')) {
       return
     }
 
     try {
-      deleteAdminUser(id)
+      await deleteAdminUser(id)
       setSuccess('Admin user deleted successfully!')
-      loadAdmins()
+      await loadAdmins()
       
       // If current admin was deleted, logout
       if (currentAdmin && currentAdmin.id === id) {
@@ -192,7 +202,7 @@ const AdminDashboard = ({ onLogout }) => {
   }
 
   // User management handlers
-  const handleAddUser = () => {
+  const handleAddUser = async () => {
     setError('')
     setSuccess('')
     
@@ -218,7 +228,7 @@ const AdminDashboard = ({ onLogout }) => {
     }
 
     try {
-      createUserByAdmin(
+      await createUserByAdmin(
         userFormData.username,
         userFormData.password,
         userFormData.pin,
@@ -229,7 +239,7 @@ const AdminDashboard = ({ onLogout }) => {
       setSuccess('User created successfully!')
       setUserFormData({ username: '', password: '', pin: '', email: '', unlimitedAI: false, dailyAILimit: '10' })
       setShowAddUserForm(false)
-      loadUsers()
+      await loadUsers()
       setTimeout(() => setSuccess(''), 3000)
     } catch (err) {
       setError(err.message)
@@ -304,26 +314,26 @@ const AdminDashboard = ({ onLogout }) => {
         updates.pin = userFormData.pin
       }
       
-      updateUser(id, updates)
+      await updateUser(id, updates)
       setSuccess('User updated successfully!')
       setEditingUserId(null)
       setUserFormData({ username: '', password: '', pin: '', email: '', unlimitedAI: false, dailyAILimit: '10' })
-      loadUsers()
+      await loadUsers()
       setTimeout(() => setSuccess(''), 3000)
     } catch (err) {
       setError(err.message)
     }
   }
 
-  const handleDeleteUser = (id) => {
+  const handleDeleteUser = async (id) => {
     if (!window.confirm('Are you sure you want to delete this user?')) {
       return
     }
 
     try {
-      deleteUser(id)
+      await deleteUser(id)
       setSuccess('User deleted successfully!')
-      loadUsers()
+      await loadUsers()
       setTimeout(() => setSuccess(''), 3000)
     } catch (err) {
       setError(err.message)
@@ -338,8 +348,8 @@ const AdminDashboard = ({ onLogout }) => {
     setSuccess('')
   }
 
-  const handleLogout = () => {
-    logoutAdmin()
+  const handleLogout = async () => {
+    await logoutAdmin()
     onLogout()
   }
 

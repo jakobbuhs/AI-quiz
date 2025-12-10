@@ -1,6 +1,7 @@
 import { memo, useState } from 'react'
 import { ChevronLeft, ChevronRight, Send, Tag, CheckCircle, XCircle, Lightbulb, CornerDownLeft, Sparkles, Loader2, AlertCircle } from 'lucide-react'
-import { getInDepthExplanation, isOpenAIConfigured, getRateLimitStatus } from '../services/openai'
+import { getInDepthExplanation, isOpenAIConfigured } from '../services/openai'
+import { useRateLimit } from '../hooks/useRateLimit'
 
 const QUIZ_MODE = {
   LEARN: 'learn',
@@ -25,6 +26,7 @@ const QuizQuestion = memo(function QuizQuestion({
   const [aiExplanation, setAiExplanation] = useState(null)
   const [isLoadingAI, setIsLoadingAI] = useState(false)
   const [aiError, setAiError] = useState(null)
+  const rateLimit = useRateLimit()
 
   if (!question) return null
 
@@ -192,7 +194,7 @@ const QuizQuestion = memo(function QuizQuestion({
         <div className="mb-6">
           {(() => {
             const apiConfigured = isOpenAIConfigured()
-            const { remainingCalls, resetInSeconds, unlimited } = apiConfigured ? getRateLimitStatus() : { remainingCalls: 0, resetInSeconds: 0, unlimited: false }
+            const { remainingCalls, resetInSeconds, unlimited } = apiConfigured ? rateLimit : { remainingCalls: 0, resetInSeconds: 0, unlimited: false }
             const isRateLimited = apiConfigured && !unlimited && remainingCalls <= 0
             
             return (

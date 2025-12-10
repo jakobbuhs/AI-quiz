@@ -18,7 +18,8 @@ import {
   Loader2,
   AlertCircle
 } from 'lucide-react'
-import { getInDepthExplanation, isOpenAIConfigured, getRateLimitStatus } from '../services/openai'
+import { getInDepthExplanation, isOpenAIConfigured } from '../services/openai'
+import { useRateLimit } from '../hooks/useRateLimit'
 
 const QUIZ_MODE = {
   LEARN: 'learn',
@@ -40,6 +41,7 @@ const QuizResults = memo(function QuizResults({
   const [loadingAI, setLoadingAI] = useState({}) // { questionIndex: true/false }
   const [aiErrors, setAiErrors] = useState({}) // { questionIndex: errorMessage }
   const questionRefs = useRef({}) // Refs for scrolling to questions
+  const rateLimit = useRateLimit()
 
   // Calculate results
   const results = useMemo(() => {
@@ -531,7 +533,7 @@ const QuizResults = memo(function QuizResults({
                     <div className="mt-4">
                       {(() => {
                         const apiConfigured = isOpenAIConfigured()
-                        const { remainingCalls, resetInSeconds, unlimited } = apiConfigured ? getRateLimitStatus() : { remainingCalls: 0, resetInSeconds: 0, unlimited: false }
+                        const { remainingCalls, resetInSeconds, unlimited } = apiConfigured ? rateLimit : { remainingCalls: 0, resetInSeconds: 0, unlimited: false }
                         const isRateLimited = apiConfigured && !unlimited && remainingCalls <= 0
                         const isLoading = loadingAI[index]
                         

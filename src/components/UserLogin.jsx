@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { X, User, LogIn, UserPlus, AlertCircle, CheckCircle, Lock, Key } from 'lucide-react'
-import { registerUser, loginUserByCredentials, getCurrentUser, logoutUser, validatePIN, validatePassword } from '../utils/userAuth'
+import { registerUser, loginUserByCredentials, getCurrentUser, logoutUser, validatePIN, validatePassword } from '../utils/apiAuth'
 
 const UserLogin = ({ isOpen, onClose, onLogin, onLogout }) => {
   const [mode, setMode] = useState('login') // 'login' or 'register'
@@ -14,7 +14,18 @@ const UserLogin = ({ isOpen, onClose, onLogin, onLogout }) => {
   const [showPassword, setShowPassword] = useState(false)
   const pinInputRefs = useRef([])
 
-  const currentUser = getCurrentUser()
+  const [currentUser, setCurrentUser] = useState(null)
+
+  // Load current user on mount
+  useEffect(() => {
+    const loadUser = async () => {
+      const user = await getCurrentUser()
+      setCurrentUser(user)
+    }
+    if (isOpen) {
+      loadUser()
+    }
+  }, [isOpen])
 
   // Focus first PIN input when PIN field is shown
   useEffect(() => {
@@ -83,22 +94,21 @@ const UserLogin = ({ isOpen, onClose, onLogin, onLogout }) => {
       return
     }
 
-    setTimeout(() => {
-      try {
-        const user = loginUserByCredentials(username.trim(), password, pinString)
-        if (user) {
-          setSuccess(`Welcome back, ${user.username}!`)
-          setTimeout(() => {
-            onLogin(user)
-            handleClose()
-          }, 1000)
-        }
-      } catch (err) {
-        setError(err.message)
-      } finally {
-        setIsLoading(false)
+    try {
+      const user = await loginUserByCredentials(username.trim(), password, pinString)
+      if (user) {
+        setSuccess(`Welcome back, ${user.username}!`)
+        setCurrentUser(user)
+        setTimeout(() => {
+          onLogin(user)
+          handleClose()
+        }, 1000)
       }
-    }, 300)
+    } catch (err) {
+      setError(err.message)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleRegister = async (e) => {
@@ -132,24 +142,24 @@ const UserLogin = ({ isOpen, onClose, onLogin, onLogout }) => {
       return
     }
 
-    setTimeout(() => {
-      try {
-        const user = registerUser(username.trim(), password, pinString, email.trim())
-        setSuccess(`Account created! Welcome, ${user.username}!`)
-        setTimeout(() => {
-          onLogin(user)
-          handleClose()
-        }, 1000)
-      } catch (err) {
-        setError(err.message)
-      } finally {
-        setIsLoading(false)
-      }
-    }, 300)
+    try {
+      const user = await registerUser(username.trim(), password, pinString, email.trim())
+      setSuccess(`Account created! Welcome, ${user.username}!`)
+      setCurrentUser(user)
+      setTimeout(() => {
+        onLogin(user)
+        handleClose()
+      }, 1000)
+    } catch (err) {
+      setError(err.message)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
-  const handleLogout = () => {
-    logoutUser()
+  const handleLogout = async () => {
+    await logoutUser()
+    setCurrentUser(null)
     onLogout()
     handleClose()
   }

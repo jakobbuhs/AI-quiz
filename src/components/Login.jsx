@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Lock, AlertCircle, LogIn } from 'lucide-react'
-import { authenticateAdmin, validatePIN } from '../utils/adminAuth'
+import { authenticateAdmin, validatePIN } from '../utils/apiAuth'
 
 const Login = ({ onLogin }) => {
   const [pin, setPin] = useState(['', '', '', ''])
@@ -63,19 +63,18 @@ const Login = ({ onLogin }) => {
     setError('')
 
     // Small delay for better UX
-    setTimeout(() => {
-      const admin = authenticateAdmin(pinString)
-      
+    try {
+      const admin = await authenticateAdmin(pinString)
       if (admin) {
         onLogin(admin)
-      } else {
-        setError('Invalid PIN. Please try again.')
-        setPin(['', '', '', ''])
-        inputRefs.current[0]?.focus()
       }
-      
+    } catch (err) {
+      setError(err.message || 'Invalid PIN. Please try again.')
+      setPin(['', '', '', ''])
+      inputRefs.current[0]?.focus()
+    } finally {
       setIsLoading(false)
-    }, 300)
+    }
   }
 
   return (

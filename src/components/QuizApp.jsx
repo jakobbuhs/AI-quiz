@@ -10,7 +10,7 @@ import UserLogin from './UserLogin'
 import questions from '../data/questions.json'
 import { Brain, AlertTriangle, LogOut, Shield, User } from 'lucide-react'
 import { saveQuizState, loadQuizState, clearQuizState, hasAcceptedCookies } from '../utils/storage'
-import { getCurrentUser } from '../utils/userAuth'
+import { getCurrentUser } from '../utils/apiAuth'
 
 // Utility function to shuffle an array
 const shuffleArray = (array) => {
@@ -73,7 +73,11 @@ function QuizApp() {
     setCookiesAccepted(hasAcceptedCookies())
     
     // Check if user is logged in
-    setCurrentUser(getCurrentUser())
+    const loadUser = async () => {
+      const user = await getCurrentUser()
+      setCurrentUser(user)
+    }
+    loadUser()
   }, [])
 
   // Save quiz state whenever it changes (only if cookies accepted and quiz is in progress)
