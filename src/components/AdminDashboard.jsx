@@ -27,7 +27,6 @@ import {
   createUserByAdmin,
   updateUser,
   deleteUser,
-  validatePIN,
   validatePassword,
 } from '../utils/userAuth'
 
