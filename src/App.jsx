@@ -5,7 +5,7 @@ import QuizResults from './components/QuizResults'
 import QuizTimer from './components/QuizTimer'
 import ProgressBar from './components/ProgressBar'
 import questions from './data/questions.json'
-import { Brain, RotateCcw, AlertTriangle } from 'lucide-react'
+import { Brain, AlertTriangle, LogOut } from 'lucide-react'
 
 // Utility function to shuffle an array
 const shuffleArray = (array) => {
@@ -24,9 +24,16 @@ const QUIZ_STATUS = {
   COMPLETED: 'completed',
 }
 
+// Quiz mode constants
+const QUIZ_MODE = {
+  LEARN: 'learn',
+  EXAM: 'exam',
+}
+
 function App() {
   // State management
   const [quizStatus, setQuizStatus] = useState(QUIZ_STATUS.SETUP)
+  const [quizMode, setQuizMode] = useState(QUIZ_MODE.EXAM)
   const [selectedQuestionCount, setSelectedQuestionCount] = useState(20)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [selectedQuestions, setSelectedQuestions] = useState([])
@@ -34,6 +41,8 @@ function App() {
   const [timeRemaining, setTimeRemaining] = useState(0)
   const [timeTaken, setTimeTaken] = useState(0)
   const [showConfirmDialog, setShowConfirmDialog] = useState(false)
+  const [showExitDialog, setShowExitDialog] = useState(false)
+  const [showFeedback, setShowFeedback] = useState(false) // For learn mode
 
   // Calculate time limit: 10 minutes per 20 questions
   const calculateTimeLimit = useCallback((questionCount) => {
@@ -41,7 +50,7 @@ function App() {
   }, [])
 
   // Start quiz handler
-  const handleStartQuiz = useCallback(() => {
+  const handleStartQuiz = useCallback((mode) => {
     const availableQuestions = Math.min(selectedQuestionCount, questions.length)
     const shuffledQuestions = shuffleArray(questions).slice(0, availableQuestions)
     
@@ -51,11 +60,13 @@ function App() {
       options: shuffleArray(q.options),
     }))
 
+    setQuizMode(mode)
     setSelectedQuestions(questionsWithShuffledOptions)
     setUserAnswers(new Array(availableQuestions).fill(null))
     setTimeRemaining(calculateTimeLimit(availableQuestions))
     setTimeTaken(0)
     setCurrentQuestionIndex(0)
+    setShowFeedback(false)
     setQuizStatus(QUIZ_STATUS.IN_PROGRESS)
   }, [selectedQuestionCount, calculateTimeLimit])
 
@@ -66,18 +77,33 @@ function App() {
       newAnswers[currentQuestionIndex] = answer
       return newAnswers
     })
-  }, [currentQuestionIndex])
+    
+    // In learn mode, show feedback immediately after selecting
+    if (quizMode === QUIZ_MODE.LEARN) {
+      setShowFeedback(true)
+    }
+  }, [currentQuestionIndex, quizMode])
 
   // Navigation handlers
   const handleNextQuestion = useCallback(() => {
+    // In learn mode, if feedback is showing and it's the last question, complete the quiz
+    if (quizMode === QUIZ_MODE.LEARN && showFeedback && currentQuestionIndex === selectedQuestions.length - 1) {
+      const totalTime = calculateTimeLimit(selectedQuestions.length)
+      setTimeTaken(totalTime - timeRemaining)
+      setQuizStatus(QUIZ_STATUS.COMPLETED)
+      return
+    }
+    
     if (currentQuestionIndex < selectedQuestions.length - 1) {
       setCurrentQuestionIndex((prev) => prev + 1)
+      setShowFeedback(false)
     }
-  }, [currentQuestionIndex, selectedQuestions.length])
+  }, [currentQuestionIndex, selectedQuestions.length, quizMode, showFeedback, calculateTimeLimit, timeRemaining])
 
   const handlePreviousQuestion = useCallback(() => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex((prev) => prev - 1)
+      setShowFeedback(false)
     }
   }, [currentQuestionIndex])
 
@@ -96,6 +122,18 @@ function App() {
     setQuizStatus(QUIZ_STATUS.COMPLETED)
   }, [selectedQuestions.length, calculateTimeLimit])
 
+  // Exit quiz handler
+  const handleExitQuiz = useCallback(() => {
+    setQuizStatus(QUIZ_STATUS.SETUP)
+    setCurrentQuestionIndex(0)
+    setSelectedQuestions([])
+    setUserAnswers([])
+    setTimeRemaining(0)
+    setTimeTaken(0)
+    setShowFeedback(false)
+    setShowExitDialog(false)
+  }, [])
+
   // Restart quiz handler
   const handleRestartQuiz = useCallback(() => {
     setQuizStatus(QUIZ_STATUS.SETUP)
@@ -104,24 +142,51 @@ function App() {
     setUserAnswers([])
     setTimeRemaining(0)
     setTimeTaken(0)
+    setShowFeedback(false)
   }, [])
 
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (quizStatus !== QUIZ_STATUS.IN_PROGRESS) return
+      
+      // Don't handle keys if dialogs are open
+      if (showConfirmDialog || showExitDialog) return
 
       switch (e.key) {
+        case 'Enter':
+          // In learn mode with feedback showing, go to next
+          if (quizMode === QUIZ_MODE.LEARN && showFeedback) {
+            handleNextQuestion()
+          } else if (quizMode === QUIZ_MODE.EXAM && userAnswers[currentQuestionIndex]) {
+            // In exam mode, Enter goes to next if answer is selected
+            if (currentQuestionIndex === selectedQuestions.length - 1) {
+              setShowConfirmDialog(true)
+            } else {
+              handleNextQuestion()
+            }
+          }
+          break
         case 'ArrowRight':
-          handleNextQuestion()
+          if (quizMode === QUIZ_MODE.EXAM || (quizMode === QUIZ_MODE.LEARN && showFeedback)) {
+            handleNextQuestion()
+          }
           break
         case 'ArrowLeft':
-          handlePreviousQuestion()
+          if (quizMode === QUIZ_MODE.EXAM) {
+            handlePreviousQuestion()
+          }
+          break
+        case 'Escape':
+          setShowExitDialog(true)
           break
         case '1':
         case '2':
         case '3':
         case '4':
+          // Only allow selection if not showing feedback in learn mode
+          if (quizMode === QUIZ_MODE.LEARN && showFeedback) break
+          
           const optionIndex = parseInt(e.key) - 1
           if (selectedQuestions[currentQuestionIndex]?.options[optionIndex]) {
             handleAnswerSelect(selectedQuestions[currentQuestionIndex].options[optionIndex])
@@ -134,7 +199,7 @@ function App() {
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [quizStatus, handleNextQuestion, handlePreviousQuestion, handleAnswerSelect, currentQuestionIndex, selectedQuestions])
+  }, [quizStatus, handleNextQuestion, handlePreviousQuestion, handleAnswerSelect, currentQuestionIndex, selectedQuestions, quizMode, showFeedback, userAnswers, showConfirmDialog, showExitDialog])
 
   // Check if all questions are answered
   const allQuestionsAnswered = userAnswers.every((answer) => answer !== null)
@@ -170,15 +235,35 @@ function App() {
 
           {quizStatus === QUIZ_STATUS.IN_PROGRESS && (
             <div className="space-y-6 animate-fade-in">
-              {/* Timer and Progress */}
+              {/* Timer, Progress, and Exit */}
               <div className="card p-4">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <QuizTimer
-                    timeRemaining={timeRemaining}
-                    setTimeRemaining={setTimeRemaining}
-                    onTimeExpired={handleTimeExpired}
-                    isRunning={quizStatus === QUIZ_STATUS.IN_PROGRESS}
-                  />
+                  <div className="flex items-center gap-4">
+                    {/* Exit Button */}
+                    <button
+                      onClick={() => setShowExitDialog(true)}
+                      className="flex items-center gap-2 px-3 py-2 text-gray-500 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+                      title="Exit Quiz (Esc)"
+                    >
+                      <LogOut className="w-5 h-5" />
+                      <span className="hidden sm:inline text-sm">Exit</span>
+                    </button>
+                    
+                    {/* Timer - only show in exam mode */}
+                    {quizMode === QUIZ_MODE.EXAM ? (
+                      <QuizTimer
+                        timeRemaining={timeRemaining}
+                        setTimeRemaining={setTimeRemaining}
+                        onTimeExpired={handleTimeExpired}
+                        isRunning={quizStatus === QUIZ_STATUS.IN_PROGRESS}
+                      />
+                    ) : (
+                      <div className="flex items-center gap-2 px-4 py-3 bg-emerald-50 border-2 border-emerald-200 rounded-xl">
+                        <span className="text-emerald-600 font-medium">📚 Learn Mode</span>
+                      </div>
+                    )}
+                  </div>
+                  
                   <div className="text-center sm:text-right">
                     <p className="text-sm text-gray-500 mb-1">Progress</p>
                     <p className="font-semibold text-indigo-600">
@@ -206,6 +291,8 @@ function App() {
                 isLast={currentQuestionIndex === selectedQuestions.length - 1}
                 onSubmit={() => setShowConfirmDialog(true)}
                 allAnswered={allQuestionsAnswered}
+                quizMode={quizMode}
+                showFeedback={showFeedback}
               />
             </div>
           )}
@@ -216,11 +303,45 @@ function App() {
               userAnswers={userAnswers}
               timeTaken={timeTaken}
               onRestart={handleRestartQuiz}
+              quizMode={quizMode}
             />
           )}
         </main>
 
-        {/* Confirmation Dialog */}
+        {/* Exit Confirmation Dialog */}
+        {showExitDialog && (
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in">
+            <div className="card p-6 max-w-md w-full animate-slide-up">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-red-100 rounded-xl">
+                  <LogOut className="w-6 h-6 text-red-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-800">Exit Quiz?</h3>
+              </div>
+              
+              <p className="text-gray-600 mb-6">
+                Are you sure you want to exit? Your progress will be lost.
+              </p>
+              
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowExitDialog(false)}
+                  className="btn-secondary flex-1"
+                >
+                  Continue Quiz
+                </button>
+                <button
+                  onClick={handleExitQuiz}
+                  className="btn-primary flex-1 !bg-gradient-to-r !from-red-500 !to-rose-500 !shadow-red-500/30"
+                >
+                  Exit Quiz
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Submit Confirmation Dialog */}
         {showConfirmDialog && (
           <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in">
             <div className="card p-6 max-w-md w-full animate-slide-up">
@@ -261,7 +382,7 @@ function App() {
 
         {/* Footer */}
         <footer className="text-center mt-12 text-gray-400 text-sm">
-          <p>Press arrow keys to navigate • Number keys (1-4) to select answers</p>
+          <p>Enter for next • Arrow keys to navigate • Number keys (1-4) to select • Esc to exit</p>
         </footer>
       </div>
     </div>
@@ -269,4 +390,3 @@ function App() {
 }
 
 export default App
-

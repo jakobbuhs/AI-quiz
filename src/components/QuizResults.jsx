@@ -14,12 +14,19 @@ import {
   Lightbulb
 } from 'lucide-react'
 
+const QUIZ_MODE = {
+  LEARN: 'learn',
+  EXAM: 'exam',
+}
+
 const QuizResults = memo(function QuizResults({
   questions,
   userAnswers,
   timeTaken,
   onRestart,
+  quizMode = QUIZ_MODE.EXAM,
 }) {
+  const isLearnMode = quizMode === QUIZ_MODE.LEARN
   const [expandedQuestions, setExpandedQuestions] = useState(new Set())
   const [showAll, setShowAll] = useState(false)
 
@@ -114,11 +121,19 @@ const QuizResults = memo(function QuizResults({
       {/* Results Header */}
       <div className="card p-8 text-center">
         <div className="mb-6">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl shadow-lg shadow-indigo-500/30 mb-4">
+          <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl shadow-lg mb-4 ${
+            isLearnMode 
+              ? 'bg-gradient-to-br from-emerald-500 to-teal-600 shadow-emerald-500/30'
+              : 'bg-gradient-to-br from-indigo-500 to-purple-600 shadow-indigo-500/30'
+          }`}>
             <Trophy className="w-10 h-10 text-white" />
           </div>
-          <h2 className="text-3xl font-bold text-gray-800 mb-2">Quiz Complete!</h2>
-          <p className="text-gray-500">Here's how you performed</p>
+          <h2 className="text-3xl font-bold text-gray-800 mb-2">
+            {isLearnMode ? 'Learning Complete!' : 'Quiz Complete!'}
+          </h2>
+          <p className="text-gray-500">
+            {isLearnMode ? 'Great job practicing!' : "Here's how you performed"}
+          </p>
         </div>
 
         {/* Score Circle */}
