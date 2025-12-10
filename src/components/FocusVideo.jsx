@@ -48,7 +48,7 @@ const FocusVideo = () => {
     <div className="fixed left-0 top-0 h-screen w-1/2 bg-black z-0 hidden lg:block overflow-hidden">
       <video
         ref={videoRef}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover object-bottom"
         autoPlay
         muted
         loop
