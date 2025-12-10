@@ -32,18 +32,52 @@ export const saveUsers = (users) => {
   }
 }
 
+// Validate PIN format (4 digits)
+export const validatePIN = (pin) => {
+  return /^\d{4}$/.test(pin)
+}
+
+// Validate password (minimum 6 characters)
+export const validatePassword = (password) => {
+  return password && password.length >= 6
+}
+
 // Register a new user (self-registered, gets default 10 calls per day)
-export const registerUser = (username, email = '') => {
+export const registerUser = (username, password, pin, email = '') => {
   const users = getUsers()
+  
+  // Validation
+  if (!username.trim()) {
+    throw new Error('Username is required')
+  }
+  
+  if (username.trim().length < 3) {
+    throw new Error('Username must be at least 3 characters long')
+  }
+  
+  if (!validatePassword(password)) {
+    throw new Error('Password must be at least 6 characters long')
+  }
+  
+  if (!validatePIN(pin)) {
+    throw new Error('PIN must be exactly 4 digits')
+  }
   
   // Check if username already exists
   if (users.some(u => u.username.toLowerCase() === username.toLowerCase())) {
     throw new Error('Username already exists. Please choose a different username.')
   }
   
+  // Check if PIN already exists
+  if (users.some(u => u.pin === pin)) {
+    throw new Error('PIN already exists. Please choose a different PIN.')
+  }
+  
   const newUser = {
     id: Date.now().toString(),
     username: username.trim(),
+    password: password, // In production, this should be hashed
+    pin: pin,
     email: email.trim(),
     createdAt: new Date().toISOString(),
     role: USER_ROLES.SELF_REGISTERED,
@@ -61,17 +95,37 @@ export const registerUser = (username, email = '') => {
 }
 
 // Create user by admin (can grant unlimited AI access)
-export const createUserByAdmin = (username, email = '', unlimitedAI = false, dailyAILimit = 10) => {
+export const createUserByAdmin = (username, password, pin, email = '', unlimitedAI = false, dailyAILimit = 10) => {
   const users = getUsers()
+  
+  // Validation
+  if (!username.trim()) {
+    throw new Error('Username is required')
+  }
+  
+  if (!validatePassword(password)) {
+    throw new Error('Password must be at least 6 characters long')
+  }
+  
+  if (!validatePIN(pin)) {
+    throw new Error('PIN must be exactly 4 digits')
+  }
   
   // Check if username already exists
   if (users.some(u => u.username.toLowerCase() === username.toLowerCase())) {
     throw new Error('Username already exists. Please choose a different username.')
   }
   
+  // Check if PIN already exists
+  if (users.some(u => u.pin === pin)) {
+    throw new Error('PIN already exists. Please choose a different PIN.')
+  }
+  
   const newUser = {
     id: Date.now().toString(),
     username: username.trim(),
+    password: password, // In production, this should be hashed
+    pin: pin,
     email: email.trim(),
     createdAt: new Date().toISOString(),
     role: USER_ROLES.ADMIN_CREATED,
@@ -98,6 +152,21 @@ export const updateUser = (id, updates) => {
   // Check if username is being changed and already exists
   if (updates.username && users.some(u => u.username.toLowerCase() === updates.username.toLowerCase() && u.id !== id)) {
     throw new Error('Username already exists. Please choose a different username.')
+  }
+  
+  // Check if PIN is being changed and already exists
+  if (updates.pin && users.some(u => u.pin === updates.pin && u.id !== id)) {
+    throw new Error('PIN already exists. Please choose a different PIN.')
+  }
+  
+  // Validate password if being updated
+  if (updates.password && !validatePassword(updates.password)) {
+    throw new Error('Password must be at least 6 characters long')
+  }
+  
+  // Validate PIN if being updated
+  if (updates.pin && !validatePIN(updates.pin)) {
+    throw new Error('PIN must be exactly 4 digits')
   }
   
   users[index] = {
@@ -130,17 +199,27 @@ export const deleteUser = (id) => {
   return filtered
 }
 
-// Login user by username
-export const loginUserByUsername = (username) => {
+// Login user by username and password/PIN
+export const loginUserByCredentials = (username, password, pin) => {
   const users = getUsers()
   const user = users.find(u => u.username.toLowerCase() === username.toLowerCase())
   
-  if (user) {
-    loginUser(user.id)
-    return user
+  if (!user) {
+    return null
   }
   
-  return null
+  // Check password
+  if (user.password !== password) {
+    throw new Error('Incorrect password')
+  }
+  
+  // Check PIN
+  if (user.pin !== pin) {
+    throw new Error('Incorrect PIN')
+  }
+  
+  loginUser(user.id)
+  return user
 }
 
 // Login user by ID

@@ -27,6 +27,8 @@ import {
   createUserByAdmin,
   updateUser,
   deleteUser,
+  validatePIN,
+  validatePassword,
 } from '../utils/userAuth'
 
 const AdminDashboard = ({ onLogout }) => {
@@ -50,6 +52,8 @@ const AdminDashboard = ({ onLogout }) => {
   // User form state
   const [userFormData, setUserFormData] = useState({
     username: '',
+    password: '',
+    pin: '',
     email: '',
     unlimitedAI: false,
     dailyAILimit: '10',
@@ -198,6 +202,16 @@ const AdminDashboard = ({ onLogout }) => {
       return
     }
     
+    if (!validatePassword(userFormData.password)) {
+      setError('Password must be at least 6 characters long')
+      return
+    }
+    
+    if (!validatePIN(userFormData.pin)) {
+      setError('PIN must be exactly 4 digits')
+      return
+    }
+    
     const dailyLimit = parseInt(userFormData.dailyAILimit)
     if (!userFormData.unlimitedAI && (isNaN(dailyLimit) || dailyLimit < 1 || dailyLimit > 10000)) {
       setError('Daily AI limit must be between 1 and 10000')
@@ -207,12 +221,14 @@ const AdminDashboard = ({ onLogout }) => {
     try {
       createUserByAdmin(
         userFormData.username,
+        userFormData.password,
+        userFormData.pin,
         userFormData.email,
         userFormData.unlimitedAI,
         userFormData.unlimitedAI ? Infinity : dailyLimit
       )
       setSuccess('User created successfully!')
-      setUserFormData({ username: '', email: '', unlimitedAI: false, dailyAILimit: '10' })
+      setUserFormData({ username: '', password: '', pin: '', email: '', unlimitedAI: false, dailyAILimit: '10' })
       setShowAddUserForm(false)
       loadUsers()
       setTimeout(() => setSuccess(''), 3000)
@@ -225,6 +241,8 @@ const AdminDashboard = ({ onLogout }) => {
     setEditingUserId(user.id)
     setUserFormData({
       username: user.username,
+      password: '', // Don't show existing password
+      pin: user.pin || '',
       email: user.email || '',
       unlimitedAI: user.unlimitedAI || false,
       dailyAILimit: user.unlimitedAI ? '10' : (user.dailyAILimit || '10').toString(),
@@ -243,6 +261,26 @@ const AdminDashboard = ({ onLogout }) => {
       return
     }
     
+    // Validate password if provided (required for new users, optional for updates)
+    if (!editingUserId && !userFormData.password) {
+      setError('Password is required')
+      return
+    }
+    if (userFormData.password && !validatePassword(userFormData.password)) {
+      setError('Password must be at least 6 characters long')
+      return
+    }
+    
+    // Validate PIN if provided (required for new users, optional for updates)
+    if (!editingUserId && !userFormData.pin) {
+      setError('PIN is required')
+      return
+    }
+    if (userFormData.pin && !validatePIN(userFormData.pin)) {
+      setError('PIN must be exactly 4 digits')
+      return
+    }
+    
     const dailyLimit = parseInt(userFormData.dailyAILimit)
     if (!userFormData.unlimitedAI && (isNaN(dailyLimit) || dailyLimit < 1 || dailyLimit > 10000)) {
       setError('Daily AI limit must be between 1 and 10000')
@@ -250,15 +288,27 @@ const AdminDashboard = ({ onLogout }) => {
     }
 
     try {
-      updateUser(id, {
+      const updates = {
         username: userFormData.username.trim(),
         email: userFormData.email.trim(),
         unlimitedAI: userFormData.unlimitedAI,
         dailyAILimit: userFormData.unlimitedAI ? Infinity : dailyLimit,
-      })
+      }
+      
+      // Only update password if provided
+      if (userFormData.password) {
+        updates.password = userFormData.password
+      }
+      
+      // Only update PIN if provided
+      if (userFormData.pin) {
+        updates.pin = userFormData.pin
+      }
+      
+      updateUser(id, updates)
       setSuccess('User updated successfully!')
       setEditingUserId(null)
-      setUserFormData({ username: '', email: '', unlimitedAI: false, dailyAILimit: '10' })
+      setUserFormData({ username: '', password: '', pin: '', email: '', unlimitedAI: false, dailyAILimit: '10' })
       loadUsers()
       setTimeout(() => setSuccess(''), 3000)
     } catch (err) {
@@ -284,7 +334,7 @@ const AdminDashboard = ({ onLogout }) => {
   const handleCancelUser = () => {
     setEditingUserId(null)
     setShowAddUserForm(false)
-    setUserFormData({ username: '', email: '', unlimitedAI: false, dailyAILimit: '10' })
+    setUserFormData({ username: '', password: '', pin: '', email: '', unlimitedAI: false, dailyAILimit: '10' })
     setError('')
     setSuccess('')
   }
@@ -566,6 +616,37 @@ const AdminDashboard = ({ onLogout }) => {
                     onChange={(e) => setUserFormData({ ...userFormData, email: e.target.value })}
                     className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-indigo-500 focus:ring-4 focus:ring-indigo-200 transition-all"
                     placeholder="user@example.com"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Password {editingUserId ? '(leave blank to keep current)' : '*'}
+                  </label>
+                  <input
+                    type="password"
+                    value={userFormData.password}
+                    onChange={(e) => setUserFormData({ ...userFormData, password: e.target.value })}
+                    className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-indigo-500 focus:ring-4 focus:ring-indigo-200 transition-all"
+                    placeholder={editingUserId ? 'Enter new password' : 'At least 6 characters'}
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    PIN (4 digits) {editingUserId ? '(leave blank to keep current)' : '*'}
+                  </label>
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    maxLength={4}
+                    value={userFormData.pin}
+                    onChange={(e) => {
+                      const value = e.target.value.replace(/\D/g, '').slice(0, 4)
+                      setUserFormData({ ...userFormData, pin: value })
+                    }}
+                    className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-indigo-500 focus:ring-4 focus:ring-indigo-200 transition-all font-mono"
+                    placeholder="0000"
                   />
                 </div>
                 

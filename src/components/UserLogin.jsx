@@ -1,16 +1,62 @@
-import { useState } from 'react'
-import { X, User, LogIn, UserPlus, AlertCircle, CheckCircle } from 'lucide-react'
-import { registerUser, loginUserByUsername, getCurrentUser, logoutUser } from '../utils/userAuth'
+import { useState, useRef, useEffect } from 'react'
+import { X, User, LogIn, UserPlus, AlertCircle, CheckCircle, Lock, Key } from 'lucide-react'
+import { registerUser, loginUserByCredentials, getCurrentUser, logoutUser, validatePIN, validatePassword } from '../utils/userAuth'
 
 const UserLogin = ({ isOpen, onClose, onLogin, onLogout }) => {
   const [mode, setMode] = useState('login') // 'login' or 'register'
   const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [pin, setPin] = useState(['', '', '', ''])
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
+  const pinInputRefs = useRef([])
 
   const currentUser = getCurrentUser()
+
+  // Focus first PIN input when PIN field is shown
+  useEffect(() => {
+    if (isOpen && pinInputRefs.current[0]) {
+      pinInputRefs.current[0]?.focus()
+    }
+  }, [isOpen, mode])
+
+  // Handle PIN input change
+  const handlePinChange = (index, value) => {
+    if (value && !/^\d$/.test(value)) return
+
+    const newPin = [...pin]
+    newPin[index] = value
+    setPin(newPin)
+    setError('')
+
+    // Auto-focus next input
+    if (value && index < 3) {
+      pinInputRefs.current[index + 1]?.focus()
+    }
+  }
+
+  // Handle PIN backspace
+  const handlePinKeyDown = (index, e) => {
+    if (e.key === 'Backspace' && !pin[index] && index > 0) {
+      pinInputRefs.current[index - 1]?.focus()
+    }
+  }
+
+  // Handle PIN paste
+  const handlePinPaste = (e) => {
+    e.preventDefault()
+    const pastedData = e.clipboardData.getData('text').trim()
+    
+    if (/^\d{4}$/.test(pastedData)) {
+      const newPin = pastedData.split('')
+      setPin(newPin)
+      setError('')
+      pinInputRefs.current[3]?.focus()
+    }
+  }
 
   const handleLogin = async (e) => {
     e.preventDefault()
@@ -24,17 +70,28 @@ const UserLogin = ({ isOpen, onClose, onLogin, onLogout }) => {
       return
     }
 
+    if (!password) {
+      setError('Please enter your password')
+      setIsLoading(false)
+      return
+    }
+
+    const pinString = pin.join('')
+    if (!validatePIN(pinString)) {
+      setError('Please enter a valid 4-digit PIN')
+      setIsLoading(false)
+      return
+    }
+
     setTimeout(() => {
       try {
-        const user = loginUserByUsername(username.trim())
+        const user = loginUserByCredentials(username.trim(), password, pinString)
         if (user) {
           setSuccess(`Welcome back, ${user.username}!`)
           setTimeout(() => {
             onLogin(user)
             handleClose()
           }, 1000)
-        } else {
-          setError('Username not found. Please register first.')
         }
       } catch (err) {
         setError(err.message)
@@ -62,9 +119,22 @@ const UserLogin = ({ isOpen, onClose, onLogin, onLogout }) => {
       return
     }
 
+    if (!validatePassword(password)) {
+      setError('Password must be at least 6 characters long')
+      setIsLoading(false)
+      return
+    }
+
+    const pinString = pin.join('')
+    if (!validatePIN(pinString)) {
+      setError('PIN must be exactly 4 digits')
+      setIsLoading(false)
+      return
+    }
+
     setTimeout(() => {
       try {
-        const user = registerUser(username.trim(), email.trim())
+        const user = registerUser(username.trim(), password, pinString, email.trim())
         setSuccess(`Account created! Welcome, ${user.username}!`)
         setTimeout(() => {
           onLogin(user)
@@ -87,9 +157,12 @@ const UserLogin = ({ isOpen, onClose, onLogin, onLogout }) => {
   const handleClose = () => {
     setMode('login')
     setUsername('')
+    setPassword('')
+    setPin(['', '', '', ''])
     setEmail('')
     setError('')
     setSuccess('')
+    setShowPassword(false)
     onClose()
   }
 
@@ -215,6 +288,55 @@ const UserLogin = ({ isOpen, onClose, onLogin, onLogout }) => {
                 />
               </div>
 
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+                  <Lock className="w-4 h-4" />
+                  Password
+                </label>
+                <div className="relative">
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    disabled={isLoading}
+                    className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-indigo-500 focus:ring-4 focus:ring-indigo-200 transition-all disabled:opacity-50 pr-10"
+                    placeholder={mode === 'login' ? 'Enter your password' : 'At least 6 characters'}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  >
+                    {showPassword ? '👁️' : '👁️‍🗨️'}
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+                  <Key className="w-4 h-4" />
+                  PIN (4 digits)
+                </label>
+                <div className="flex justify-center gap-2">
+                  {pin.map((digit, index) => (
+                    <input
+                      key={index}
+                      ref={(el) => (pinInputRefs.current[index] = el)}
+                      type="text"
+                      inputMode="numeric"
+                      maxLength={1}
+                      value={digit}
+                      onChange={(e) => handlePinChange(index, e.target.value)}
+                      onKeyDown={(e) => handlePinKeyDown(index, e)}
+                      onPaste={index === 0 ? handlePinPaste : undefined}
+                      disabled={isLoading}
+                      className="w-12 h-12 text-center text-lg font-bold border-2 border-gray-300 rounded-lg focus:border-indigo-500 focus:ring-4 focus:ring-indigo-200 transition-all disabled:opacity-50 font-mono"
+                      autoComplete="off"
+                    />
+                  ))}
+                </div>
+              </div>
+
               {mode === 'register' && (
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -233,7 +355,7 @@ const UserLogin = ({ isOpen, onClose, onLogin, onLogout }) => {
 
               <button
                 type="submit"
-                disabled={isLoading || !username.trim()}
+                disabled={isLoading || !username.trim() || !password || pin.some(d => !d)}
                 className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isLoading ? (
