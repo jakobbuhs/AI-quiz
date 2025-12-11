@@ -9,7 +9,7 @@ import CookieConsent from './CookieConsent'
 import UserLogin from './UserLogin'
 import FocusVideo from './FocusVideo'
 import questions from '../data/questions.json'
-import { Brain, AlertTriangle, LogOut, Shield, User } from 'lucide-react'
+import { Brain, AlertTriangle, LogOut, Shield, User, Video, VideoOff } from 'lucide-react'
 import { saveQuizState, loadQuizState, clearQuizState, hasAcceptedCookies } from '../utils/storage'
 import { getCurrentUser } from '../utils/apiAuth'
 
@@ -53,6 +53,7 @@ function QuizApp() {
   const [cookiesAccepted, setCookiesAccepted] = useState(false)
   const [currentUser, setCurrentUser] = useState(null)
   const [showUserLogin, setShowUserLogin] = useState(false)
+  const [brainRotEnabled, setBrainRotEnabled] = useState(true) // Default to enabled
 
   // Load saved quiz state on mount (if cookies accepted)
   useEffect(() => {
@@ -303,7 +304,7 @@ function QuizApp() {
   return (
     <div className="min-h-screen py-8 px-4 relative">
       {/* Focus Video - Left Side */}
-      <FocusVideo />
+      {brainRotEnabled && <FocusVideo />}
       
       {/* Cookie Consent Dialog */}
       <CookieConsent onAccept={handleCookieAccept} onDecline={handleCookieDecline} />
@@ -316,8 +317,8 @@ function QuizApp() {
         onLogout={handleUserLogout}
       />
       
-      {/* Main Content - Offset for video on large screens */}
-      <div className="max-w-full mx-auto lg:ml-[50%] lg:w-1/2 px-4">
+      {/* Main Content - Offset for video on large screens when brain rot is enabled */}
+      <div className={`max-w-full mx-auto px-4 ${brainRotEnabled ? 'lg:ml-[50%] lg:w-1/2' : 'max-w-4xl'}`}>
         {/* Header */}
         <header className="text-center mb-8 animate-fade-in">
           <div className="flex items-center justify-center gap-3 mb-2">
@@ -331,6 +332,27 @@ function QuizApp() {
           <div className="flex items-center justify-center gap-4 flex-wrap">
             <p className="text-gray-500 text-lg">Test your knowledge with our interactive quiz</p>
             <div className="flex items-center gap-2">
+              <button
+                onClick={() => setBrainRotEnabled(!brainRotEnabled)}
+                className={`flex items-center gap-2 px-3 py-1.5 text-sm rounded-lg transition-colors ${
+                  brainRotEnabled
+                    ? 'text-purple-600 hover:text-purple-700 hover:bg-purple-50 bg-purple-50'
+                    : 'text-gray-600 hover:text-indigo-600 hover:bg-indigo-50'
+                }`}
+                title={brainRotEnabled ? 'Disable Brain Rot' : 'Enable Brain Rot'}
+              >
+                {brainRotEnabled ? (
+                  <>
+                    <VideoOff className="w-4 h-4" />
+                    <span className="hidden sm:inline">Brain Rot: ON</span>
+                  </>
+                ) : (
+                  <>
+                    <Video className="w-4 h-4" />
+                    <span className="hidden sm:inline">Brain Rot: OFF</span>
+                  </>
+                )}
+              </button>
               {currentUser ? (
                 <button
                   onClick={() => setShowUserLogin(true)}
