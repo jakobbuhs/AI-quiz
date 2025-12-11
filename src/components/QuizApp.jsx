@@ -318,7 +318,7 @@ function QuizApp() {
       />
       
       {/* Main Content - Offset for video on large screens when brain rot is enabled */}
-      <div className={`max-w-full mx-auto px-4 ${brainRotEnabled ? 'lg:ml-[50%] lg:w-1/2' : 'max-w-4xl'}`}>
+      <div className={`max-w-full mx-auto px-4 ${brainRotEnabled ? 'lg:ml-[50%] lg:w-1/2' : 'lg:max-w-3xl'}`}>
         {/* Header */}
         <header className="text-center mb-8 animate-fade-in">
           <div className="flex items-center justify-center gap-3 mb-2">
